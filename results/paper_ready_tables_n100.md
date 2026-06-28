@@ -1,0 +1,46 @@
+# Paper-Ready Tables
+
+## Main 100-example non-oracle results.
+
+| Method | Direct leak | QI risk | Exact TCFR | Audited TCFR | QA |
+|---|---|---|---|---|---|
+| Generic LLM | 0.190 | 1.800 | 0.823 | 0.938 | 0.892 |
+| Privacy-first LLM | 0.000 | 0.630 | 0.383 | 0.510 | 0.405 |
+| Critical Span Guard | 0.000 | 0.090 | 0.898 | 0.995 | 0.982 |
+
+## Domain split for the 100-example non-oracle run.
+
+| Domain | Method | Direct leak | QI risk | Exact TCFR | Audited TCFR | QA |
+|---|---|---|---|---|---|---|
+| Clinical | Generic LLM | 0.040 | 2.040 | 0.703 | 0.927 | 0.840 |
+| Clinical | Privacy-first LLM | 0.000 | 1.160 | 0.177 | 0.437 | 0.220 |
+| Clinical | Critical Span Guard | 0.000 | 0.000 | 0.833 | 1.000 | 1.000 |
+| Legal | Generic LLM | 0.340 | 1.560 | 0.943 | 0.950 | 0.943 |
+| Legal | Privacy-first LLM | 0.000 | 0.100 | 0.590 | 0.583 | 0.590 |
+| Legal | Critical Span Guard | 0.000 | 0.180 | 0.963 | 0.990 | 0.963 |
+
+## Critical Span Guard ablation.
+
+| Stage | Direct leak | QI risk | Exact TCFR | QA |
+|---|---|---|---|---|
+| CSG draft | 0.070 | 0.990 | 0.893 | 0.973 |
+| CSG verified | 0.070 | 0.990 | 0.893 | 0.973 |
+| CSG + safety/repair | 0.000 | 0.090 | 0.898 | 0.982 |
+
+## Surface similarity audit for generic utility metrics.
+
+| Method | Token F1 | Edit rate | Audited fact-fail rate | Privacy-fail rate |
+|---|---|---|---|---|
+| Generic LLM | 0.774 | 0.249 | 0.240 | 0.760 |
+| Privacy-first LLM | 0.569 | 0.473 | 0.810 | 0.300 |
+| Critical Span Guard | 0.771 | 0.278 | 0.010 | 0.020 |
+
+## Handwritten robustness stress slice.
+
+| Method | Direct leak | QI risk | Exact TCFR | QA |
+|---|---|---|---|---|
+| Regex | 0.083 | 2.167 | 1.000 | 1.000 |
+| Presidio | 0.667 | 2.667 | 0.817 | 0.833 |
+| Direct-span oracle | 0.000 | 2.500 | 1.000 | 1.000 |
+| Privacy-first oracle | 0.000 | 0.000 | 0.608 | 0.528 |
+| CSG oracle | 0.000 | 0.667 | 1.000 | 1.000 |

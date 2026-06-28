@@ -1,0 +1,786 @@
+{
+  "by_method": {
+    "critical_span_guard_extracted": {
+      "audited_fact_failure_rate": 0.025,
+      "audited_tcfr": 0.9930555555555555,
+      "char_similarity": 0.520551757760627,
+      "direct_identifier_leak": 0.0,
+      "length_ratio": 0.8761852134577285,
+      "n": 120,
+      "privacy_failure_rate": 0.03333333333333333,
+      "qa_consistency": 0.9791666666666667,
+      "qa_failure_rate": 0.05,
+      "quasi_identifier_risk": 0.14166666666666666,
+      "tfidf_cosine": 0.619460163655086,
+      "token_edit_rate": 0.27548538663447925,
+      "token_f1": 0.7719480532894585,
+      "token_jaccard": 0.6358478296728305,
+      "utility_failure_rate": 0.075
+    },
+    "generic_llm": {
+      "audited_fact_failure_rate": 0.24166666666666667,
+      "audited_tcfr": 0.9388888888888889,
+      "char_similarity": 0.5042162366992009,
+      "direct_identifier_leak": 0.18333333333333332,
+      "length_ratio": 0.913960234914822,
+      "n": 120,
+      "privacy_failure_rate": 0.7416666666666667,
+      "qa_consistency": 0.8916666666666668,
+      "qa_failure_rate": 0.23333333333333334,
+      "quasi_identifier_risk": 1.7416666666666667,
+      "tfidf_cosine": 0.7102278653366823,
+      "token_edit_rate": 0.24771088970862223,
+      "token_f1": 0.775274986231186,
+      "token_jaccard": 0.6518246722695901,
+      "utility_failure_rate": 0.36666666666666664
+    },
+    "privacy_first_llm": {
+      "audited_fact_failure_rate": 0.775,
+      "audited_tcfr": 0.5416666666666666,
+      "char_similarity": 0.21869253198953764,
+      "direct_identifier_leak": 0.0,
+      "length_ratio": 0.7963877279414212,
+      "n": 120,
+      "privacy_failure_rate": 0.2833333333333333,
+      "qa_consistency": 0.4222222222222222,
+      "qa_failure_rate": 0.7916666666666666,
+      "quasi_identifier_risk": 0.6,
+      "tfidf_cosine": 0.47609920656664956,
+      "token_edit_rate": 0.4633981581003905,
+      "token_f1": 0.5775620140558454,
+      "token_jaccard": 0.44403993241553813,
+      "utility_failure_rate": 0.8083333333333333
+    }
+  },
+  "correlations": {
+    "char_similarity": {
+      "pearson_audited_tcfr": 0.5505064948983142,
+      "pearson_direct_identifier_leak": 0.3560025840847884,
+      "pearson_qa_consistency": 0.5877579188609596,
+      "pearson_quasi_identifier_risk": 0.0733138785793452,
+      "spearman_audited_tcfr": 0.6096762092053563,
+      "spearman_direct_identifier_leak": 0.35061167351813,
+      "spearman_qa_consistency": 0.6004815223159399,
+      "spearman_quasi_identifier_risk": 0.04171256761325594
+    },
+    "tfidf_cosine": {
+      "pearson_audited_tcfr": 0.5740852456836385,
+      "pearson_direct_identifier_leak": 0.3276062123441918,
+      "pearson_qa_consistency": 0.581324948219955,
+      "pearson_quasi_identifier_risk": 0.15068536966690618,
+      "spearman_audited_tcfr": 0.5638816656417334,
+      "spearman_direct_identifier_leak": 0.3460364703522701,
+      "spearman_qa_consistency": 0.4895449625322154,
+      "spearman_quasi_identifier_risk": 0.14700746544088772
+    },
+    "token_edit_rate": {
+      "pearson_audited_tcfr": -0.7162921360251829,
+      "pearson_direct_identifier_leak": -0.3455596771900049,
+      "pearson_qa_consistency": -0.7205017971862321,
+      "pearson_quasi_identifier_risk": -0.08156363953874265,
+      "spearman_audited_tcfr": -0.6888501571154929,
+      "spearman_direct_identifier_leak": -0.3826405809283023,
+      "spearman_qa_consistency": -0.6186315209532133,
+      "spearman_quasi_identifier_risk": -0.08566708896842476
+    },
+    "token_f1": {
+      "pearson_audited_tcfr": 0.7171577507951864,
+      "pearson_direct_identifier_leak": 0.3025313022705048,
+      "pearson_qa_consistency": 0.7257073912151771,
+      "pearson_quasi_identifier_risk": 0.028510583558804467,
+      "spearman_audited_tcfr": 0.6982495199975078,
+      "spearman_direct_identifier_leak": 0.36578957038320065,
+      "spearman_qa_consistency": 0.6181525877118065,
+      "spearman_quasi_identifier_risk": 0.04391018325201092
+    },
+    "token_jaccard": {
+      "pearson_audited_tcfr": 0.6885751214344092,
+      "pearson_direct_identifier_leak": 0.37453681717173093,
+      "pearson_qa_consistency": 0.7009766558750797,
+      "pearson_quasi_identifier_risk": 0.08891818482477908,
+      "spearman_audited_tcfr": 0.6835247444160019,
+      "spearman_direct_identifier_leak": 0.3838741382972801,
+      "spearman_qa_consistency": 0.5985734623059482,
+      "spearman_quasi_identifier_risk": 0.06706276183989975
+    }
+  },
+  "examples": {
+    "high_similarity_audited_fact_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a State Party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8544995794785534,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0016",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 11375/02) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "1 June 2001",
+          "12 July 2006",
+          "2001"
+        ],
+        "tfidf_cosine": 0.8524989355048499,
+        "token_f1": 0.9045226130653266
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 39412/08) against a country lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamenta...",
+        "audited_problem_facts": [
+          "his detention on remand in exceeded a \u201creasonable time\u201d within the meaning of Article 5 \u00a7 3 of the Convention, which amounted to interference with his private and family life"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8832188420019627,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "39412/08"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0032",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 39412/08) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "4 August 2008"
+        ],
+        "tfidf_cosine": 0.8901199635363294,
+        "token_f1": 0.9024390243902439
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 5786/08) against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundame...",
+        "audited_problem_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8744734625105307,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "5786/08"
+        ],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0053",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 5786/08) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "21 January 2008",
+          "14 years old"
+        ],
+        "tfidf_cosine": 0.8684549908159915,
+        "token_f1": 0.8855721393034826
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a member state lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [
+          "his detention at Oakington was not compatible with Articles 5 \u00a7 1 and 14 of the Convention"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8396501457725948,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0038",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 13229/03) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention fo...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "18 April 2003",
+          "Iraq",
+          "Iraqi",
+          "Iraqi national"
+        ],
+        "tfidf_cosine": 0.7672658228844991,
+        "token_f1": 0.8538011695906432
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application ([ID]) against [REDACTED_COUNTRY] lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundament...",
+        "audited_problem_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.3447698744769874,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0016",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 11375/02) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.7907975144214292,
+        "token_f1": 0.8497409326424871
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country in Europe lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Fre...",
+        "audited_problem_facts": [
+          "when the first of them died, the survivor would be required to pay inheritance tax on the dead sister\u2019s share of the family home, whereas the survivor of a married couple or a homosexual relationship registered under the Civil Partnership Act 2004 would be exempt from paying inheritance tax in these circumstances"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.7786016949152542,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0054",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "when the first of them died, the survivor would be required to pay inheritance tax on the dead sister\u2019s share of the family home, whereas the survivor of a married couple or a homosexual relationship registered under the Civil Partnership Act 2004 would be exempt from paying inheritance tax in these circumstances"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 13378/05) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention fo...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.838363639254158,
+        "token_f1": 0.8306709265175719
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country, lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms (\u201ct...",
+        "audited_problem_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his son, which had violated his rights under Article 8 of the Convention"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.41133263378803775,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0030",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his son, which had violated his rights under Article 8 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 11118/06) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.7597770545959066,
+        "token_f1": 0.8205128205128206
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Free...",
+        "audited_problem_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.3393009377664109,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0053",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 5786/08) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.7838614740318705,
+        "token_f1": 0.8121827411167514
+      }
+    ],
+    "high_similarity_privacy_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against a European country lodged with the European Court of Human Rights (\u201cthe Court\u201d) under former Article 25 of the Conve...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9303764827230531,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "35396/97"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0029",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against the Republic of San Marino lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Artic...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "13 January 1997",
+          "1 June 1999"
+        ],
+        "tfidf_cosine": 0.9346164191584719,
+        "token_f1": 0.9437500000000001
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention for the...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.932,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "Ms Nuray \u015een"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0037",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 41478/98) against the Republic of Turkey lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 2...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "25 April 1996",
+          "30 April 2002"
+        ],
+        "tfidf_cosine": 0.9377894000535204,
+        "token_f1": 0.9367088607594938
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 17906/15) against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundam...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9177153920619555,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "17906/15"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0047",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 17906/15) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights an...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "10 April 2015",
+          "21 May 2013"
+        ],
+        "tfidf_cosine": 0.915838643096412,
+        "token_f1": 0.927710843373494
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against [COUNTRY] lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9236289082521784,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0054",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [
+          "when the first of them died, the survivor would be required to pay inheritance tax on the dead sister\u2019s share of the family home, whereas the survivor of a married couple or a homosexual relationship registered under the Civil Partnership Act 2004 would be exempt from paying inheritance tax in these circumstances"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 13378/05) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention fo...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "sister",
+          "sister\u2019s",
+          "sister\u2019",
+          "four votes to three"
+        ],
+        "tfidf_cosine": 0.9215923755935044,
+        "token_f1": 0.9187500000000001
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against the Country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention f...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9184086311530681,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0005",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 24265/94) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "Northern Ireland",
+          "1976"
+        ],
+        "tfidf_cosine": 0.9129675158117762,
+        "token_f1": 0.9166666666666666
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 30457/06) against a country lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamenta...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8817451205510907,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "30457/06"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0004",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 30457/06) against the Republic of Austria lodged with the Court under Article 34 of the Convention for the Protection of Human Rights...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "20 July 2006"
+        ],
+        "tfidf_cosine": 0.8888934110994355,
+        "token_f1": 0.9154929577464789
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 28426/06) against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundam...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8894601542416453,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "28426/06"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0055",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 28426/06) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights an...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "28 June 2006",
+          "participate in a labour market policy programme."
+        ],
+        "tfidf_cosine": 0.9060003915359346,
+        "token_f1": 0.9154228855721394
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8653683319220999,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0025",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18015/03) against the Republic of Austria lodged with the Court under Article 34 of the Convention for the Protection of Human Rights...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "23 May 2003",
+          "resisting the exercise of official authority",
+          "4 February 1998"
+        ],
+        "tfidf_cosine": 0.9066901789376021,
+        "token_f1": 0.9128205128205129
+      }
+    ],
+    "high_similarity_qa_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against [COUNTRY] lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9236289082521784,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0054",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [
+          "when the first of them died, the survivor would be required to pay inheritance tax on the dead sister\u2019s share of the family home, whereas the survivor of a married couple or a homosexual relationship registered under the Civil Partnership Act 2004 would be exempt from paying inheritance tax in these circumstances"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 13378/05) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention fo...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "sister",
+          "sister\u2019s",
+          "sister\u2019",
+          "four votes to three"
+        ],
+        "tfidf_cosine": 0.9215923755935044,
+        "token_f1": 0.9187500000000001
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a State Party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8544995794785534,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0016",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 11375/02) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "1 June 2001",
+          "12 July 2006",
+          "2001"
+        ],
+        "tfidf_cosine": 0.8524989355048499,
+        "token_f1": 0.9045226130653266
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 5786/08) against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundame...",
+        "audited_problem_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "audited_tcfr": 0.5,
+        "char_similarity": 0.8744734625105307,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "5786/08"
+        ],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0053",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the Swedish State had failed to comply with its obligation under Article 8 of the Convention to provide her with remedies against her stepfather\u2019s violation of her personal integrity when he had attempted secretly to film her naked in their bathroom when she was 14 years old"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 5786/08) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "21 January 2008",
+          "14 years old"
+        ],
+        "tfidf_cosine": 0.8684549908159915,
+        "token_f1": 0.8855721393034826
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against the Kingdom of Sweden lodged with the European human rights body under former Article 25 of the Convention for the Protection...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.4098939929328622,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0018",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [
+          "the demolition of a house had violated her rights to the peaceful enjoyment of her possessions and to respect for her home under Article 1 of Protocol No. 1 and Article 8 of the Convention respectively"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35179/97) against the Kingdom of Sweden lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.8534884200271105,
+        "token_f1": 0.8852459016393441
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the European Court of Human Rights under former Article 25 of the Convention for the Protection of H...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8373333333333334,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0029",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "had been brought against her on the grounds that the preparatory stages of the proceedings at both first instance and on appeal had been directed by the same person, the public prosecutor had not been appointed in accordance with domestic law and there had been no public hearing either at first instance or on appeal"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against the Republic of San Marino lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Artic...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.8956246159427008,
+        "token_f1": 0.8810289389067525
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.4595375722543353,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0026",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "neither he nor counsel had been granted an opportunity at any stage of the criminal proceedings instituted against him to examine the only direct witnesses and victims of the crime allegedly committed by him in G\u00f6ttingen in February 2007 and on whose testimonies the applicant\u2019s related conviction relied in breach of Article 6 \u00a7 3 (d) of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 9154/10) against the Federal Republic of Germany lodged with the Court under Article 34 of the Convention for the Protection of Human...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "tfidf_cosine": 0.8584696645004165,
+        "token_f1": 0.88
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in two applications against a member state lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention f...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8714596949891068,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0002",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "an investigation into their sexuality and their discharge from the Royal Navy on the basis of their homosexuality as a result of the absolute policy against the presence of homosexuals in the armed forces that existed at the time violated their rights under Article 8, alone and in conjunction with Article 14 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in two applications (nos. 43208/98 and 44875/98) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under form...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "homosexuality",
+          "homosexuals",
+          "homosexual"
+        ],
+        "tfidf_cosine": 0.8347288799340761,
+        "token_f1": 0.8767123287671234
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in two applications [ID] against [LOCATION] lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8666666666666667,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0002",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [
+          "an investigation into their sexuality and their discharge from the Royal Navy on the basis of their homosexuality as a result of the absolute policy against the presence of homosexuals in the armed forces that existed at the time violated their rights under Article 8, alone and in conjunction with Article 14 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in two applications (nos. 43208/98 and 44875/98) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under form...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "homosexuality",
+          "homosexuals",
+          "homosexual"
+        ],
+        "tfidf_cosine": 0.8061883286615267,
+        "token_f1": 0.8699551569506726
+      }
+    ]
+  },
+  "high_similarity": [
+    {
+      "any_failure_rate": 0.3611111111111111,
+      "audited_fact_failure_rate": 0.1111111111111111,
+      "metric": "char_similarity",
+      "n": 180,
+      "privacy_failure_rate": 0.25555555555555554,
+      "qa_failure_rate": 0.1388888888888889,
+      "rows_with_any_failure": 65,
+      "rows_with_audited_fact_failure": 20,
+      "rows_with_privacy_failure": 46,
+      "rows_with_qa_failure": 25,
+      "rows_with_utility_failure": 31,
+      "threshold": 0.4065733511077255,
+      "utility_failure_rate": 0.17222222222222222
+    },
+    {
+      "any_failure_rate": 0.40555555555555556,
+      "audited_fact_failure_rate": 0.08333333333333333,
+      "metric": "token_f1",
+      "n": 180,
+      "privacy_failure_rate": 0.28888888888888886,
+      "qa_failure_rate": 0.17222222222222222,
+      "rows_with_any_failure": 73,
+      "rows_with_audited_fact_failure": 15,
+      "rows_with_privacy_failure": 52,
+      "rows_with_qa_failure": 31,
+      "rows_with_utility_failure": 37,
+      "threshold": 0.721655328798186,
+      "utility_failure_rate": 0.20555555555555555
+    },
+    {
+      "any_failure_rate": 0.41208791208791207,
+      "audited_fact_failure_rate": 0.08241758241758242,
+      "metric": "token_jaccard",
+      "n": 182,
+      "privacy_failure_rate": 0.2967032967032967,
+      "qa_failure_rate": 0.15934065934065933,
+      "rows_with_any_failure": 75,
+      "rows_with_audited_fact_failure": 15,
+      "rows_with_privacy_failure": 54,
+      "rows_with_qa_failure": 29,
+      "rows_with_utility_failure": 35,
+      "threshold": 0.5866666666666667,
+      "utility_failure_rate": 0.19230769230769232
+    },
+    {
+      "any_failure_rate": 0.4888888888888889,
+      "audited_fact_failure_rate": 0.12777777777777777,
+      "metric": "tfidf_cosine",
+      "n": 180,
+      "privacy_failure_rate": 0.3333333333333333,
+      "qa_failure_rate": 0.21666666666666667,
+      "rows_with_any_failure": 88,
+      "rows_with_audited_fact_failure": 23,
+      "rows_with_privacy_failure": 60,
+      "rows_with_qa_failure": 39,
+      "rows_with_utility_failure": 46,
+      "threshold": 0.607344973823631,
+      "utility_failure_rate": 0.25555555555555554
+    }
+  ],
+  "n": 360
+}

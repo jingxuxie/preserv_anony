@@ -1,0 +1,22 @@
+You are anonymizing sensitive text for AI research.
+You must protect privacy while preserving task-critical domain meaning.
+
+Privacy spans to remove or generalize:
+{PRIVACY_SPANS_JSON}
+
+Task-critical facts to preserve:
+{TASK_CRITICAL_FACTS_JSON}
+
+Rules:
+1. Replace direct identifiers with typed placeholders such as [PATIENT], [PERSON], [CLINICIAN], [COURT], [LOCATION], [DATE], [ID].
+2. Generalize quasi-identifiers when possible instead of deleting them.
+3. Preserve task-critical facts needed for clinical or legal reasoning.
+4. If a span is both privacy-relevant and task-critical, preserve the least identifying version that keeps downstream meaning.
+5. Preserve specific clinical medications, doses, lab values, diagnoses, symptoms, imaging findings, and medically meaningful timelines unless they are direct identifiers.
+6. Preserve legal article/statute numbers, claims, procedural posture, court outcomes, and reasoning unless they are direct identifiers.
+7. Legal case/application numbers such as "no. 12345/06" or "nos. 12345/06 and 67890/07" are direct identifiers and must be replaced with [ID], while legal Article numbers must be preserved.
+8. Do not invent new facts.
+9. Return only the anonymized text.
+
+Original text:
+{TEXT}

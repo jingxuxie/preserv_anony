@@ -1,0 +1,103 @@
+{
+  "cost_formula": "(512,002 / 1,000,000 * input_price_per_million) + (199,653 / 1,000,000 * output_price_per_million)",
+  "duplicate_or_superseded_rows": 1,
+  "elapsed_rows": 160,
+  "exact_usage_reports": [
+    {
+      "path": "results/openai_api_usage_n120.md",
+      "present": true,
+      "scope": "Exact provider usage and elapsed time for new bounded n120 expansion calls only."
+    }
+  ],
+  "examples": 100,
+  "expansion_projections": [
+    {
+      "estimated_response_slots": 1200,
+      "prompt_tokens_proxy": 768003,
+      "rate_formula": "(768,003 / 1,000,000 * input_price_per_million) + (299,480 / 1,000,000 * output_price_per_million)",
+      "response_tokens_proxy": 299480,
+      "target_examples": 150,
+      "total_tokens_proxy": 1067483
+    },
+    {
+      "estimated_response_slots": 1600,
+      "prompt_tokens_proxy": 1024004,
+      "rate_formula": "(1,024,004 / 1,000,000 * input_price_per_million) + (399,306 / 1,000,000 * output_price_per_million)",
+      "response_tokens_proxy": 399306,
+      "target_examples": 200,
+      "total_tokens_proxy": 1423310
+    },
+    {
+      "estimated_response_slots": 2400,
+      "prompt_tokens_proxy": 1536006,
+      "rate_formula": "(1,536,006 / 1,000,000 * input_price_per_million) + (598,959 / 1,000,000 * output_price_per_million)",
+      "response_tokens_proxy": 598959,
+      "target_examples": 300,
+      "total_tokens_proxy": 2134965
+    },
+    {
+      "estimated_response_slots": 4000,
+      "prompt_tokens_proxy": 2560010,
+      "rate_formula": "(2,560,010 / 1,000,000 * input_price_per_million) + (998,265 / 1,000,000 * output_price_per_million)",
+      "response_tokens_proxy": 998265,
+      "target_examples": 500,
+      "total_tokens_proxy": 3558275
+    }
+  ],
+  "generated": "2026-06-28",
+  "interpretation": "Use token-proxy counts for budget planning only. Exact dollar cost and latency require provider usage and elapsed_ms fields, which early cache rows did not store.",
+  "missing_required_cache_entries": 0,
+  "model": "gpt-4.1-nano",
+  "per_example_prompt_tokens_proxy": 5120.02,
+  "per_example_response_tokens_proxy": 1996.53,
+  "prompt_tokens_proxy": 512002,
+  "provider_usage_rows": 160,
+  "raw_cache_rows": 1109,
+  "required_response_slots": 800,
+  "response_tokens_proxy": 199653,
+  "stage_summary": {
+    "anonymize": {
+      "average_prompt_tokens_proxy": 227.885,
+      "average_response_tokens_proxy": 111.3,
+      "cached": 200,
+      "calls": 200,
+      "prompt_tokens_proxy": 45577,
+      "response_tokens_proxy": 22260
+    },
+    "csg_anonymize": {
+      "average_prompt_tokens_proxy": 811.74,
+      "average_response_tokens_proxy": 118.56,
+      "cached": 100,
+      "calls": 100,
+      "prompt_tokens_proxy": 81174,
+      "response_tokens_proxy": 11856
+    },
+    "csg_extract": {
+      "average_prompt_tokens_proxy": 593.89,
+      "average_response_tokens_proxy": 496.64,
+      "cached": 100,
+      "calls": 100,
+      "prompt_tokens_proxy": 59389,
+      "response_tokens_proxy": 49664
+    },
+    "csg_verify_repair": {
+      "average_prompt_tokens_proxy": 899.0,
+      "average_response_tokens_proxy": 127.87,
+      "cached": 100,
+      "calls": 100,
+      "prompt_tokens_proxy": 89900,
+      "response_tokens_proxy": 12787
+    },
+    "fact_judge": {
+      "average_prompt_tokens_proxy": 786.54,
+      "average_response_tokens_proxy": 343.62,
+      "cached": 300,
+      "calls": 300,
+      "prompt_tokens_proxy": 235962,
+      "response_tokens_proxy": 103086
+    }
+  },
+  "token_proxy_method": "round(characters / 4); approximate planning proxy, not provider usage",
+  "total_tokens_proxy": 711655,
+  "unique_cache_keys": 1108
+}

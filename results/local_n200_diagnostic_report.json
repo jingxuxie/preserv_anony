@@ -1,0 +1,267 @@
+{
+  "all_directional_checks_pass": true,
+  "benchmark_rows": 200,
+  "directional_checks": {
+    "csg_oracle_frontier": true,
+    "direct_span_oracle_high_qi": true,
+    "presidio_legal_direct_leak_failure": true,
+    "privacy_first_oracle_utility_loss": true
+  },
+  "domain_counts": {
+    "clinical": 100,
+    "legal": 100
+  },
+  "generated": "2026-06-28",
+  "judgment_methods": {
+    "critical_span_guard_oracle": 200,
+    "direct_span_oracle": 200,
+    "presidio_baseline": 200,
+    "privacy_first_oracle": 200,
+    "regex_rules": 200
+  },
+  "judgment_rows": 1000,
+  "n100_vs_n200": {
+    "critical_span_guard_oracle": {
+      "delta_qa": 0.0,
+      "delta_qi_risk": 0.05499999999999999,
+      "delta_tcfr": 0.0,
+      "n100": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.22135933258212323,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 0.17,
+        "tcfr": 1.0
+      },
+      "n200": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.22309324331975472,
+        "n": 200,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 0.225,
+        "tcfr": 1.0
+      }
+    },
+    "direct_span_oracle": {
+      "delta_qa": 0.0,
+      "delta_qi_risk": 0.0,
+      "delta_tcfr": 0.0,
+      "n100": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.15397645731859913,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.81,
+        "tcfr": 1.0
+      },
+      "n200": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.15321840121461544,
+        "n": 200,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.81,
+        "tcfr": 1.0
+      }
+    },
+    "presidio_baseline": {
+      "delta_qa": -0.015833333333333366,
+      "delta_qi_risk": 0.0,
+      "delta_tcfr": -0.018333333333333313,
+      "n100": {
+        "direct_identifier_leak": 0.49,
+        "edit_rate": 0.2561816009847724,
+        "n": 100,
+        "qa_consistency": 0.8016666666666667,
+        "quasi_identifier_risk": 2.49,
+        "tcfr": 0.6966666666666668
+      },
+      "n200": {
+        "direct_identifier_leak": 0.49,
+        "edit_rate": 0.2564723185924778,
+        "n": 200,
+        "qa_consistency": 0.7858333333333334,
+        "quasi_identifier_risk": 2.49,
+        "tcfr": 0.6783333333333335
+      }
+    },
+    "privacy_first_oracle": {
+      "delta_qa": -0.029166666666666508,
+      "delta_qi_risk": -0.005,
+      "delta_tcfr": -0.02999999999999997,
+      "n100": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.2927988559638005,
+        "n": 100,
+        "qa_consistency": 0.36499999999999994,
+        "quasi_identifier_risk": 0.01,
+        "tcfr": 0.47833333333333333
+      },
+      "n200": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": 0.29506795472771086,
+        "n": 200,
+        "qa_consistency": 0.33583333333333343,
+        "quasi_identifier_risk": 0.005,
+        "tcfr": 0.44833333333333336
+      }
+    },
+    "regex_rules": {
+      "delta_qa": -0.00666666666666671,
+      "delta_qi_risk": 0.08000000000000007,
+      "delta_tcfr": -0.00666666666666671,
+      "n100": {
+        "direct_identifier_leak": 0.08,
+        "edit_rate": 0.18201739673509024,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 1.7,
+        "tcfr": 1.0
+      },
+      "n200": {
+        "direct_identifier_leak": 0.075,
+        "edit_rate": 0.18282283108475814,
+        "n": 200,
+        "qa_consistency": 0.9933333333333333,
+        "quasi_identifier_risk": 1.78,
+        "tcfr": 0.9933333333333333
+      }
+    }
+  },
+  "n200_by_domain": {
+    "clinical": {
+      "critical_span_guard_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 0.0,
+        "tcfr": 1.0
+      },
+      "direct_span_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "tcfr": 1.0
+      },
+      "presidio_baseline": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 0.66,
+        "quasi_identifier_risk": 2.0,
+        "tcfr": 0.44499999999999995
+      },
+      "privacy_first_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 0.33,
+        "quasi_identifier_risk": 0.0,
+        "tcfr": 0.5549999999999998
+      },
+      "regex_rules": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.0,
+        "tcfr": 1.0
+      }
+    },
+    "legal": {
+      "critical_span_guard_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 0.45,
+        "tcfr": 1.0
+      },
+      "direct_span_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.62,
+        "tcfr": 1.0
+      },
+      "presidio_baseline": {
+        "direct_identifier_leak": 0.98,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 0.9116666666666667,
+        "quasi_identifier_risk": 2.98,
+        "tcfr": 0.9116666666666667
+      },
+      "privacy_first_oracle": {
+        "direct_identifier_leak": 0.0,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 0.34166666666666656,
+        "quasi_identifier_risk": 0.01,
+        "tcfr": 0.34166666666666656
+      },
+      "regex_rules": {
+        "direct_identifier_leak": 0.15,
+        "edit_rate": null,
+        "n": 100,
+        "qa_consistency": 0.9866666666666667,
+        "quasi_identifier_risk": 1.56,
+        "tcfr": 0.9866666666666667
+      }
+    }
+  },
+  "n200_overall": {
+    "critical_span_guard_oracle": {
+      "direct_identifier_leak": 0.0,
+      "edit_rate": 0.22309324331975472,
+      "n": 200,
+      "qa_consistency": 1.0,
+      "quasi_identifier_risk": 0.225,
+      "tcfr": 1.0
+    },
+    "direct_span_oracle": {
+      "direct_identifier_leak": 0.0,
+      "edit_rate": 0.15321840121461544,
+      "n": 200,
+      "qa_consistency": 1.0,
+      "quasi_identifier_risk": 2.81,
+      "tcfr": 1.0
+    },
+    "presidio_baseline": {
+      "direct_identifier_leak": 0.49,
+      "edit_rate": 0.2564723185924778,
+      "n": 200,
+      "qa_consistency": 0.7858333333333334,
+      "quasi_identifier_risk": 2.49,
+      "tcfr": 0.6783333333333335
+    },
+    "privacy_first_oracle": {
+      "direct_identifier_leak": 0.0,
+      "edit_rate": 0.29506795472771086,
+      "n": 200,
+      "qa_consistency": 0.33583333333333343,
+      "quasi_identifier_risk": 0.005,
+      "tcfr": 0.44833333333333336
+    },
+    "regex_rules": {
+      "direct_identifier_leak": 0.075,
+      "edit_rate": 0.18282283108475814,
+      "n": 200,
+      "qa_consistency": 0.9933333333333333,
+      "quasi_identifier_risk": 1.78,
+      "tcfr": 0.9933333333333333
+    }
+  },
+  "output_methods": {
+    "critical_span_guard_oracle": 200,
+    "direct_span_oracle": 200,
+    "presidio_baseline": 200,
+    "privacy_first_oracle": 200,
+    "regex_rules": 200
+  },
+  "output_rows": 1000,
+  "scope": "No-API local/oracle diagnostic expansion; not the non-oracle LLM headline."
+}

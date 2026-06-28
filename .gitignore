@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.DS_Store
+.agents/
+.codex/
+
+data/raw/text-anonymisation-benchmark/
+data/processed/openai_cache.jsonl
+data/processed/.cache/
+
+paper/*.aux
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out

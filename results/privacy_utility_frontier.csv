@@ -1,0 +1,6 @@
+method,direct_identifier_leak,quasi_identifier_risk,tcfr,qa_consistency
+critical_span_guard_oracle,0.0,0.17,1.0,1.0
+direct_span_oracle,0.0,2.81,1.0,1.0
+presidio_baseline,0.49,2.49,0.6966666666666668,0.8016666666666667
+privacy_first_oracle,0.0,0.01,0.47833333333333333,0.36499999999999994
+regex_rules,0.08,1.7,1.0,1.0

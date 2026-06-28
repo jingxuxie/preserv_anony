@@ -1,0 +1,94 @@
+{
+  "added_examples": 30,
+  "added_ids": [
+    "clinical_0060",
+    "clinical_0061",
+    "clinical_0062",
+    "clinical_0063",
+    "clinical_0064",
+    "clinical_0065",
+    "clinical_0066",
+    "clinical_0067",
+    "clinical_0068",
+    "clinical_0069",
+    "clinical_0070",
+    "clinical_0071",
+    "clinical_0072",
+    "clinical_0073",
+    "clinical_0074",
+    "legal_0060",
+    "legal_0061",
+    "legal_0062",
+    "legal_0063",
+    "legal_0064",
+    "legal_0065",
+    "legal_0066",
+    "legal_0067",
+    "legal_0068",
+    "legal_0069",
+    "legal_0070",
+    "legal_0071",
+    "legal_0072",
+    "legal_0073",
+    "legal_0074"
+  ],
+  "base_examples": 120,
+  "by_method": {
+    "critical_span_guard_extracted:anonymize": {
+      "completion_tokens": 3416,
+      "elapsed_seconds": 32.98706062599376,
+      "prompt_tokens": 24107,
+      "rows": 30,
+      "total_tokens": 27523
+    },
+    "critical_span_guard_extracted:extract": {
+      "completion_tokens": 15813,
+      "elapsed_seconds": 81.14027986999281,
+      "prompt_tokens": 15175,
+      "rows": 30,
+      "total_tokens": 30988
+    },
+    "critical_span_guard_extracted:verify_repair": {
+      "completion_tokens": 3811,
+      "elapsed_seconds": 31.09647034000227,
+      "prompt_tokens": 27043,
+      "rows": 30,
+      "total_tokens": 30854
+    },
+    "fact_retention_judge": {
+      "completion_tokens": 32785,
+      "elapsed_seconds": 207.63434250998398,
+      "prompt_tokens": 69040,
+      "rows": 90,
+      "total_tokens": 101825
+    },
+    "generic_llm": {
+      "completion_tokens": 2932,
+      "elapsed_seconds": 26.150899945001584,
+      "prompt_tokens": 5875,
+      "rows": 30,
+      "total_tokens": 8807
+    },
+    "privacy_first_llm": {
+      "completion_tokens": 2354,
+      "elapsed_seconds": 24.972139126999537,
+      "prompt_tokens": 6235,
+      "rows": 30,
+      "total_tokens": 8589
+    }
+  },
+  "cache_coverage": {
+    "cached_response_slots": 1200,
+    "missing_response_slots": 0
+  },
+  "completion_tokens": 61111,
+  "elapsed_ms": 403981.19241797394,
+  "elapsed_seconds": 403.98119241797394,
+  "generated": "2026-06-28",
+  "label": "n120-to-n150",
+  "prompt_tokens": 147475,
+  "rate_formula": "(147,475 / 1,000,000 * input_price_per_million) + (61,111 / 1,000,000 * output_price_per_million)",
+  "target_examples": 150,
+  "total_tokens": 208586,
+  "usage_rows": 240
+}

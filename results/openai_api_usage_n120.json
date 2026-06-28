@@ -1,0 +1,59 @@
+{
+  "by_method": {
+    "critical_span_guard_extracted:anonymize": {
+      "completion_tokens": 2467,
+      "elapsed_seconds": 21.48443858599785,
+      "prompt_tokens": 16468,
+      "rows": 20,
+      "total_tokens": 18935
+    },
+    "critical_span_guard_extracted:extract": {
+      "completion_tokens": 10766,
+      "elapsed_seconds": 58.119027843022195,
+      "prompt_tokens": 10304,
+      "rows": 20,
+      "total_tokens": 21070
+    },
+    "critical_span_guard_extracted:verify_repair": {
+      "completion_tokens": 2744,
+      "elapsed_seconds": 23.735537042019132,
+      "prompt_tokens": 18615,
+      "rows": 20,
+      "total_tokens": 21359
+    },
+    "fact_retention_judge": {
+      "completion_tokens": 22776,
+      "elapsed_seconds": 134.4864645779744,
+      "prompt_tokens": 48030,
+      "rows": 60,
+      "total_tokens": 70806
+    },
+    "generic_llm": {
+      "completion_tokens": 2139,
+      "elapsed_seconds": 20.62792751602683,
+      "prompt_tokens": 4104,
+      "rows": 20,
+      "total_tokens": 6243
+    },
+    "privacy_first_llm": {
+      "completion_tokens": 1844,
+      "elapsed_seconds": 24.982322416006355,
+      "prompt_tokens": 4344,
+      "rows": 20,
+      "total_tokens": 6188
+    }
+  },
+  "completion_tokens": 42736,
+  "elapsed_ms": 283435.71798104676,
+  "elapsed_seconds": 283.43571798104676,
+  "generated": "2026-06-28",
+  "n120_cache_coverage": {
+    "cached_response_slots": 960,
+    "missing_response_slots": 0
+  },
+  "prompt_tokens": 101865,
+  "rate_formula": "(101,865 / 1,000,000 * input_price_per_million) + (42,736 / 1,000,000 * output_price_per_million)",
+  "scope": "Exact provider usage for new cache rows created during the bounded n120 expansion.",
+  "total_tokens": 144601,
+  "usage_rows": 160
+}

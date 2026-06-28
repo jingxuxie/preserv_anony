@@ -1,0 +1,59 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Dernoncourt et~al.(2016)Dernoncourt, Lee, Uzuner, and
+  Szolovits]{dernoncourt2016patientnotes}
+Franck Dernoncourt, Ji~Young Lee, Ozlem Uzuner, and Peter Szolovits.
+\newblock {De-identification of Patient Notes with Recurrent Neural Networks},
+  2016.
+\newblock URL \url{https://arxiv.org/abs/1606.03475}.
+
+\bibitem[Kr{\v{c}}o et~al.(2026)Kr{\v{c}}o, Yao, Meeus, and
+  de~Montjoye]{krco2026ratbench}
+Nata{\v{s}}a Kr{\v{c}}o, Zexi Yao, Matthieu Meeus, and Yves-Alexandre
+  de~Montjoye.
+\newblock {RAT-Bench: A Comprehensive Benchmark for Text Anonymization}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.12806}.
+
+\bibitem[Loiseau et~al.(2025)Loiseau, Sileo, Riquet, Meyer, and
+  Tommasi]{loiseau2025taueval}
+Gabriel Loiseau, Damien Sileo, Damien Riquet, Maxime Meyer, and Marc Tommasi.
+\newblock {Tau-Eval: A Unified Evaluation Framework for Useful and Private Text
+  Anonymization}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2506.05979}.
+
+\bibitem[{Microsoft}(2026)]{presidio}
+{Microsoft}.
+\newblock {Presidio: Data Protection and De-identification SDK}.
+\newblock \url{https://microsoft.github.io/presidio/}, 2026.
+\newblock Accessed 2026-06-27.
+
+\bibitem[Pilan et~al.(2022)Pilan, Lison, Ovrelid, Papadopoulou, Sanchez, and
+  Batet]{pilan2022tab}
+Ildiko Pilan, Pierre Lison, Lilja Ovrelid, Anthi Papadopoulou, David Sanchez,
+  and Montserrat Batet.
+\newblock {The Text Anonymization Benchmark (TAB): A Dedicated Corpus and
+  Evaluation Framework for Text Anonymization}, 2022.
+\newblock URL \url{https://arxiv.org/abs/2202.00443}.
+
+\bibitem[{U.S. Department of Health and Human Services}(2012)]{hhsdeid}
+{U.S. Department of Health and Human Services}.
+\newblock {Guidance Regarding Methods for De-identification of Protected Health
+  Information in Accordance with the HIPAA Privacy Rule}.
+\newblock
+  \url{https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html},
+  2012.
+\newblock Accessed 2026-06-27.
+
+\bibitem[Zhang et~al.(2020)Zhang, Kishore, Wu, Weinberger, and
+  Artzi]{bertscore}
+Tianyi Zhang, Varsha Kishore, Felix Wu, Kilian~Q. Weinberger, and Yoav Artzi.
+\newblock {BERTScore: Evaluating Text Generation with BERT}.
+\newblock In \emph{International Conference on Learning Representations}, 2020.
+\newblock URL \url{https://openreview.net/forum?id=SkeHuCVFDr}.
+
+\end{thebibliography}

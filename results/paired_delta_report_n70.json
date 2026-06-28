@@ -1,0 +1,6042 @@
+{
+  "by_domain": {
+    "clinical": {
+      "generic_llm": {
+        "audited_tcfr_gain": {
+          "ci95": [
+            0.05238095238095236,
+            0.12380952380952377
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.08571428571428569,
+          "n": 35,
+          "sign_test_p": 6.103515625e-05,
+          "ties": 20,
+          "wins": 15
+        },
+        "direct_leak_reduction": {
+          "ci95": [
+            0.0,
+            0.08571428571428572
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.02857142857142857,
+          "n": 35,
+          "sign_test_p": 1.0,
+          "ties": 34,
+          "wins": 1
+        },
+        "exact_tcfr_gain": {
+          "ci95": [
+            0.09047619047619045,
+            0.2047619047619048
+          ],
+          "deltas": [
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": -0.16666666666666674,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": -0.16666666666666674,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.16666666666666674,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": -0.16666666666666674,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.16666666666666674,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.16666666666666674,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.16666666666666674,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": -0.16666666666666674,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.3333333333333333,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.16666666666666674,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 4,
+          "mean": 0.14761904761904765,
+          "n": 35,
+          "sign_test_p": 0.0005335211753845215,
+          "ties": 9,
+          "wins": 22
+        },
+        "qa_gain": {
+          "ci95": [
+            0.12857142857142856,
+            0.2857142857142857
+          ],
+          "deltas": [
+            {
+              "delta": 0.5,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.2,
+          "n": 35,
+          "sign_test_p": 0.0001220703125,
+          "ties": 21,
+          "wins": 14
+        },
+        "qi_risk_reduction": {
+          "ci95": [
+            2.0,
+            2.085714285714286
+          ],
+          "deltas": [
+            {
+              "delta": 2.0,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 3.0,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 2.0285714285714285,
+          "n": 35,
+          "sign_test_p": 5.820766091346741e-11,
+          "ties": 0,
+          "wins": 35
+        }
+      },
+      "privacy_first_llm": {
+        "audited_tcfr_gain": {
+          "ci95": [
+            0.5047619047619047,
+            0.6238095238095239
+          ],
+          "deltas": [
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.16666666666666663,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.5666666666666668,
+          "n": 35,
+          "sign_test_p": 1.1641532182693481e-10,
+          "ties": 1,
+          "wins": 34
+        },
+        "direct_leak_reduction": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.0,
+          "n": 35,
+          "sign_test_p": 1.0,
+          "ties": 35,
+          "wins": 0
+        },
+        "exact_tcfr_gain": {
+          "ci95": [
+            0.5523809523809525,
+            0.7095238095238094
+          ],
+          "deltas": [
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": -0.16666666666666674,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.6666666666666666,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.8333333333333334,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.3333333333333333,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 0.3333333333333333,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 1,
+          "mean": 0.6333333333333334,
+          "n": 35,
+          "sign_test_p": 2.0954757928848267e-09,
+          "ties": 0,
+          "wins": 34
+        },
+        "qa_gain": {
+          "ci95": [
+            0.6714285714285714,
+            0.8571428571428571
+          ],
+          "deltas": [
+            {
+              "delta": 0.5,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 1.0,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 0.5,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.7714285714285715,
+          "n": 35,
+          "sign_test_p": 1.1641532182693481e-10,
+          "ties": 1,
+          "wins": 34
+        },
+        "qi_risk_reduction": {
+          "ci95": [
+            0.8,
+            1.4857142857142858
+          ],
+          "deltas": [
+            {
+              "delta": 2.0,
+              "id": "clinical_0001"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0002"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0004"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0005"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0007"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0008"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0009"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0012"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0021"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0024"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0025"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0028"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0031"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0035"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0036"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0037"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0038"
+            },
+            {
+              "delta": 0.0,
+              "id": "clinical_0039"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0041"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0042"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0046"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0047"
+            },
+            {
+              "delta": 2.0,
+              "id": "clinical_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 1.1428571428571428,
+          "n": 35,
+          "sign_test_p": 1.9073486328125e-06,
+          "ties": 15,
+          "wins": 20
+        }
+      }
+    },
+    "legal": {
+      "generic_llm": {
+        "audited_tcfr_gain": {
+          "ci95": [
+            0.0,
+            0.1
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.04285714285714286,
+          "n": 35,
+          "sign_test_p": 0.25,
+          "ties": 32,
+          "wins": 3
+        },
+        "direct_leak_reduction": {
+          "ci95": [
+            0.2,
+            0.4857142857142857
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.34285714285714286,
+          "n": 35,
+          "sign_test_p": 0.00048828125,
+          "ties": 23,
+          "wins": 12
+        },
+        "exact_tcfr_gain": {
+          "ci95": [
+            -0.019047619047619046,
+            0.08095238095238097
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": -0.5,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 1,
+          "mean": 0.02857142857142857,
+          "n": 35,
+          "sign_test_p": 0.375,
+          "ties": 30,
+          "wins": 4
+        },
+        "qa_gain": {
+          "ci95": [
+            -0.019047619047619046,
+            0.08095238095238097
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": -0.5,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 1,
+          "mean": 0.02857142857142857,
+          "n": 35,
+          "sign_test_p": 0.375,
+          "ties": 30,
+          "wins": 4
+        },
+        "qi_risk_reduction": {
+          "ci95": [
+            0.8285714285714286,
+            1.8857142857142857
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": -3.0,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 2.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 2.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 2.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 3.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 1,
+          "mean": 1.3714285714285714,
+          "n": 35,
+          "sign_test_p": 7.62939453125e-05,
+          "ties": 16,
+          "wins": 18
+        }
+      },
+      "privacy_first_llm": {
+        "audited_tcfr_gain": {
+          "ci95": [
+            0.2619047619047619,
+            0.5238095238095237
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.39047619047619053,
+          "n": 35,
+          "sign_test_p": 9.5367431640625e-07,
+          "ties": 14,
+          "wins": 21
+        },
+        "direct_leak_reduction": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.0,
+          "n": 35,
+          "sign_test_p": 1.0,
+          "ties": 35,
+          "wins": 0
+        },
+        "exact_tcfr_gain": {
+          "ci95": [
+            0.26666666666666666,
+            0.4761904761904762
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.37142857142857144,
+          "n": 35,
+          "sign_test_p": 2.384185791015625e-07,
+          "ties": 12,
+          "wins": 23
+        },
+        "qa_gain": {
+          "ci95": [
+            0.26666666666666666,
+            0.4761904761904762
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.6666666666666667,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.5,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 1.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.33333333333333337,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 0,
+          "mean": 0.37142857142857144,
+          "n": 35,
+          "sign_test_p": 2.384185791015625e-07,
+          "ties": 12,
+          "wins": 23
+        },
+        "qi_risk_reduction": {
+          "ci95": [
+            -0.2571428571428571,
+            0.0
+          ],
+          "deltas": [
+            {
+              "delta": 0.0,
+              "id": "legal_0000"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0001"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0003"
+            },
+            {
+              "delta": -3.0,
+              "id": "legal_0005"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0006"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0008"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0009"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0010"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0014"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0016"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0017"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0018"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0019"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0020"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0021"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0022"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0023"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0025"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0026"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0027"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0028"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0029"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0031"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0032"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0033"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0034"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0036"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0039"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0040"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0041"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0043"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0045"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0047"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0048"
+            },
+            {
+              "delta": 0.0,
+              "id": "legal_0049"
+            }
+          ],
+          "losses": 1,
+          "mean": -0.08571428571428572,
+          "n": 35,
+          "sign_test_p": 1.0,
+          "ties": 34,
+          "wins": 0
+        }
+      }
+    }
+  },
+  "overall": {
+    "generic_llm": {
+      "audited_tcfr_gain": {
+        "ci95": [
+          0.035714285714285705,
+          0.09761904761904763
+        ],
+        "deltas": [
+          {
+            "delta": 0.0,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 0,
+        "mean": 0.06428571428571428,
+        "n": 70,
+        "sign_test_p": 7.62939453125e-06,
+        "ties": 52,
+        "wins": 18
+      },
+      "direct_leak_reduction": {
+        "ci95": [
+          0.1,
+          0.2857142857142857
+        ],
+        "deltas": [
+          {
+            "delta": 0.0,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 0,
+        "mean": 0.18571428571428572,
+        "n": 70,
+        "sign_test_p": 0.000244140625,
+        "ties": 57,
+        "wins": 13
+      },
+      "exact_tcfr_gain": {
+        "ci95": [
+          0.04761904761904762,
+          0.12857142857142856
+        ],
+        "deltas": [
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": -0.16666666666666674,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": -0.16666666666666674,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.16666666666666674,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": -0.16666666666666674,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.16666666666666674,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.16666666666666674,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.16666666666666674,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": -0.16666666666666674,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.3333333333333333,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.16666666666666674,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": -0.5,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 5,
+        "mean": 0.0880952380952381,
+        "n": 70,
+        "sign_test_p": 0.00019219517707824707,
+        "ties": 39,
+        "wins": 26
+      },
+      "qa_gain": {
+        "ci95": [
+          0.06428571428571428,
+          0.16666666666666666
+        ],
+        "deltas": [
+          {
+            "delta": 0.5,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": -0.5,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 1,
+        "mean": 0.11428571428571427,
+        "n": 70,
+        "sign_test_p": 7.62939453125e-05,
+        "ties": 51,
+        "wins": 18
+      },
+      "qi_risk_reduction": {
+        "ci95": [
+          1.4142857142857144,
+          1.9714285714285715
+        ],
+        "deltas": [
+          {
+            "delta": 2.0,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 3.0,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": -3.0,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 2.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 2.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 2.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 3.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 1,
+        "mean": 1.7,
+        "n": 70,
+        "sign_test_p": 6.106226635438361e-15,
+        "ties": 16,
+        "wins": 53
+      }
+    },
+    "privacy_first_llm": {
+      "audited_tcfr_gain": {
+        "ci95": [
+          0.40476190476190477,
+          0.5547619047619047
+        ],
+        "deltas": [
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.16666666666666663,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 0,
+        "mean": 0.4785714285714286,
+        "n": 70,
+        "sign_test_p": 5.551115123125783e-17,
+        "ties": 15,
+        "wins": 55
+      },
+      "direct_leak_reduction": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "deltas": [
+          {
+            "delta": 0.0,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 0,
+        "mean": 0.0,
+        "n": 70,
+        "sign_test_p": 1.0,
+        "ties": 70,
+        "wins": 0
+      },
+      "exact_tcfr_gain": {
+        "ci95": [
+          0.42857142857142855,
+          0.5738095238095239
+        ],
+        "deltas": [
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": -0.16666666666666674,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.6666666666666666,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.8333333333333334,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.3333333333333333,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 0.3333333333333333,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 1,
+        "mean": 0.5023809523809525,
+        "n": 70,
+        "sign_test_p": 4.0939474033052647e-16,
+        "ties": 12,
+        "wins": 57
+      },
+      "qa_gain": {
+        "ci95": [
+          0.4857142857142857,
+          0.6547619047619048
+        ],
+        "deltas": [
+          {
+            "delta": 0.5,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 1.0,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 0.5,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.6666666666666667,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.5,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 1.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.33333333333333337,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 0,
+        "mean": 0.5714285714285715,
+        "n": 70,
+        "sign_test_p": 1.3877787807814457e-17,
+        "ties": 13,
+        "wins": 57
+      },
+      "qi_risk_reduction": {
+        "ci95": [
+          0.3,
+          0.7571428571428571
+        ],
+        "deltas": [
+          {
+            "delta": 2.0,
+            "id": "clinical_0001"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0002"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0003"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0004"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0005"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0007"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0008"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0009"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0012"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0021"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0024"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0025"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0028"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0031"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0035"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0036"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0037"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0038"
+          },
+          {
+            "delta": 0.0,
+            "id": "clinical_0039"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0041"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0042"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0046"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0047"
+          },
+          {
+            "delta": 2.0,
+            "id": "clinical_0049"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0000"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0001"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0003"
+          },
+          {
+            "delta": -3.0,
+            "id": "legal_0005"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0006"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0008"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0009"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0010"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0014"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0016"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0017"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0018"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0019"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0020"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0021"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0022"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0023"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0025"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0026"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0027"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0028"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0029"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0031"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0032"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0033"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0034"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0036"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0039"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0040"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0041"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0043"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0045"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0047"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0048"
+          },
+          {
+            "delta": 0.0,
+            "id": "legal_0049"
+          }
+        ],
+        "losses": 1,
+        "mean": 0.5285714285714286,
+        "n": 70,
+        "sign_test_p": 2.09808349609375e-05,
+        "ties": 49,
+        "wins": 20
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+You are de-identifying sensitive text before it is used for AI research.
+Your priority is privacy protection.
+Remove, replace, or generalize any information that could identify a person, including direct identifiers, rare locations, exact dates, named institutions, rare occupations, unique events, and combinations of details.
+When uncertain, generalize or remove the information.
+Return only the anonymized text.
+
+Text:
+{TEXT}

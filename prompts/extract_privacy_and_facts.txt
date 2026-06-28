@@ -1,0 +1,27 @@
+You are preparing sensitive text for utility-preserving anonymization.
+
+Extract two things:
+1. privacy spans that should be removed or generalized,
+2. task-critical domain facts that must be preserved for downstream reasoning.
+
+For clinical-style text, task-critical facts include symptoms, diagnosis, medication, dose, allergy, lab result, imaging result, temporal sequence, severity, and clinically relevant age.
+For legal text, task-critical facts include party roles, legal basis, claim, procedure, court reasoning, outcome, chronology, and statute/article references.
+Clinical medications, doses, lab values, imaging findings, diagnoses, procedures, and clinically meaningful timelines should usually have "generalization_allowed": false. Age may be generalized to a clinically meaningful band. Non-clinical occupations and cities should not be task-critical unless the text makes them clinically relevant.
+Legal Article/statute numbers, claims, procedure, court outcomes, and reasoning should usually have "generalization_allowed": false. Legal case/application numbers are privacy spans, not task-critical legal bases.
+
+Direct identifiers include names, contact details, addresses, exact dates, IDs, account numbers, medical record numbers, legal case/application numbers, and named institutions tied to a person.
+Quasi-identifiers include age, occupation, city, rare disease/event, family relation, sensitive attribute, nationality, and combinations of details that may enable re-identification.
+
+Return only valid JSON with this schema:
+{
+  "domain": "clinical" or "legal",
+  "privacy_spans": [
+    {"span": "...", "type": "...", "identifier_type": "DIRECT" or "QUASI", "risk": 0-3, "replacement": "..."}
+  ],
+  "task_critical_facts": [
+    {"type": "...", "fact": "...", "generalization_allowed": true or false, "reason": "..."}
+  ]
+}
+
+Text:
+{TEXT}

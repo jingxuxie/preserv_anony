@@ -1,0 +1,48 @@
+{
+  "by_method": {
+    "critical_span_guard_extracted": {
+      "audited_fact_loss_rows": 1,
+      "mean_audited_tcfr": 0.995,
+      "mean_tfidf_cosine": 0.6176920497744398,
+      "privacy_failure_rows": 2,
+      "qa_failure_rows": 4,
+      "rows": 100,
+      "utility_failure_rows": 5
+    },
+    "generic_llm": {
+      "audited_fact_loss_rows": 24,
+      "mean_audited_tcfr": 0.9383333333333335,
+      "mean_tfidf_cosine": 0.7084831900548868,
+      "privacy_failure_rows": 76,
+      "qa_failure_rows": 23,
+      "rows": 100,
+      "utility_failure_rows": 36
+    },
+    "privacy_first_llm": {
+      "audited_fact_loss_rows": 81,
+      "mean_audited_tcfr": 0.5100000000000001,
+      "mean_tfidf_cosine": 0.46712264109352575,
+      "privacy_failure_rows": 30,
+      "qa_failure_rows": 81,
+      "rows": 100,
+      "utility_failure_rows": 83
+    }
+  },
+  "category_counts": {
+    "no_measured_failure": 128,
+    "privacy_failure": 108,
+    "utility_failure": 64
+  },
+  "high_similarity_audited_fact_loss_rows": 19,
+  "high_similarity_category_counts": {
+    "no_measured_failure": 77,
+    "privacy_failure": 52,
+    "utility_failure": 21
+  },
+  "high_similarity_privacy_failure_rows": 52,
+  "high_similarity_qa_failure_rows": 29,
+  "high_similarity_rows": 150,
+  "rows": 300,
+  "source": "cached n100 surface audit inputs",
+  "tfidf_median_threshold": 0.6070719136668308
+}

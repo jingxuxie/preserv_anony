@@ -1,0 +1,667 @@
+{
+  "by_domain": {
+    "clinical": {
+      "critical_span_guard_extracted": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.35789473684210527,
+            0.35789473684210527
+          ],
+          "mean": 0.35789473684210527
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "qa_consistency": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.6197183098591549,
+            0.6197183098591549
+          ],
+          "mean": 0.6197183098591549
+        },
+        "tcfr": {
+          "ci95": [
+            0.8333333333333334,
+            0.8333333333333334
+          ],
+          "mean": 0.8333333333333334
+        }
+      },
+      "generic_llm": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.375,
+            0.375
+          ],
+          "mean": 0.375
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            0.8,
+            0.8
+          ],
+          "mean": 0.8
+        },
+        "qa_consistency": {
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "mean": 0.5
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            2,
+            2
+          ],
+          "mean": 2.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            0.33333333333333337,
+            0.33333333333333337
+          ],
+          "mean": 0.33333333333333337
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.5405405405405406,
+            0.5405405405405406
+          ],
+          "mean": 0.5405405405405406
+        },
+        "tcfr": {
+          "ci95": [
+            0.5,
+            0.5
+          ],
+          "mean": 0.5
+        }
+      },
+      "privacy_first_llm": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.5636363636363637,
+            0.5636363636363637
+          ],
+          "mean": 0.5636363636363637
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            0.9,
+            0.9
+          ],
+          "mean": 0.9
+        },
+        "qa_consistency": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            2,
+            2
+          ],
+          "mean": 2.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            0.6666666666666667,
+            0.6666666666666667
+          ],
+          "mean": 0.6666666666666667
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.345679012345679,
+            0.345679012345679
+          ],
+          "mean": 0.345679012345679
+        },
+        "tcfr": {
+          "ci95": [
+            0.16666666666666666,
+            0.16666666666666666
+          ],
+          "mean": 0.16666666666666666
+        }
+      }
+    },
+    "legal": {
+      "critical_span_guard_extracted": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.27179487179487183,
+            0.27179487179487183
+          ],
+          "mean": 0.27179487179487183
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "qa_consistency": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.6923076923076923,
+            0.6923076923076923
+          ],
+          "mean": 0.6923076923076923
+        },
+        "tcfr": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        }
+      },
+      "generic_llm": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.16842105263157892,
+            0.16842105263157892
+          ],
+          "mean": 0.16842105263157892
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            0.6666666666666667,
+            0.6666666666666667
+          ],
+          "mean": 0.6666666666666667
+        },
+        "qa_consistency": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            3,
+            3
+          ],
+          "mean": 3.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.7843137254901961,
+            0.7843137254901961
+          ],
+          "mean": 0.7843137254901961
+        },
+        "tcfr": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        }
+      },
+      "privacy_first_llm": {
+        "ccr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "direct_identifier_leak": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "direct_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "edit_rate": {
+          "ci95": [
+            0.46153846153846156,
+            0.46153846153846156
+          ],
+          "mean": 0.46153846153846156
+        },
+        "n": 1,
+        "pii_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "qa_consistency": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        },
+        "quasi_identifier_risk": {
+          "ci95": [
+            0,
+            0
+          ],
+          "mean": 0.0
+        },
+        "quasi_span_recall": {
+          "ci95": [
+            1.0,
+            1.0
+          ],
+          "mean": 1.0
+        },
+        "semantic_similarity_proxy": {
+          "ci95": [
+            0.5471698113207547,
+            0.5471698113207547
+          ],
+          "mean": 0.5471698113207547
+        },
+        "tcfr": {
+          "ci95": [
+            0.0,
+            0.0
+          ],
+          "mean": 0.0
+        }
+      }
+    }
+  },
+  "overall": {
+    "critical_span_guard_extracted": {
+      "ccr": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_identifier_leak": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_span_recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "edit_rate": {
+        "ci95": [
+          0.27179487179487183,
+          0.35789473684210527
+        ],
+        "mean": 0.31484480431848855
+      },
+      "n": 2,
+      "pii_span_recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "qa_consistency": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "quasi_identifier_risk": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "quasi_span_recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "semantic_similarity_proxy": {
+        "ci95": [
+          0.6197183098591549,
+          0.6923076923076923
+        ],
+        "mean": 0.6560130010834235
+      },
+      "tcfr": {
+        "ci95": [
+          0.8333333333333334,
+          1.0
+        ],
+        "mean": 0.9166666666666667
+      }
+    },
+    "generic_llm": {
+      "ccr": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_identifier_leak": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_span_recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "edit_rate": {
+        "ci95": [
+          0.16842105263157892,
+          0.375
+        ],
+        "mean": 0.27171052631578946
+      },
+      "n": 2,
+      "pii_span_recall": {
+        "ci95": [
+          0.6666666666666667,
+          0.8
+        ],
+        "mean": 0.7333333333333334
+      },
+      "qa_consistency": {
+        "ci95": [
+          0.5,
+          1.0
+        ],
+        "mean": 0.75
+      },
+      "quasi_identifier_risk": {
+        "ci95": [
+          2.0,
+          3.0
+        ],
+        "mean": 2.5
+      },
+      "quasi_span_recall": {
+        "ci95": [
+          0.0,
+          0.33333333333333337
+        ],
+        "mean": 0.16666666666666669
+      },
+      "semantic_similarity_proxy": {
+        "ci95": [
+          0.5405405405405406,
+          0.7843137254901961
+        ],
+        "mean": 0.6624271330153684
+      },
+      "tcfr": {
+        "ci95": [
+          0.5,
+          1.0
+        ],
+        "mean": 0.75
+      }
+    },
+    "privacy_first_llm": {
+      "ccr": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_identifier_leak": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "direct_span_recall": {
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "mean": 1.0
+      },
+      "edit_rate": {
+        "ci95": [
+          0.46153846153846156,
+          0.5636363636363637
+        ],
+        "mean": 0.5125874125874126
+      },
+      "n": 2,
+      "pii_span_recall": {
+        "ci95": [
+          0.9,
+          1.0
+        ],
+        "mean": 0.95
+      },
+      "qa_consistency": {
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mean": 0.0
+      },
+      "quasi_identifier_risk": {
+        "ci95": [
+          0.0,
+          2.0
+        ],
+        "mean": 1.0
+      },
+      "quasi_span_recall": {
+        "ci95": [
+          0.6666666666666667,
+          1.0
+        ],
+        "mean": 0.8333333333333334
+      },
+      "semantic_similarity_proxy": {
+        "ci95": [
+          0.345679012345679,
+          0.5471698113207547
+        ],
+        "mean": 0.44642441183321685
+      },
+      "tcfr": {
+        "ci95": [
+          0.0,
+          0.16666666666666666
+        ],
+        "mean": 0.08333333333333333
+      }
+    }
+  }
+}

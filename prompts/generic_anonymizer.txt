@@ -1,0 +1,7 @@
+You are de-identifying sensitive text before it is used for AI research.
+Remove or replace personally identifying information, including names, addresses, exact dates, contact information, IDs, institutions, and other details that could identify a person.
+Preserve the meaning of the document as much as possible.
+Return only the anonymized text.
+
+Text:
+{TEXT}

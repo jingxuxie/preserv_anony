@@ -1,0 +1,31 @@
+You are verifying anonymized text.
+Compare the original and anonymized text using the task-critical facts and privacy spans below.
+
+Original text:
+{ORIGINAL_TEXT}
+
+Anonymized text:
+{ANONYMIZED_TEXT}
+
+Task-critical facts:
+{TASK_CRITICAL_FACTS_JSON}
+
+Known privacy spans:
+{PRIVACY_SPANS_JSON}
+
+Check for:
+1. leaked direct identifiers,
+2. high-risk quasi-identifiers that can be generalized without harming task-critical meaning,
+3. omitted task-critical facts,
+4. contradicted task-critical facts,
+5. invented facts.
+
+If the anonymized text is acceptable, return only valid JSON:
+{"status": "accept", "text": "..."}
+
+If not, return only valid JSON:
+{"status": "repair", "issues": ["..."], "text": "REPAIRED_ANONYMIZED_TEXT"}
+
+The repaired text must not reintroduce direct identifiers.
+Legal case/application numbers such as "no. 12345/06" or "nos. 12345/06 and 67890/07" are direct identifiers and must be replaced with [ID], while legal Article numbers must be preserved.
+Specific clinical medications, doses, lab values, imaging findings, diagnoses, procedures, and meaningful timelines must remain specific unless they are direct identifiers.

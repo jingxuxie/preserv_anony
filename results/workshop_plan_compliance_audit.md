@@ -1,0 +1,26 @@
+# Workshop Plan Compliance Audit
+
+Generated: 2026-06-28
+
+This audit maps the original workshop plan to current artifacts. PASS means the current evidence directly supports the item; PARTIAL means the paper can discuss it with caveats; GAP means more work is needed.
+
+| Plan item | Status | Evidence | Next action |
+|---|---|---|---|
+| 100-200 example benchmark with clinical and legal splits | PASS | `data/processed/benchmark_n150_llm.jsonl` has 150 promoted non-oracle rows: clinical=75, legal=75; `data/processed/benchmark.jsonl` retains the original 100-row audit trail: clinical=50, legal=50; `data/processed/benchmark_n200_local.jsonl` has a no-API local diagnostic expansion with 200 rows (clinical=100, legal=100). | For a long paper, expand the non-oracle LLM headline toward 300-500 examples; the local n200 diagnostic supports sample-size sensitivity but does not replace a larger non-oracle run. |
+| Methods include regex, Presidio, generic LLM, privacy-first LLM, and Critical Span Guard | PASS | `results/summary.json` and `results/local_n200_diagnostic_report.md` cover local baselines/oracles; `data/processed/openai_anonymized_outputs_n150.jsonl` covers the promoted non-oracle LLM methods; `results/openai_expansion_stability_n150.md` documents the n120-to-n150 expansion. | Keep local baselines framed as diagnostic because the promoted headline compares non-oracle LLM prompting methods. |
+| Privacy metrics: direct leak, PII/span recall, QI risk | PASS | `results/openai_summary_n150.json` and `results/privacy_span_recall_audit_n150.md` report row and span privacy metrics. | Do not claim formal anonymization; keep threat model bounded. |
+| Utility metrics: TCFR, CCR, QA consistency, edit rate | PASS | `results/openai_results_n150.md` covers exact metrics; `results/openai_fact_judge_results_n150.md` covers audited TCFR/CCR. | Keep audited TCFR as judge-assisted evidence, not ground truth. |
+| Paired statistics and effect sizes | PASS | `results/paired_delta_report_n150.md` reports paired advantages, bootstrap CIs, wins/ties/losses, and sign-test p-values. | If moving to a long paper, add a brief methods note explaining bootstrap/sign-test choices. |
+| Surface/semantic similarity foil for RQ2 | PASS | `results/surface_metric_audit_n150.md` reports token, edit, Jaccard, and TF-IDF analyses; `paper/generated_surface_failure_scatter.tex` visualizes high-similarity privacy and utility failures. | Keep surface metrics framed as foils rather than headline utility metrics. |
+| Ablation of CSG draft, verified, and safety/repair stages | PASS | `results/csg_ablation_table_n150.md` shows verifier prompt did not change deterministic metrics; safety/repair layer closed measured leaks. | Do not claim verifier-prompt gains unless a future run supports it. |
+| Manual audit on 20-50 examples or transparent subset audit | PASS | `results/fixed_sample_manual_audit_n150.md` covers 30 fixed examples and 90 method rows (clinical=15, legal=15); `results/final_qualitative_audit_n150.md` spot-checks 18 foreground/frontier cases; `data/processed/second_annotator_packet_n150.jsonl` is ready for a blinded second pass. | For a full submission, have a second annotator complete the blinded packet and report agreement/adjudication. |
+| Failure taxonomy | PASS | `results/error_taxonomy_n150.md`, `results/legal_qa_disagreement_audit_n150.md`, and `results/residual_qi_audit_n150.md` classify major failure modes. | For a long paper, convert this into a concise table with representative clinical/legal examples. |
+| Cost and latency table | PARTIAL | `results/cost_and_cache_report_n100.md` and `.json` document older n100 required cached response slots, token-proxy budget, and n150/n200/n300/n500 expansion projections; `results/openai_api_usage_n150.md` records exact provider usage and latency for 400 n100-to-n150 expansion/cache rows and cache coverage for the promoted n150 package. | Continue persisting provider usage and elapsed time for future API calls; do not mix exact n100-to-n150 expansion usage rows with older n100 proxy-only cache rows. |
+| Paper draft, figure, references, and verification | PASS | `paper/main.pdf` compiles to 6 pages; `results/submission_verification.md` passes 21/21 checks. | Before submission, decide whether to target short-paper concision or expand evidence for an 8-page version. |
+
+## Highest-Impact Remaining Gaps
+
+1. Manual audit coverage now meets the workshop-plan transparent-subset target, and a blinded second-annotator packet is prepared; completed independent annotation or adjudication is still future work.
+2. Exact cost/latency accounting is now available for the 400 n100-to-n150 expansion/cache rows, but remains partial for the older n100 cache rows because early calls did not persist provider usage or elapsed time.
+3. The promoted n150 non-oracle headline and local n200 diagnostic improve sample-size sensitivity, but the non-oracle headline is still below the 300-500 example stronger-study target.
+4. The surface-similarity scatter now strengthens RQ2; if page pressure increases, move it to an appendix rather than dropping the underlying audit.

@@ -1,0 +1,2598 @@
+{
+  "examples": [
+    {
+      "domain": "clinical",
+      "id": "clinical_0005",
+      "methods": [
+        {
+          "audited_tcfr": 0.6666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 2,
+            "preserved": 4
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "59-year-old",
+            "long-haul driver"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0006",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "preserved": 6
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "66-year-old",
+            "postal worker"
+          ]
+        },
+        {
+          "audited_tcfr": 0.3333333333333333,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 4,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "swelling of the MCP joints",
+            "anti-CCP was positive",
+            "rheumatoid arthritis",
+            "methotrexate 15 mg weekly and folic acid 1 mg daily"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "postal worker"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "foreground clinical utility-loss example",
+        "clean CSG row",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_clean",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0009",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 1,
+            "preserved": 4
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "5 days of fever, productive cough, and right-sided chest pain"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 0.3333333333333333,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "5 days of fever, productive cough, and right-sided chest pain",
+            "oxygen saturation was 88 percent on room air",
+            "chest x-ray showed a right lower-lobe infiltrate",
+            "ceftriaxone 1 g daily and azithromycin 500 mg daily"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0011",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [
+            "December 24, 2025"
+          ],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "33-year-old",
+            "farm manager"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.3333333333333333,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0012",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "preserved": 6
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "40-year-old",
+            "retired judge"
+          ]
+        },
+        {
+          "audited_tcfr": 0.16666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "3 weeks of morning stiffness in both hands",
+            "swelling of the MCP joints",
+            "anti-CCP was positive",
+            "rheumatoid arthritis",
+            "methotrexate 15 mg weekly and folic acid 1 mg daily"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "retired judge"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0016",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "blood pressure fell to 82/48 mmHg"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "68-year-old",
+            "teacher"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "diffuse hives, wheezing, and throat tightness within 20 minutes of eating peanuts",
+            "blood pressure fell to 82/48 mmHg",
+            "intramuscular epinephrine 0.3 mg and observation for 4 hours"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0017",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "rebound tenderness was present at McBurney's point"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "75-year-old",
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0023",
+      "methods": [
+        {
+          "audited_tcfr": 0.6666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 2,
+            "preserved": 4
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "49-year-old",
+            "violin maker"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0029",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "rebound tenderness was present at McBurney's point"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "91-year-old",
+            "long-haul driver"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "long-haul driver"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0030",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "preserved": 6
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "30-year-old",
+            "postal worker"
+          ]
+        },
+        {
+          "audited_tcfr": 0.16666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "3 weeks of morning stiffness in both hands",
+            "swelling of the MCP joints",
+            "anti-CCP was positive",
+            "rheumatoid arthritis",
+            "methotrexate 15 mg weekly and folic acid 1 mg daily"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "postal worker"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0031",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "August 2, 2025"
+          ],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "preserved": 6
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "37-year-old",
+            "violin maker"
+          ]
+        },
+        {
+          "audited_tcfr": 0.3333333333333333,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 4,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "sudden pleuritic chest pain and shortness of breath",
+            "oxygen saturation was 89 percent on room air",
+            "CT angiography showed a segmental pulmonary embolism",
+            "apixaban 10 mg twice daily for 7 days followed by 5 mg twice daily"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "exact metric undercount",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_clean",
+        "exact_metric_artifact",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0033",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "preserved": 6
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "51-year-old",
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 0.16666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "5 days of fever, productive cough, and right-sided chest pain",
+            "oxygen saturation was 88 percent on room air",
+            "chest x-ray showed a right lower-lobe infiltrate",
+            "community-acquired pneumonia",
+            "ceftriaxone 1 g daily and azithromycin 500 mg daily"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0035",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "65-year-old",
+            "farm manager"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0040",
+      "methods": [
+        {
+          "audited_tcfr": 0.8333333333333334,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "blood pressure fell to 82/48 mmHg"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "32-year-old",
+            "teacher"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 3,
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "diffuse hives, wheezing, and throat tightness within 20 minutes of eating peanuts",
+            "blood pressure fell to 82/48 mmHg",
+            "intramuscular epinephrine 0.3 mg and observation for 4 hours"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "teacher"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.8333333333333334,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "clinical",
+      "id": "clinical_0041",
+      "methods": [
+        {
+          "audited_tcfr": 0.6666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 2,
+            "preserved": 4
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "rebound tenderness was present at McBurney's point",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "39-year-old",
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 0.3333333333333333,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.16666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "omitted": 4,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "18 hours of periumbilical pain that migrated to the right lower quadrant",
+            "rebound tenderness was present at McBurney's point",
+            "CT abdomen showed an enlarged appendix with periappendiceal fat stranding",
+            "ceftriaxone and metronidazole before laparoscopic appendectomy"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "software engineer"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "generalized_retained": 1,
+            "preserved": 5
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "synthetic_template",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0002",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "homosexuality",
+            "homosexuals",
+            "homosexual"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "an investigation into their sexuality and their discharge from the Royal Navy on the basis of their homosexuality as a result of the absolute policy against the presence of homosexuals in the armed forces that existed at the time violated their rights under Article 8, alone and in conjunction with Article 14 of the Convention"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": [
+            "homosexuality",
+            "homosexual"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "csg_residual_qi_frontier"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "homosexuality",
+            "homosexuals",
+            "homosexual"
+          ]
+        }
+      ],
+      "selected_because": [
+        "residual CSG legal QI frontier row",
+        "CSG exact-match artifact",
+        "CSG residual quasi-identifier",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-60695",
+      "tags": [
+        "csg_exact_match_artifact",
+        "csg_residual_qi",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0005",
+      "methods": [
+        {
+          "audited_tcfr": 0.6666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+          ],
+          "qa_consistency": 0.6666666666666666,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 0.6666666666666666,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.3333333333333333,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+          ],
+          "qa_consistency": 0.3333333333333333,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "csg_residual_qi_frontier"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "Northern Ireland",
+            "1976"
+          ]
+        }
+      ],
+      "selected_because": [
+        "residual CSG legal QI frontier row",
+        "CSG residual quasi-identifier",
+        "exact metric undercount",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:test:001-60309",
+      "tags": [
+        "csg_residual_qi",
+        "exact_metric_artifact",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0006",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "37645/97"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "10 March 1997"
+          ]
+        },
+        {
+          "audited_tcfr": 0.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "omitted": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 6",
+            "the civil proceedings in her case exceeded a reasonable time, contrary to Article 6 \u00a7 1 of the Convention"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "foreground legal privacy-utility example",
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-60653",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0011",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "26480/95"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "27 October 1994"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 6"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-59854",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0016",
+      "methods": [
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "1 June 2001",
+            "12 July 2006",
+            "2001"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "csg_strict_specificity_loss"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [
+            "the Polish authorities had failed to take effective steps to enforce his right of contact with his daughter, which had violated his rights under Article 8 of the Convention"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "strict legal-specificity audited utility caveat",
+        "CSG strict-specificity audited loss",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:test:001-90250",
+      "tags": [
+        "csg_strict_specificity_loss",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0018",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 0.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "omitted": 2
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 1",
+            "the demolition of a house had violated her rights to the peaceful enjoyment of her possessions and to respect for her home under Article 1 of Protocol No. 1 and Article 8 of the Convention respectively"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "exact-vs-audited legal metric nuance",
+        "CSG exact-match artifact",
+        "exact metric undercount",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-61164",
+      "tags": [
+        "csg_exact_match_artifact",
+        "exact_metric_artifact",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0019",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "42007/98"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "29 October 1997",
+            "23 October 2001",
+            "Blackspur",
+            "\u201cBlackspur\u201d proceedings"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "omitted": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 6"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:dev:001-60613",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0021",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "29865/96"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "20 December 1995"
+          ]
+        },
+        {
+          "audited_tcfr": 0.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_not_retained": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 8"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-67482",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0025",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "23 May 2003",
+            "resisting the exercise of official authority",
+            "4 February 1998"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": [
+            "resisting the exercise of official authority"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "csg_residual_qi_frontier"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "resisting the exercise of official authority"
+          ]
+        }
+      ],
+      "selected_because": [
+        "residual CSG legal QI frontier row",
+        "CSG residual quasi-identifier",
+        "exact metric undercount",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-81922",
+      "tags": [
+        "csg_residual_qi",
+        "exact_metric_artifact",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0029",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "35396/97"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "13 January 1997",
+            "1 June 1999"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.6666666666666666,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "exact_match_artifact",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 0.6666666666666666,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "exact metric undercount",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-58469",
+      "tags": [
+        "csg_clean",
+        "exact_metric_artifact",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0032",
+      "methods": [
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [
+            "39412/08"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [
+            "his detention on remand in exceeded a \u201creasonable time\u201d within the meaning of Article 5 \u00a7 3 of the Convention, which amounted to interference with his private and family life"
+          ],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "4 August 2008"
+          ]
+        },
+        {
+          "audited_tcfr": 0.5,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.5,
+          "fact_status_counts": {
+            "generalized_not_retained": 1,
+            "preserved": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "his detention on remand in exceeded a \u201creasonable time\u201d within the meaning of Article 5 \u00a7 3 of the Convention, which amounted to interference with his private and family life"
+          ],
+          "qa_consistency": 0.5,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 2
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-103365",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0037",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "Ms Nuray \u015een"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "25 April 1996",
+            "30 April 2002"
+          ]
+        },
+        {
+          "audited_tcfr": 0.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "generalized_not_retained": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 5"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-61139",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0042",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "Rom"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "Rom"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "csg_residual_qi_frontier"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "Rom"
+          ]
+        }
+      ],
+      "selected_because": [
+        "residual CSG legal QI frontier row",
+        "CSG residual quasi-identifier",
+        "generic quasi-identifier retention"
+      ],
+      "source": "TAB:train:001-96100",
+      "tags": [
+        "csg_residual_qi",
+        "generic_qi_retention"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0043",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [
+            "37770/97"
+          ],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "direct_identifier_leak",
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "19 July 1997",
+            "20 April 1996"
+          ]
+        },
+        {
+          "audited_tcfr": 0.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.0,
+          "fact_status_counts": {
+            "omitted": 1
+          },
+          "labels": [
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 6"
+          ],
+          "qa_consistency": 0.0,
+          "quasi_leaked_spans": []
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 1
+          },
+          "labels": [
+            "clean"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": []
+        }
+      ],
+      "selected_because": [
+        "clean CSG row",
+        "generic direct identifier leak",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:train:001-61737",
+      "tags": [
+        "csg_clean",
+        "generic_direct_leak",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    },
+    {
+      "domain": "legal",
+      "id": "legal_0046",
+      "methods": [
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "generic_privacy_leak"
+          ],
+          "method": "generic_llm",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "widows"
+          ]
+        },
+        {
+          "audited_tcfr": 0.3333333333333333,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 0.3333333333333333,
+          "fact_status_counts": {
+            "generalized_not_retained": 2,
+            "preserved": 1
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_fact_omission",
+            "exact_qa_failure",
+            "privacy_first_overgeneralization"
+          ],
+          "method": "privacy_first_llm",
+          "not_retained_audited_facts": [
+            "Article 1",
+            "because he was a man, he was denied social security benefits equivalent to those received by widows"
+          ],
+          "qa_consistency": 0.3333333333333333,
+          "quasi_leaked_spans": [
+            "widows"
+          ]
+        },
+        {
+          "audited_tcfr": 1.0,
+          "direct_leaked_spans": [],
+          "exact_tcfr": 1.0,
+          "fact_status_counts": {
+            "preserved": 3
+          },
+          "labels": [
+            "quasi_identifier_retained",
+            "csg_residual_qi_frontier"
+          ],
+          "method": "critical_span_guard_extracted",
+          "not_retained_audited_facts": [],
+          "qa_consistency": 1.0,
+          "quasi_leaked_spans": [
+            "widows"
+          ]
+        }
+      ],
+      "selected_because": [
+        "residual CSG legal QI frontier row",
+        "CSG residual quasi-identifier",
+        "generic quasi-identifier retention",
+        "privacy-first utility loss"
+      ],
+      "source": "TAB:test:001-91096",
+      "tags": [
+        "csg_residual_qi",
+        "generic_qi_retention",
+        "privacy_first_utility_loss"
+      ]
+    }
+  ],
+  "metadata": {
+    "audit_scope": "Single-author/manual-style fixed subset audit derived from cached row-level evidence; not an independent multi-annotator study.",
+    "examples": 30,
+    "generated": "2026-06-27",
+    "method_rows": 90,
+    "methods": [
+      "generic_llm",
+      "privacy_first_llm",
+      "critical_span_guard_extracted"
+    ],
+    "no_api_calls": true,
+    "sample_version": "n100_fixed_30_examples_all_3_methods_v1",
+    "source_files": {
+      "benchmark": "data/processed/benchmark.jsonl",
+      "deterministic_judgments": "data/processed/openai_judgments_n100.jsonl",
+      "fact_judgments": "data/processed/openai_fact_judgments_n100.jsonl"
+    }
+  },
+  "summary": {
+    "domain_counts": {
+      "clinical": 15,
+      "legal": 15
+    },
+    "label_counts_by_method": {
+      "critical_span_guard_extracted": {
+        "audited_fact_loss": 1,
+        "clean": 10,
+        "csg_residual_qi_frontier": 5,
+        "csg_strict_specificity_loss": 1,
+        "exact_fact_omission": 15,
+        "exact_match_artifact": 15,
+        "exact_qa_failure": 2,
+        "quasi_identifier_retained": 5
+      },
+      "generic_llm": {
+        "audited_fact_loss": 13,
+        "clean": 1,
+        "direct_identifier_leak": 10,
+        "exact_fact_omission": 18,
+        "exact_match_artifact": 16,
+        "exact_qa_failure": 10,
+        "generic_privacy_leak": 28,
+        "quasi_identifier_retained": 28
+      },
+      "privacy_first_llm": {
+        "audited_fact_loss": 27,
+        "exact_fact_omission": 29,
+        "exact_match_artifact": 19,
+        "exact_qa_failure": 29,
+        "privacy_first_overgeneralization": 29,
+        "quasi_identifier_retained": 12
+      }
+    },
+    "required_caveat_ids": {
+      "residual_qi": [
+        "legal_0002",
+        "legal_0005",
+        "legal_0025",
+        "legal_0042",
+        "legal_0046"
+      ],
+      "strict_specificity": [
+        "legal_0016"
+      ]
+    },
+    "row_summary_by_method": {
+      "critical_span_guard_extracted": {
+        "audited_fact_loss_rows": 1,
+        "clean_rows": 10,
+        "exact_match_artifact_rows": 15,
+        "exact_qa_failure_rows": 2,
+        "qi_hit_rows": 5,
+        "rows": 30
+      },
+      "generic_llm": {
+        "audited_fact_loss_rows": 13,
+        "clean_rows": 1,
+        "direct_leak_rows": 10,
+        "exact_match_artifact_rows": 16,
+        "exact_qa_failure_rows": 10,
+        "qi_hit_rows": 28,
+        "rows": 30
+      },
+      "privacy_first_llm": {
+        "audited_fact_loss_rows": 27,
+        "exact_match_artifact_rows": 19,
+        "exact_qa_failure_rows": 29,
+        "qi_hit_rows": 12,
+        "rows": 30
+      }
+    },
+    "tag_counts": {
+      "csg_clean": 10,
+      "csg_exact_match_artifact": 15,
+      "csg_residual_qi": 5,
+      "csg_strict_specificity_loss": 1,
+      "exact_metric_artifact": 20,
+      "generic_direct_leak": 10,
+      "generic_qi_retention": 28,
+      "privacy_first_utility_loss": 29
+    }
+  }
+}

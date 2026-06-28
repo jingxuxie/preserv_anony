@@ -1,0 +1,157 @@
+{
+  "description": "Maps blinded variant codes to method names for reconciliation after annotation.",
+  "do_not_share_with_annotator": true,
+  "examples": {
+    "clinical_0005": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "clinical_0006": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "clinical_0009": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "clinical_0011": {
+      "A": "critical_span_guard_extracted",
+      "B": "generic_llm",
+      "C": "privacy_first_llm"
+    },
+    "clinical_0012": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "clinical_0017": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "clinical_0023": {
+      "A": "critical_span_guard_extracted",
+      "B": "generic_llm",
+      "C": "privacy_first_llm"
+    },
+    "clinical_0029": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "clinical_0031": {
+      "A": "generic_llm",
+      "B": "privacy_first_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "clinical_0035": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "clinical_0040": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "clinical_0041": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "clinical_0053": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "clinical_0055": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "clinical_0059": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "legal_0002": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "legal_0005": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "legal_0006": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "legal_0016": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "legal_0018": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "legal_0021": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "legal_0025": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "legal_0037": {
+      "A": "privacy_first_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "generic_llm"
+    },
+    "legal_0042": {
+      "A": "generic_llm",
+      "B": "critical_span_guard_extracted",
+      "C": "privacy_first_llm"
+    },
+    "legal_0043": {
+      "A": "critical_span_guard_extracted",
+      "B": "generic_llm",
+      "C": "privacy_first_llm"
+    },
+    "legal_0046": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "legal_0053": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    },
+    "legal_0054": {
+      "A": "critical_span_guard_extracted",
+      "B": "generic_llm",
+      "C": "privacy_first_llm"
+    },
+    "legal_0055": {
+      "A": "privacy_first_llm",
+      "B": "generic_llm",
+      "C": "critical_span_guard_extracted"
+    },
+    "legal_0056": {
+      "A": "critical_span_guard_extracted",
+      "B": "privacy_first_llm",
+      "C": "generic_llm"
+    }
+  },
+  "sample_version": "n120_fixed_30_second_annotator_v1"
+}

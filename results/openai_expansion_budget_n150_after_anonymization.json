@@ -1,0 +1,27 @@
+{
+  "benchmark": "data/processed/benchmark_n150_llm.jsonl",
+  "cache_rows_with_elapsed_ms": 310,
+  "cache_rows_with_provider_usage": 310,
+  "cached_response_slots": {
+    "anonymize": 300,
+    "csg_anonymize": 150,
+    "csg_extract": 150,
+    "csg_verify_repair": 150,
+    "fact_judge": 360
+  },
+  "known_response_token_proxy": 271924,
+  "missing_response_slots": {
+    "fact_judge": 90
+  },
+  "model": "gpt-4.1-nano",
+  "prompt_token_proxy_for_known_prompts": 774009,
+  "stored_completion_tokens": 71062,
+  "stored_elapsed_ms_total": 479782.5678890367,
+  "stored_prompt_tokens": 180300,
+  "target_examples": 150,
+  "total_cached_response_slots": 1110,
+  "total_missing_response_slots": 90,
+  "unknown_response_slots": {
+    "fact_judge": 90
+  }
+}

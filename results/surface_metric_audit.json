@@ -1,0 +1,717 @@
+{
+  "by_method": {
+    "critical_span_guard_extracted": {
+      "audited_fact_failure_rate": 0.0,
+      "audited_tcfr": 1.0,
+      "char_similarity": 0.5091075864110179,
+      "direct_identifier_leak": 0.0,
+      "length_ratio": 0.870928070001596,
+      "n": 50,
+      "privacy_failure_rate": 0.02,
+      "qa_consistency": 0.99,
+      "qa_failure_rate": 0.02,
+      "quasi_identifier_risk": 0.08,
+      "token_edit_rate": 0.277560385869022,
+      "token_f1": 0.770567556490867,
+      "token_jaccard": 0.636362713428527,
+      "utility_failure_rate": 0.02
+    },
+    "generic_llm": {
+      "audited_fact_failure_rate": 0.24,
+      "audited_tcfr": 0.9399999999999998,
+      "char_similarity": 0.503888451548566,
+      "direct_identifier_leak": 0.16,
+      "length_ratio": 0.9187991482442895,
+      "n": 50,
+      "privacy_failure_rate": 0.76,
+      "qa_consistency": 0.89,
+      "qa_failure_rate": 0.24,
+      "quasi_identifier_risk": 1.74,
+      "token_edit_rate": 0.25670300072132385,
+      "token_f1": 0.7669518911955983,
+      "token_jaccard": 0.6458172368704085,
+      "utility_failure_rate": 0.34
+    },
+    "privacy_first_llm": {
+      "audited_fact_failure_rate": 0.76,
+      "audited_tcfr": 0.5666666666666668,
+      "char_similarity": 0.21808191952140185,
+      "direct_identifier_leak": 0.0,
+      "length_ratio": 0.7856368546869054,
+      "n": 50,
+      "privacy_failure_rate": 0.32,
+      "qa_consistency": 0.43999999999999995,
+      "qa_failure_rate": 0.8,
+      "quasi_identifier_risk": 0.66,
+      "token_edit_rate": 0.4632141983460308,
+      "token_f1": 0.5753785170305271,
+      "token_jaccard": 0.4431071229940958,
+      "utility_failure_rate": 0.8
+    }
+  },
+  "correlations": {
+    "char_similarity": {
+      "pearson_audited_tcfr": 0.605302841953792,
+      "pearson_direct_identifier_leak": 0.37939787805075575,
+      "pearson_qa_consistency": 0.6197221983589745,
+      "pearson_quasi_identifier_risk": 0.016935984123297596,
+      "spearman_audited_tcfr": 0.667107494776832,
+      "spearman_direct_identifier_leak": 0.37754736914973025,
+      "spearman_qa_consistency": 0.649712573278329,
+      "spearman_quasi_identifier_risk": -0.017771208812886394
+    },
+    "token_edit_rate": {
+      "pearson_audited_tcfr": -0.7729342681563902,
+      "pearson_direct_identifier_leak": -0.3764595940098772,
+      "pearson_qa_consistency": -0.7537595216139766,
+      "pearson_quasi_identifier_risk": -0.019783392749438748,
+      "spearman_audited_tcfr": -0.7760528450977124,
+      "spearman_direct_identifier_leak": -0.3871443540095882,
+      "spearman_qa_consistency": -0.7038072050403427,
+      "spearman_quasi_identifier_risk": -0.012896425385175513
+    },
+    "token_f1": {
+      "pearson_audited_tcfr": 0.7819720155784113,
+      "pearson_direct_identifier_leak": 0.31976282593408406,
+      "pearson_qa_consistency": 0.7692334402169475,
+      "pearson_quasi_identifier_risk": -0.036175455512469666,
+      "spearman_audited_tcfr": 0.782765779417227,
+      "spearman_direct_identifier_leak": 0.36932787667487527,
+      "spearman_qa_consistency": 0.702989764411124,
+      "spearman_quasi_identifier_risk": -0.02332942640231329
+    },
+    "token_jaccard": {
+      "pearson_audited_tcfr": 0.7551746087954032,
+      "pearson_direct_identifier_leak": 0.38643885480302853,
+      "pearson_qa_consistency": 0.7369633362358589,
+      "pearson_quasi_identifier_risk": 0.022018502797158963,
+      "spearman_audited_tcfr": 0.7714356203393095,
+      "spearman_direct_identifier_leak": 0.3840690975029067,
+      "spearman_qa_consistency": 0.6861083798211657,
+      "spearman_quasi_identifier_risk": 0.004771572188614245
+    }
+  },
+  "examples": {
+    "high_similarity_audited_fact_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country party to an international human rights treaty lodged with the Court under Article 34 of the Convention for the Protection...",
+        "audited_problem_facts": [
+          "a factual error made by the Court of Cassation had infringed his right of access to court, in violation of Article 6 of the Convention"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.7555555555555555,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0022",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "a factual error made by the Court of Cassation had infringed his right of access to court, in violation of Article 6 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18753/04) against the Republic of Turkey lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.7901234567901235
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention for the...",
+        "audited_problem_facts": [
+          "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.4584487534626039,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0005",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 24265/94) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.782608695652174
+      },
+      {
+        "anonymized_snippet": "A senior software engineer visited a family practice clinic on a specified date. He reported several days of fever, productive cough, and chest pain on one side, with oxygen saturation at...",
+        "audited_problem_facts": [
+          "5 days of fever, productive cough, and right-sided chest pain"
+        ],
+        "audited_tcfr": 0.8333333333333334,
+        "char_similarity": 0.41284403669724773,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "clinical",
+        "failed_qa": [],
+        "id": "clinical_0009",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "5 days of fever, productive cough, and right-sided chest pain",
+          "oxygen saturation was 88 percent on room air",
+          "87-year-old"
+        ],
+        "original_snippet": "Anthony Reed, a 87-year-old software engineer from Reno, visited Riverside Family Practice on October 10, 2025 (record MRN-710009, phone 202-555-1009, email anthony.reed9@example.com). He...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "software engineer"
+        ],
+        "token_f1": 0.6766917293233083
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the Court under a human rights treaty. The application was submitted by a national of that country o...",
+        "audited_problem_facts": [
+          "he did not have a speedy review of the lawfulness of his detention, in violation of Article 5 \u00a7 4 of the Convention"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.1048951048951049,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "Which substantive Article was invoked?"
+        ],
+        "id": "legal_0048",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "Article 5"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 1497/10) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention for...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.6701570680628272
+      },
+      {
+        "anonymized_snippet": "A 58-year-old dental hygienist from a city in the region visited a clinic on a specific date. She reported diffuse hives, wheezing, and throat tightness within 20 minutes of eating peanut...",
+        "audited_problem_facts": [
+          "blood pressure fell to 82/48 mmHg"
+        ],
+        "audited_tcfr": 0.8333333333333334,
+        "char_similarity": 0.10600706713780919,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "clinical",
+        "failed_qa": [],
+        "id": "clinical_0034",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "blood pressure fell to 82/48 mmHg",
+          "intramuscular epinephrine 0.3 mg and observation for 4 hours"
+        ],
+        "original_snippet": "Priya Shah, a 58-year-old dental hygienist from Burlington, visited North Ridge Clinic on November 23, 2025 (record MRN-710034, phone 202-555-1034, email priya.shah34@example.com). She re...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "58-year-old",
+          "dental hygienist"
+        ],
+        "token_f1": 0.6666666666666667
+      },
+      {
+        "anonymized_snippet": "A 74-year-old postal worker visited a clinic on a specified date. They reported diffuse hives, wheezing, and throat tightness within 20 minutes of eating peanuts, with blood pressure fall...",
+        "audited_problem_facts": [
+          "blood pressure fell to 82/48 mmHg"
+        ],
+        "audited_tcfr": 0.8333333333333334,
+        "char_similarity": 0.08685162846803378,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "clinical",
+        "failed_qa": [],
+        "id": "clinical_0046",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "blood pressure fell to 82/48 mmHg",
+          "intramuscular epinephrine 0.3 mg and observation for 4 hours"
+        ],
+        "original_snippet": "Samuel Ortiz, a 74-year-old postal worker from Asheville, visited North Ridge Clinic on November 26, 2025 (record MRN-710046, phone 202-555-1046, email samuel.ortiz46@example.com). He rep...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "74-year-old",
+          "postal worker"
+        ],
+        "token_f1": 0.661290322580645
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the European human rights body under a former article of a human rights convention by a national of...",
+        "audited_problem_facts": [
+          "Article 1",
+          "the demolition of a house had violated her rights to the peaceful enjoyment of her possessions and to respect for her home under Article 1 of Protocol No. 1 and Article 8 of the Convention respectively"
+        ],
+        "audited_tcfr": 0.0,
+        "char_similarity": 0.13820335636722605,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "Which substantive Article was invoked?",
+          "What core claim was raised?"
+        ],
+        "id": "legal_0018",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "Article 1",
+          "the demolition of a house had violated her rights to the peaceful enjoyment of her possessions and to respect for her home under Article 1 of Protocol No. 1 and Article 8 of the Convention respectively"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35179/97) against the Kingdom of Sweden lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25...",
+        "qa_consistency": 0.0,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.6545454545454544
+      },
+      {
+        "anonymized_snippet": "It originated in an application against a Member State lodged with the Commission under Article 25 by a national of that country, on a specified date. On a previous date, a legal represen...",
+        "audited_problem_facts": [
+          "Article 18",
+          "amounted to arbitrary and unlawful interference by the public authorities with the applicant\u2019s private and family life (Article 18 of the Constitution taken together with Articles 15 and 19 - see paragraph 23 below)"
+        ],
+        "audited_tcfr": 0.3333333333333333,
+        "char_similarity": 0.409435551811289,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "Which substantive Article was invoked?"
+        ],
+        "id": "legal_0040",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "Article 18"
+        ],
+        "original_snippet": "It originated in an application (no. 16798/90) against the Kingdom of Spain lodged with the Commission under Article 25 (art. 25) by a Spanish national, Mrs Gregoria L\u00f3pez Ostra, on 14 Ma...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.6528497409326426
+      }
+    ],
+    "high_similarity_privacy_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against a European country lodged with the European Court of Human Rights (\u201cthe Court\u201d) under former Article 25 of the Conve...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9303764827230531,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "35396/97"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0029",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against the Republic of San Marino lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Artic...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "13 January 1997",
+          "1 June 1999"
+        ],
+        "token_f1": 0.9437500000000001
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 17906/15) against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundam...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9177153920619555,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "17906/15"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0047",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 17906/15) against the Kingdom of Sweden lodged with the Court under Article 34 of the Convention for the Protection of Human Rights an...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "10 April 2015",
+          "21 May 2013"
+        ],
+        "token_f1": 0.927710843373494
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against the Country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention f...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.9184086311530681,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0005",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 24265/94) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "Northern Ireland",
+          "1976"
+        ],
+        "token_f1": 0.9166666666666666
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a State party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8653683319220999,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0025",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18015/03) against the Republic of Austria lodged with the Court under Article 34 of the Convention for the Protection of Human Rights...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "23 May 2003",
+          "resisting the exercise of official authority",
+          "4 February 1998"
+        ],
+        "token_f1": 0.9128205128205129
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 18753/04) against a State Party lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundam...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8744769874476988,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "18753/04"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0022",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18753/04) against the Republic of Turkey lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "11 February 2004"
+        ],
+        "token_f1": 0.9056603773584907
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a member state lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Freedoms...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8690575479566305,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0048",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 1497/10) against the United Kingdom of Great Britain and Northern Ireland lodged with the Court under Article 34 of the Convention for...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "23 December 2009"
+        ],
+        "token_f1": 0.9054726368159204
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 37976/06) against a country, lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundament...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8770764119601329,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "37976/06"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0008",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 37976/06) against the Republic of Poland lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "1 September 2006"
+        ],
+        "token_f1": 0.9014084507042254
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application (no. 31834/96) against a country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Conv...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.895397489539749,
+        "direct_identifier_leak": 1,
+        "direct_leaked_spans": [
+          "31834/96"
+        ],
+        "domain": "legal",
+        "failed_qa": [],
+        "id": "legal_0031",
+        "method": "generic_llm",
+        "omitted_facts": [],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 31834/96) against the Republic of Turkey lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 2...",
+        "qa_consistency": 1.0,
+        "quasi_identifier_risk": 3.0,
+        "quasi_leaked_spans": [
+          "4 June 1996"
+        ],
+        "token_f1": 0.9006622516556291
+      }
+    ],
+    "high_similarity_qa_failures": [
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application [ID] against the Kingdom of Sweden lodged with the European human rights body under former Article 25 of the Convention for the Protection...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.4098939929328622,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0018",
+        "method": "critical_span_guard_extracted",
+        "omitted_facts": [
+          "the demolition of a house had violated her rights to the peaceful enjoyment of her possessions and to respect for her home under Article 1 of Protocol No. 1 and Article 8 of the Convention respectively"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35179/97) against the Kingdom of Sweden lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.8852459016393441
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the European Court of Human Rights under former Article 25 of the Convention for the Protection of H...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8373333333333334,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0029",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "had been brought against her on the grounds that the preparatory stages of the proceedings at both first instance and on appeal had been directed by the same person, the public prosecutor had not been appointed in accordance with domestic law and there had been no public hearing either at first instance or on appeal"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 35396/97) against the Republic of San Marino lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Artic...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.8810289389067525
+      },
+      {
+        "anonymized_snippet": "The case originated in an application against a country, lodged with the Commission under Article 25 on a specified date by an individual, who complained of the proceedings which had led...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.40636704119850187,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0036",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "they had violated Article 6 \u00a7\u00a7 1 and 3 (d) (art. 6-1, art. 6-3-d) of the Convention"
+        ],
+        "original_snippet": "The case originated in an application (no. 9120/80) against the Republic of Austria, lodged with the Commission under Article 25 (art. 25) on 1 September 1980 by an Austrian citizen, Mr....",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.8212290502793296
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a European country lodged with the Court under Article 34 of the Convention for the Protection of Human Rights and Fundamental Free...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.8087615838247684,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0025",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "the conduct of proceedings for the said traffic offence violated Article 4 of Protocol No. 7, given that he had been acquitted of the offence of resisting the exercise of official authority in respect of the same act"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18015/03) against the Republic of Austria lodged with the Court under Article 34 of the Convention for the Protection of Human Rights...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 1.0,
+        "quasi_leaked_spans": [
+          "resisting the exercise of official authority"
+        ],
+        "token_f1": 0.8186528497409327
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country party to an international human rights treaty lodged with the Court under Article 34 of the Convention for the Protection...",
+        "audited_problem_facts": [
+          "a factual error made by the Court of Cassation had infringed his right of access to court, in violation of Article 6 of the Convention"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.7555555555555555,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0022",
+        "method": "privacy_first_llm",
+        "omitted_facts": [
+          "a factual error made by the Court of Cassation had infringed his right of access to court, in violation of Article 6 of the Convention"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 18753/04) against the Republic of Turkey lodged with the Court under Article 34 of the Convention for the Protection of Human Rights a...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.7901234567901235
+      },
+      {
+        "anonymized_snippet": "PROCEDURE The case originated in an application against a country lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of the Convention for the...",
+        "audited_problem_facts": [
+          "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+        ],
+        "audited_tcfr": 0.6666666666666666,
+        "char_similarity": 0.4584487534626039,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "legal",
+        "failed_qa": [
+          "What core claim was raised?"
+        ],
+        "id": "legal_0005",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "the issue of a certificate emanating from the Secretary of State, under section 42 of the Fair Employment (Northern Ireland) Act 1976"
+        ],
+        "original_snippet": "PROCEDURE The case originated in an application (no. 24265/94) against the United Kingdom lodged with the European Commission of Human Rights (\u201cthe Commission\u201d) under former Article 25 of...",
+        "qa_consistency": 0.6666666666666666,
+        "quasi_identifier_risk": 0.0,
+        "quasi_leaked_spans": [],
+        "token_f1": 0.782608695652174
+      },
+      {
+        "anonymized_snippet": "A 79-year-old long-haul driver visited a family practice clinic on a specified date. She reported sudden pleuritic chest pain and shortness of breath, with oxygen saturation at 89 percent...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.10022779043280182,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "clinical",
+        "failed_qa": [
+          "What anticoagulation plan was started?"
+        ],
+        "id": "clinical_0037",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "oxygen saturation was 89 percent on room air",
+          "apixaban 10 mg twice daily for 7 days followed by 5 mg twice daily"
+        ],
+        "original_snippet": "Grace Chen, a 79-year-old long-haul driver from Boise, visited Riverside Family Practice on February 17, 2025 (record MRN-710037, phone 202-555-1037, email grace.chen37@example.com). She...",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "79-year-old",
+          "long-haul driver"
+        ],
+        "token_f1": 0.7681159420289855
+      },
+      {
+        "anonymized_snippet": "A 27-year-old software engineer from a city in the western United States visited a local family practice clinic on a specific date. He reported sudden pleuritic chest pain and shortness o...",
+        "audited_problem_facts": [],
+        "audited_tcfr": 1.0,
+        "char_similarity": 0.10151187904967603,
+        "direct_identifier_leak": 0,
+        "direct_leaked_spans": [],
+        "domain": "clinical",
+        "failed_qa": [
+          "What anticoagulation plan was started?"
+        ],
+        "id": "clinical_0049",
+        "method": "generic_llm",
+        "omitted_facts": [
+          "oxygen saturation was 89 percent on room air",
+          "apixaban 10 mg twice daily for 7 days followed by 5 mg twice daily"
+        ],
+        "original_snippet": "Anthony Reed, a 27-year-old software engineer from Reno, visited Riverside Family Practice on February 20, 2025 (record MRN-710049, phone 202-555-1049, email anthony.reed49@example.com)....",
+        "qa_consistency": 0.5,
+        "quasi_identifier_risk": 2.0,
+        "quasi_leaked_spans": [
+          "27-year-old",
+          "software engineer"
+        ],
+        "token_f1": 0.7346938775510203
+      }
+    ]
+  },
+  "high_similarity": [
+    {
+      "any_failure_rate": 0.3466666666666667,
+      "audited_fact_failure_rate": 0.08,
+      "metric": "char_similarity",
+      "n": 75,
+      "privacy_failure_rate": 0.25333333333333335,
+      "qa_failure_rate": 0.10666666666666667,
+      "rows_with_any_failure": 26,
+      "rows_with_audited_fact_failure": 6,
+      "rows_with_privacy_failure": 19,
+      "rows_with_qa_failure": 8,
+      "rows_with_utility_failure": 9,
+      "threshold": 0.40713773495929256,
+      "utility_failure_rate": 0.12
+    },
+    {
+      "any_failure_rate": 0.37333333333333335,
+      "audited_fact_failure_rate": 0.02666666666666667,
+      "metric": "token_f1",
+      "n": 75,
+      "privacy_failure_rate": 0.29333333333333333,
+      "qa_failure_rate": 0.10666666666666667,
+      "rows_with_any_failure": 28,
+      "rows_with_audited_fact_failure": 2,
+      "rows_with_privacy_failure": 22,
+      "rows_with_qa_failure": 8,
+      "rows_with_utility_failure": 8,
+      "threshold": 0.7209936606221437,
+      "utility_failure_rate": 0.10666666666666667
+    },
+    {
+      "any_failure_rate": 0.38666666666666666,
+      "audited_fact_failure_rate": 0.02666666666666667,
+      "metric": "token_jaccard",
+      "n": 75,
+      "privacy_failure_rate": 0.30666666666666664,
+      "qa_failure_rate": 0.09333333333333334,
+      "rows_with_any_failure": 29,
+      "rows_with_audited_fact_failure": 2,
+      "rows_with_privacy_failure": 23,
+      "rows_with_qa_failure": 7,
+      "rows_with_utility_failure": 7,
+      "threshold": 0.5844725738396624,
+      "utility_failure_rate": 0.09333333333333334
+    }
+  ],
+  "n": 150
+}
