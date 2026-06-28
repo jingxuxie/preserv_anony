@@ -32,6 +32,7 @@ The current manuscript is `paper/main.tex`; `paper/main.pdf` compiles to 10 page
 | Span-level privacy recall supports the privacy claim | `results/privacy_span_recall_audit_n150.md` | `data/processed/openai_judgments_n150.jsonl` |
 | Surface overlap is an inadequate utility/privacy proxy | `results/surface_metric_audit_n150.md` | `paper/generated_surface_failure_scatter_n150.tex` |
 | Remaining CSG privacy risk is small and inspectable | `results/residual_qi_audit_n150.md` | `results/fixed_sample_manual_audit_n150.md` |
+| Fixed-subset audit and blinded-packet readiness are synchronized | `results/manual_audit_agreement_n150.md` | `results/manual_audit_agreement_n150.json` |
 | Blinded packet is ready for a second annotator | `results/second_annotator_rubric_n150.md` | `data/processed/second_annotator_packet_n150.jsonl` |
 | No-API local n200 diagnostic preserves the local/oracle frontier | `results/local_n200_diagnostic_report.md` | `results/local_n200_diagnostic_report.json` |
 | Threat model and release policy are bounded explicitly | `results/threat_model_report.md` | `results/artifact_data_statement.md` |
@@ -88,6 +89,7 @@ conda run -n preserv_anony python src/make_external_audit_report.py \
   --report results/gpt55_external_audit_comparison_fact60_privacyhard20.md \
   --model gpt-5.5
 conda run -n preserv_anony python src/make_external_audit_usage_report.py
+conda run -n preserv_anony python src/make_manual_audit_agreement_report.py
 conda run -n preserv_anony python src/verify_submission_package.py
 ```
 

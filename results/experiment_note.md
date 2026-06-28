@@ -28,7 +28,9 @@ CSG has zero measured direct leaks and much lower QI risk than generic prompting
 - n150 residual-QI audit: `results/residual_qi_audit_n150.md`
 - n150 surface metric foil: `results/surface_metric_audit_n150.md`
 - n150 fixed 30-example audit: `results/fixed_sample_manual_audit_n150.md`
+- n150 manual-audit agreement/readiness synthesis: `results/manual_audit_agreement_n150.md`
 - n150 blinded second-annotator packet: `data/processed/second_annotator_packet_n150.jsonl`
+- GPT-5.5 external audit: `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`
 - Exact provider usage for n100-to-n150 cache rows: `results/openai_api_usage_n150.md`
 - Plan/verifier status: `results/workshop_plan_compliance_audit.md`, `results/submission_verification.md`
 
@@ -50,10 +52,10 @@ This preserves the local/oracle frontier but is not a non-oracle LLM result.
 
 - Clinical examples are synthetic, not real clinical-note evidence.
 - TAB-derived legal facts are heuristic and spot-checked, not expert legal annotation.
-- Audited TCFR uses an LLM judge and needs manual examples.
+- Audited TCFR uses an LLM judge; the fixed audit and GPT-5.5 audit are supporting checks, not ground truth.
 - The deterministic safety/repair layer accounts for the measured CSG ablation gains.
 - The method is not formal anonymization, k-anonymity, differential privacy, or compliance proof.
-- The fixed audit is single-author/manual-style evidence; the second-annotator packet is prepared but not completed.
+- The fixed audit and manual-agreement report are single-author/manual-style evidence; the second-annotator packet is prepared but not completed.
 
 ## Next Steps
 

@@ -91,6 +91,9 @@ def main() -> None:
         and exists(f"results/second_annotator_form_{HEADLINE_SUFFIX}.csv")
         and exists(f"results/second_annotator_answer_key_{HEADLINE_SUFFIX}.json")
     )
+    manual_agreement_exists = exists(f"results/manual_audit_agreement_{HEADLINE_SUFFIX}.md") and exists(
+        f"results/manual_audit_agreement_{HEADLINE_SUFFIX}.json"
+    )
     fixed_audit_ok = (
         fixed_examples >= 20
         and fixed_rows >= fixed_examples * 3
@@ -200,7 +203,12 @@ def main() -> None:
             f"`results/fixed_sample_manual_audit_{HEADLINE_SUFFIX}.md` covers {fixed_examples} fixed examples "
             f"and {fixed_rows} method rows ({', '.join(f'{k}={v}' for k, v in sorted(fixed_domains.items()))}); "
             f"`results/final_qualitative_audit_{HEADLINE_SUFFIX}.md` spot-checks {manual_case_count} foreground/frontier cases; "
-            f"`data/processed/second_annotator_packet_{HEADLINE_SUFFIX}.jsonl` is ready for a blinded second pass."
+            f"`data/processed/second_annotator_packet_{HEADLINE_SUFFIX}.jsonl` is ready for a blinded second pass"
+            + (
+                f"; `results/manual_audit_agreement_{HEADLINE_SUFFIX}.md` summarizes packet readiness and reference-label consistency."
+                if manual_agreement_exists
+                else "."
+            )
         )
         if fixed_audit_ok and second_packet_exists
         else (
@@ -250,7 +258,7 @@ def main() -> None:
     lines.append("")
     if fixed_audit_ok:
         if second_packet_exists:
-            lines.append("1. Manual audit coverage now meets the workshop-plan transparent-subset target, and a blinded second-annotator packet is prepared; completed independent annotation or adjudication is still future work.")
+            lines.append("1. Manual audit coverage now meets the workshop-plan transparent-subset target, a blinded second-annotator packet is prepared, and the manual-audit agreement/readiness synthesis is current; completed independent annotation or adjudication is still future work.")
         else:
             lines.append("1. Manual audit coverage now meets the workshop-plan transparent-subset target, but it is single-author/manual-style evidence rather than independent multi-annotator agreement.")
         lines.append("2. Exact cost/latency accounting is now available for the 400 n100-to-n150 expansion/cache rows, but remains partial for the older n100 cache rows because early calls did not persist provider usage or elapsed time.")

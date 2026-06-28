@@ -186,6 +186,8 @@ REQUIRED_PATHS = [
     "paper/generated_surface_failure_scatter_n150.tex",
     "results/fixed_sample_manual_audit_n150.md",
     "results/fixed_sample_manual_audit_n150.json",
+    "results/manual_audit_agreement_n150.md",
+    "results/manual_audit_agreement_n150.json",
     "data/processed/second_annotator_packet_n150.jsonl",
     "results/second_annotator_form_n150.csv",
     "results/second_annotator_answer_key_n150.json",
@@ -1090,6 +1092,86 @@ def verify_fixed_sample_manual_audit(checks: list[Check]) -> None:
     add(checks, "Fixed-sample manual audit covers planned subset", passed, detail)
 
 
+def verify_manual_audit_agreement(checks: list[Check]) -> None:
+    payload = load_json(f"results/manual_audit_agreement_{HEADLINE_SUFFIX}.json")
+    report = read(f"results/manual_audit_agreement_{HEADLINE_SUFFIX}.md")
+    claim = read("results/paper_claim_package.md")
+    checklist = read("results/submission_checklist.md")
+
+    meta = payload.get("metadata", {})
+    subset = payload.get("fixed_subset", {})
+    method = payload.get("method_summary", {})
+    packet = payload.get("packet_readiness", {})
+    consistency = payload.get("reference_label_consistency", {})
+    csg = method.get("critical_span_guard_extracted", {})
+    generic = method.get("generic_llm", {})
+    privacy_first = method.get("privacy_first_llm", {})
+
+    consistency_ok = (
+        set(consistency) == {
+            "direct_identifier_retained",
+            "quasi_identifier_retained",
+            "audited_fact_loss",
+            "exact_qa_failure",
+            "exact_match_artifact",
+        }
+        and all(item.get("rows") == 90 and item.get("agreements") == 90 and float(item.get("agreement_rate", 0.0)) == 1.0 for item in consistency.values())
+    )
+    subset_ok = (
+        meta.get("no_api_calls") is True
+        and subset.get("examples") == 30
+        and subset.get("method_rows") == 90
+        and subset.get("domain_counts", {}).get("clinical") == 15
+        and subset.get("domain_counts", {}).get("legal") == 15
+        and set(subset.get("required_caveat_ids", {}).get("residual_qi", [])) == HEADLINE_RESIDUAL_IDS
+        and set(subset.get("required_caveat_ids", {}).get("strict_specificity", [])) == HEADLINE_STRICT_IDS
+    )
+    method_ok = (
+        csg.get("rows") == 30
+        and float(csg.get("direct_identifier_retained_rate", -1.0)) == 0.0
+        and csg.get("quasi_identifier_retained_rows") == len(HEADLINE_RESIDUAL_IDS)
+        and abs(float(csg.get("quasi_identifier_retained_rate", 0.0)) - 0.36666666666666664) < 1e-9
+        and abs(float(csg.get("audited_tcfr", 0.0)) - 0.9722222222222222) < 1e-9
+        and csg.get("audited_fact_loss_rows") == 3
+        and csg.get("exact_qa_failure_rows") == 6
+        and generic.get("direct_identifier_retained_rows") == 7
+        and abs(float(generic.get("audited_tcfr", 0.0)) - 0.8444444444444444) < 1e-9
+        and float(privacy_first.get("direct_identifier_retained_rate", -1.0)) == 0.0
+        and abs(float(privacy_first.get("audited_tcfr", 0.0)) - 0.5111111111111111) < 1e-9
+    )
+    packet_ok = (
+        packet.get("packet_rows") == 90
+        and packet.get("examples") == 30
+        and packet.get("packet_ids_match_fixed_audit") is True
+        and packet.get("complete_variant_sets") is True
+        and packet.get("answer_key_complete") is True
+        and packet.get("method_label_leak_rows") == []
+        and packet.get("completed_independent_annotations") is False
+    )
+    required_text = [
+        "not inter-rater agreement",
+        "Critical Span Guard | 30 | 0.000 | 0.367 | 0.972 | 0.100 | 0.200 | 0.133",
+        "Completed independent annotations | False",
+        "90/90",
+        "not completed independent annotation or human inter-rater agreement",
+        "Fixed-subset audit and blinded-packet readiness are synchronized",
+    ]
+    haystacks = [report, claim, checklist]
+    missing = [text for text in required_text if not any(text in haystack for haystack in haystacks)]
+    passed = subset_ok and method_ok and packet_ok and consistency_ok and not missing
+    add(
+        checks,
+        "Manual-audit agreement/readiness synthesis is synchronized",
+        passed,
+        "manual-audit synthesis has hard-subset rates, complete blinded packet checks, 90/90 reference-label consistency, and explicit no-inter-rater caveat"
+        if passed
+        else (
+            f"subset_ok={subset_ok}, method_ok={method_ok}, packet_ok={packet_ok}, consistency_ok={consistency_ok}"
+            + ("" if not missing else "; missing: " + "; ".join(missing))
+        ),
+    )
+
+
 def verify_second_annotator_packet(checks: list[Check]) -> None:
     packet = read_jsonl(f"data/processed/second_annotator_packet_{HEADLINE_SUFFIX}.jsonl")
     form = read(f"results/second_annotator_form_{HEADLINE_SUFFIX}.csv")
@@ -1182,6 +1264,7 @@ def main() -> int:
     verify_headline_full_audit_bundle(checks)
     verify_gpt55_external_audit(checks)
     verify_fixed_sample_manual_audit(checks)
+    verify_manual_audit_agreement(checks)
     verify_second_annotator_packet(checks)
     verify_cost_and_plan_audits(checks)
     write_report(checks)

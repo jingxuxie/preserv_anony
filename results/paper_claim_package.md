@@ -16,7 +16,7 @@ Core support:
 - n150 paired effects: `results/paired_delta_report_n150.md`
 - n150 residual/privacy audits: `results/residual_qi_audit_n150.md`, `results/privacy_span_recall_audit_n150.md`
 - GPT-5.5 external audits: `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`, `results/gpt55_fact_judge_results_stratified60.md`, `results/gpt55_privacy_judge_results_hard20.md`
-- n150 fixed subset audit and blinded packet: `results/fixed_sample_manual_audit_n150.md`, `data/processed/second_annotator_packet_n150.jsonl`
+- n150 fixed subset audit and blinded packet: `results/fixed_sample_manual_audit_n150.md`, `results/manual_audit_agreement_n150.md`, `data/processed/second_annotator_packet_n150.jsonl`
 - Local n200 diagnostic: `results/local_n200_diagnostic_report.md`
 - Claim boundaries: `results/threat_model_report.md`, `results/reviewer_risk_register.md`
 - Paper/verifier: `paper/main.tex`, `paper/main.pdf`, `results/submission_verification.md`
@@ -51,12 +51,25 @@ On the 20 hardest rows, the GPT-5.5 adversarial privacy audit is conservative. G
 
 External audit usage: `results/gpt55_external_audit_usage_report.md` records 240 rows, 278,291 total provider tokens, and zero missing cache rows for the GPT-5.5 audit artifacts.
 
+## Fixed-Subset Manual Audit Synthesis
+
+Use this as transparent, no-API, paper-facing audit evidence, not as completed independent annotation. The fixed subset deliberately includes all promoted CSG residual-QI and strict-specificity caveat rows, so rates below are hard-subset rates rather than population estimates.
+
+| Method | Direct rate | QI rate | Audited TCFR | Fact-loss rate | QA-fail rate |
+|---|---:|---:|---:|---:|---:|
+| Generic LLM | 0.233 | 0.833 | 0.844 | 0.567 | 0.667 |
+| Privacy-first LLM | 0.000 | 0.300 | 0.511 | 0.867 | 0.933 |
+| Critical Span Guard | 0.000 | 0.367 | 0.972 | 0.100 | 0.200 |
+
+The blinded packet has 30 examples, 90 variant rows, complete A/B/C variants, a separated answer key, and zero method-label leaks. The reference-label consistency checks are 90/90 for direct retention, QI retention, audited fact loss, exact QA failure, and exact-match artifact labels; this validates artifact synchronization but is not inter-rater agreement.
+
 ## Caveats To Keep
 
 - Clinical rows are synthetic controlled vignettes, not real clinical-note validation.
 - TAB-derived legal facts are heuristic and spot-checked, not expert legal annotation.
 - Audited TCFR is judge-assisted evidence, not ground truth.
 - The GPT-5.5 external audit is still model-assisted evidence, not expert annotation; it should be framed as judge-sensitivity and adversarial-audit stress testing.
+- The manual-audit agreement report is a cache-only synthesis of current reference labels and blinded-packet readiness, not completed independent annotation or human inter-rater agreement.
 - CSG’s deterministic safety/repair layer accounts for the measured ablation gains; do not claim the verifier prompt caused them.
 - The local n200 run is a no-API local/oracle diagnostic, not a 200-example non-oracle LLM result.
 - This work does not claim formal anonymization, k-anonymity, differential privacy, HIPAA/GDPR compliance, or adversarial linkage resistance.

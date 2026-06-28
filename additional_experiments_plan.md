@@ -27,6 +27,14 @@ The main risk is not that the results are weak. The main reviewer risks are:
 4. The method’s strongest gain comes from the deterministic safety/repair layer, so the paper should explain this honestly.
 5. The paper needs stronger evidence that results are not an artifact of one judge or one prompt style.
 
+## Execution status update, 2026-06-28
+
+- Priority A is complete on the bounded 60-example stratified subset: `results/gpt55_fact_judge_results_stratified60.md` and `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`.
+- Priority B is complete on the hard 20-example privacy subset: `results/gpt55_privacy_judge_results_hard20.md`.
+- Priority C is partially complete without new API spend: `results/manual_audit_agreement_n150.md` now summarizes the fixed 30-example audit, verifies that the blinded second-annotator packet is complete, and records reference-label consistency. It is not independent human inter-rater agreement; the next step is still to have a second annotator complete `results/second_annotator_form_n150.csv`.
+- Priority D remains optional and was not run to conserve the remaining API budget.
+- Priority E is partially complete through `results/openai_api_usage_n150.md` and `results/gpt55_external_audit_usage_report.md`; older n100 cache rows remain proxy-only.
+
 ## 2. Recommended experiment package
 
 ### Priority A — GPT-5.5 external fact-retention audit

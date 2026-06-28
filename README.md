@@ -24,6 +24,7 @@ The compiled draft is `paper/main.pdf` and is 10 pages. The package is machine-c
 - `results/residual_qi_audit_n150.md`
 - `results/surface_metric_audit_n150.md`
 - `results/fixed_sample_manual_audit_n150.md`
+- `results/manual_audit_agreement_n150.md`
 - `data/processed/second_annotator_packet_n150.jsonl`
 - `results/openai_api_usage_n150.md`
 - `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`
@@ -83,6 +84,7 @@ conda run -n preserv_anony python src/make_external_audit_report.py \
   --summary results/gpt55_external_audit_comparison_fact60_privacyhard20.json \
   --report results/gpt55_external_audit_comparison_fact60_privacyhard20.md \
   --model gpt-5.5
+conda run -n preserv_anony python src/make_manual_audit_agreement_report.py
 conda run -n preserv_anony python src/verify_submission_package.py
 ```
 

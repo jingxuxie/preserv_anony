@@ -1,0 +1,150 @@
+{
+  "fixed_subset": {
+    "domain_counts": {
+      "clinical": 15,
+      "legal": 15
+    },
+    "examples": 30,
+    "method_rows": 90,
+    "required_caveat_ids": {
+      "residual_qi": [
+        "legal_0002",
+        "legal_0005",
+        "legal_0025",
+        "legal_0042",
+        "legal_0046",
+        "legal_0053",
+        "legal_0054",
+        "legal_0055",
+        "legal_0056",
+        "legal_0062",
+        "legal_0063"
+      ],
+      "strict_specificity": [
+        "clinical_0055",
+        "clinical_0059",
+        "legal_0016"
+      ]
+    },
+    "sample_version": "n150_fixed_30_v1"
+  },
+  "metadata": {
+    "answer_key": "results/second_annotator_answer_key_n150.json",
+    "fixed_audit_json": "results/fixed_sample_manual_audit_n150.json",
+    "generated": "2026-06-28",
+    "no_api_calls": true,
+    "packet_jsonl": "data/processed/second_annotator_packet_n150.jsonl",
+    "scope": "Cache-only synthesis of the fixed manual-style audit and blinded second-annotator packet. This is not completed independent annotation or inter-rater agreement."
+  },
+  "method_summary": {
+    "critical_span_guard_extracted": {
+      "audited_fact_loss_rate": 0.1,
+      "audited_fact_loss_rows": 3,
+      "audited_tcfr": 0.9722222222222222,
+      "clean_rate": 0.13333333333333333,
+      "clean_rows": 4,
+      "direct_identifier_retained_rate": 0.0,
+      "direct_identifier_retained_rows": 0,
+      "exact_match_artifact_rate": 0.6,
+      "exact_match_artifact_rows": 18,
+      "exact_qa_failure_rate": 0.2,
+      "exact_qa_failure_rows": 6,
+      "exact_tcfr": 0.7666666666666666,
+      "qa_consistency": 0.9166666666666666,
+      "quasi_identifier_retained_rate": 0.36666666666666664,
+      "quasi_identifier_retained_rows": 11,
+      "rows": 30
+    },
+    "generic_llm": {
+      "audited_fact_loss_rate": 0.5666666666666667,
+      "audited_fact_loss_rows": 17,
+      "audited_tcfr": 0.8444444444444444,
+      "clean_rate": 0.03333333333333333,
+      "clean_rows": 1,
+      "direct_identifier_retained_rate": 0.23333333333333334,
+      "direct_identifier_retained_rows": 7,
+      "exact_match_artifact_rate": 0.6333333333333333,
+      "exact_match_artifact_rows": 19,
+      "exact_qa_failure_rate": 0.6666666666666666,
+      "exact_qa_failure_rows": 20,
+      "exact_tcfr": 0.6444444444444445,
+      "qa_consistency": 0.6888888888888889,
+      "quasi_identifier_retained_rate": 0.8333333333333334,
+      "quasi_identifier_retained_rows": 25,
+      "rows": 30
+    },
+    "privacy_first_llm": {
+      "audited_fact_loss_rate": 0.8666666666666667,
+      "audited_fact_loss_rows": 26,
+      "audited_tcfr": 0.5111111111111111,
+      "clean_rate": 0.0,
+      "clean_rows": 0,
+      "direct_identifier_retained_rate": 0.0,
+      "direct_identifier_retained_rows": 0,
+      "exact_match_artifact_rate": 0.6333333333333333,
+      "exact_match_artifact_rows": 19,
+      "exact_qa_failure_rate": 0.9333333333333333,
+      "exact_qa_failure_rows": 28,
+      "exact_tcfr": 0.3333333333333333,
+      "qa_consistency": 0.28888888888888886,
+      "quasi_identifier_retained_rate": 0.3,
+      "quasi_identifier_retained_rows": 9,
+      "rows": 30
+    }
+  },
+  "packet_readiness": {
+    "answer_key_complete": true,
+    "complete_variant_sets": true,
+    "completed_independent_annotations": false,
+    "domain_counts": {
+      "clinical": 15,
+      "legal": 15
+    },
+    "examples": 30,
+    "method_counts_in_answer_key": {
+      "critical_span_guard_extracted": 30,
+      "generic_llm": 30,
+      "privacy_first_llm": 30
+    },
+    "method_label_leak_rows": [],
+    "packet_ids_match_fixed_audit": true,
+    "packet_rows": 90
+  },
+  "paper_use_caveats": [
+    "The fixed subset is enriched for difficult and caveat rows, so subset rates are not population estimates.",
+    "The second-annotator packet is ready and blinded, but no independent annotation has been completed.",
+    "Reference-label consistency checks validate artifact synchronization, not human inter-rater reliability."
+  ],
+  "reference_label_consistency": {
+    "audited_fact_loss": {
+      "agreement_rate": 1.0,
+      "agreements": 90,
+      "positive_rows": 46,
+      "rows": 90
+    },
+    "direct_identifier_retained": {
+      "agreement_rate": 1.0,
+      "agreements": 90,
+      "positive_rows": 7,
+      "rows": 90
+    },
+    "exact_match_artifact": {
+      "agreement_rate": 1.0,
+      "agreements": 90,
+      "positive_rows": 56,
+      "rows": 90
+    },
+    "exact_qa_failure": {
+      "agreement_rate": 1.0,
+      "agreements": 90,
+      "positive_rows": 54,
+      "rows": 90
+    },
+    "quasi_identifier_retained": {
+      "agreement_rate": 1.0,
+      "agreements": 90,
+      "positive_rows": 45,
+      "rows": 90
+    }
+  }
+}
