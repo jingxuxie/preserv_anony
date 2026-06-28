@@ -16,6 +16,7 @@ Core support:
 - n150 paired effects: `results/paired_delta_report_n150.md`
 - n150 residual/privacy audits: `results/residual_qi_audit_n150.md`, `results/privacy_span_recall_audit_n150.md`
 - GPT-5.5 external audits: `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`, `results/gpt55_fact_judge_results_stratified60.md`, `results/gpt55_privacy_judge_results_hard20.md`
+- GPT-5.5 anonymization speed screen: `results/gpt55_model_upgrade_report_n9.md`
 - n150 fixed subset audit and blinded packet: `results/fixed_sample_manual_audit_n150.md`, `results/manual_audit_agreement_n150.md`, `data/processed/second_annotator_packet_n150.jsonl`
 - Local n200 diagnostic: `results/local_n200_diagnostic_report.md`
 - Claim boundaries: `results/threat_model_report.md`, `results/reviewer_risk_register.md`
@@ -51,6 +52,18 @@ On the 20 hardest rows, the GPT-5.5 adversarial privacy audit is conservative. G
 
 External audit usage: `results/gpt55_external_audit_usage_report.md` records 240 rows, 278,291 total provider tokens, and zero missing cache rows for the GPT-5.5 audit artifacts.
 
+## GPT-5.5 Model-Upgrade Speed Screen
+
+Use this only as reviewer-risk triage. On a deliberately small 9-example stress subset selected from the GPT-5.5 external-audit IDs, GPT-5.5 generic prompting removes measured direct leaks relative to the current low-cost generic outputs, but it does not erase the method tradeoff.
+
+| Method | Current direct | GPT-5.5 direct | Current audited TCFR | GPT-5.5 audited TCFR |
+|---|---:|---:|---:|---:|
+| Generic LLM | 0.667 | 0.000 | 0.852 | 0.815 |
+| Privacy-first LLM | 0.000 | 0.000 | 0.389 | 0.333 |
+| Critical Span Guard | 0.000 | 0.000 | 0.870 | 0.852 |
+
+This supports a conservative claim: stronger generic prompting can reduce obvious leakage on a small stress subset, but privacy-first still loses substantial utility and CSG remains the best observed audited-TCFR corner in the speed screen. Do not present this as a model-scaling result without the planned 30-example follow-up.
+
 ## Fixed-Subset Manual Audit Synthesis
 
 Use this as transparent, no-API, paper-facing audit evidence, not as completed independent annotation. The fixed subset deliberately includes all promoted CSG residual-QI and strict-specificity caveat rows, so rates below are hard-subset rates rather than population estimates.
@@ -69,6 +82,7 @@ The blinded packet has 30 examples, 90 variant rows, complete A/B/C variants, a 
 - TAB-derived legal facts are heuristic and spot-checked, not expert legal annotation.
 - Audited TCFR is judge-assisted evidence, not ground truth.
 - The GPT-5.5 external audit is still model-assisted evidence, not expert annotation; it should be framed as judge-sensitivity and adversarial-audit stress testing.
+- The GPT-5.5 model-upgrade anonymization result is a 9-example speed screen, not evidence that stronger models generally solve or fail to solve the task-aware anonymization problem.
 - The manual-audit agreement report is a cache-only synthesis of current reference labels and blinded-packet readiness, not completed independent annotation or human inter-rater agreement.
 - CSG’s deterministic safety/repair layer accounts for the measured ablation gains; do not claim the verifier prompt caused them.
 - The local n200 run is a no-API local/oracle diagnostic, not a 200-example non-oracle LLM result.

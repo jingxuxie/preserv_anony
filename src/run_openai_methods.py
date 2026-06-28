@@ -322,6 +322,28 @@ def select_examples(examples: list[dict], max_examples: int, seed: int) -> list[
     return selected[:max_examples]
 
 
+def load_ids(path: str | None) -> list[str] | None:
+    if not path:
+        return None
+    ids: list[str] = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            value = line.strip()
+            if value:
+                ids.append(value)
+    return ids
+
+
+def select_examples_by_ids(examples: list[dict], ids: list[str]) -> list[dict]:
+    by_id = {example["id"]: example for example in examples}
+    missing = [example_id for example_id in ids if example_id not in by_id]
+    if missing:
+        raise ValueError(f"--ids-file contains ids not present in benchmark: {missing[:10]}")
+    if len(set(ids)) != len(ids):
+        raise ValueError("--ids-file contains duplicate ids")
+    return [by_id[example_id] for example_id in ids]
+
+
 def prompt_for(method: str, example: dict) -> str:
     if method == "generic_llm":
         return GENERIC_PROMPT.format(text=example["text"])
@@ -587,7 +609,11 @@ def run(args: argparse.Namespace) -> None:
     api_key = "" if args.cache_only else load_key(args.api_key_file)
     model = args.model if args.cache_only else choose_model(api_key, args.model)
     examples = read_jsonl(args.benchmark)
-    examples = select_examples(examples, args.max_examples, args.seed)
+    keep_ids = load_ids(args.ids_file)
+    if keep_ids is not None:
+        examples = select_examples_by_ids(examples, keep_ids)
+    else:
+        examples = select_examples(examples, args.max_examples, args.seed)
     cache = load_cache(args.cache)
     rows = []
     calls = 0
@@ -644,6 +670,7 @@ def main() -> None:
     parser.add_argument("--api-key-file", default="/home/eston/colm_workshop/apikey.txt")
     parser.add_argument("--model", default="auto")
     parser.add_argument("--max-examples", type=int, default=8)
+    parser.add_argument("--ids-file", default=None, help="optional newline-delimited example ids to anonymize")
     parser.add_argument("--seed", type=int, default=21)
     parser.add_argument("--max-tokens", type=int, default=700)
     parser.add_argument("--cache-only", action="store_true", help="rebuild from cache and fail instead of making API calls")

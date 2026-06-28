@@ -45,6 +45,14 @@ GPT55_TOTAL_TOKENS = 278291
 GPT55_PROMPT_TOKENS = 160845
 GPT55_COMPLETION_TOKENS = 117446
 GPT55_REASONING_TOKENS = 44335
+GPT55_MODEL_UPGRADE_IDS = 9
+GPT55_MODEL_UPGRADE_ROWS = 27
+GPT55_MODEL_UPGRADE_SUCCESSFUL_CACHE_ROWS = 72
+GPT55_MODEL_UPGRADE_PROMPT_TOKENS = 48289
+GPT55_MODEL_UPGRADE_COMPLETION_TOKENS = 33979
+GPT55_MODEL_UPGRADE_REASONING_TOKENS = 14742
+GPT55_MODEL_UPGRADE_TOTAL_TOKENS = 82268
+GPT55_MODEL_UPGRADE_UNCACHED_FAILED_CALLS = 3
 
 METHODS = [
     ("generic_llm", "Generic LLM"),
@@ -211,6 +219,19 @@ REQUIRED_PATHS = [
     "results/gpt55_external_audit_comparison_fact60_privacyhard20.md",
     "results/gpt55_external_audit_usage_report.json",
     "results/gpt55_external_audit_usage_report.md",
+    "data/processed/gpt55_model_upgrade_ids_n9.txt",
+    "data/processed/gpt55_model_upgrade_subset_n9.jsonl",
+    "data/processed/gpt55_model_upgrade_outputs_n9.jsonl",
+    "data/processed/gpt55_model_upgrade_judgments_n9.jsonl",
+    "data/processed/gpt55_model_upgrade_fact_judgments_n9.jsonl",
+    "results/gpt55_model_upgrade_subset_n9.json",
+    "results/gpt55_model_upgrade_subset_n9.md",
+    "results/gpt55_model_upgrade_summary_n9.json",
+    "results/gpt55_model_upgrade_results_n9.md",
+    "results/gpt55_model_upgrade_fact_summary_n9.json",
+    "results/gpt55_model_upgrade_fact_results_n9.md",
+    "results/gpt55_model_upgrade_report_n9.json",
+    "results/gpt55_model_upgrade_report_n9.md",
     "data/processed/benchmark.jsonl",
     "data/processed/openai_anonymized_outputs.jsonl",
     "data/processed/openai_anonymized_outputs_n70.jsonl",
@@ -1046,6 +1067,100 @@ def verify_gpt55_external_audit(checks: list[Check]) -> None:
     )
 
 
+def verify_gpt55_model_upgrade_screen(checks: list[Check]) -> None:
+    ids = [
+        line.strip()
+        for line in Path("data/processed/gpt55_model_upgrade_ids_n9.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    subset = read_jsonl("data/processed/gpt55_model_upgrade_subset_n9.jsonl")
+    outputs = read_jsonl("data/processed/gpt55_model_upgrade_outputs_n9.jsonl")
+    scored = read_jsonl("data/processed/gpt55_model_upgrade_judgments_n9.jsonl")
+    fact = read_jsonl("data/processed/gpt55_model_upgrade_fact_judgments_n9.jsonl")
+    summary = load_json("results/gpt55_model_upgrade_summary_n9.json")
+    fact_summary = load_json("results/gpt55_model_upgrade_fact_summary_n9.json")
+    report_json = load_json("results/gpt55_model_upgrade_report_n9.json")
+    report = read("results/gpt55_model_upgrade_report_n9.md")
+    claim = read("results/paper_claim_package.md")
+    checklist = read("results/submission_checklist.md")
+
+    output_counts: dict[str, int] = defaultdict(int)
+    scored_counts: dict[str, int] = defaultdict(int)
+    fact_counts: dict[str, int] = defaultdict(int)
+    for row in outputs:
+        output_counts[row["method"]] += 1
+    for row in scored:
+        scored_counts[row["method"]] += 1
+    for row in fact:
+        fact_counts[row["method"]] += 1
+
+    counts_ok = (
+        len(ids) == GPT55_MODEL_UPGRADE_IDS
+        and len(set(ids)) == GPT55_MODEL_UPGRADE_IDS
+        and len(subset) == GPT55_MODEL_UPGRADE_IDS
+        and {row["id"] for row in subset} == set(ids)
+        and len(outputs) == GPT55_MODEL_UPGRADE_ROWS
+        and len(scored) == GPT55_MODEL_UPGRADE_ROWS
+        and len(fact) == GPT55_MODEL_UPGRADE_ROWS
+        and all(output_counts[method] == GPT55_MODEL_UPGRADE_IDS for method, _label in METHODS)
+        and all(scored_counts[method] == GPT55_MODEL_UPGRADE_IDS for method, _label in METHODS)
+        and all(fact_counts[method] == GPT55_MODEL_UPGRADE_IDS for method, _label in METHODS)
+    )
+    subset_ok = (
+        {row.get("screen_bucket") for row in subset} == {"hard", "clinical", "legal"}
+        and any("CSG audited fact loss" in row.get("selection_reasons", []) for row in subset)
+        and any("residual CSG QI risk" in row.get("selection_reasons", []) for row in subset)
+        and any("high privacy-utility stress score" in row.get("selection_reasons", []) for row in subset)
+    )
+    current = report_json["current"]
+    upgraded = report_json["upgraded"]
+    usage = report_json["provider_usage"]
+    metrics_ok = (
+        abs(float(current["generic_llm"]["direct_identifier_leak"]) - 0.6666666666666666) < 1e-9
+        and float(upgraded["generic_llm"]["direct_identifier_leak"]) == 0.0
+        and abs(float(upgraded["generic_llm"]["audited_tcfr"]) - 0.8148148148148149) < 1e-9
+        and abs(float(upgraded["privacy_first_llm"]["audited_tcfr"]) - 0.3333333333333333) < 1e-9
+        and abs(float(upgraded["critical_span_guard_extracted"]["audited_tcfr"]) - 0.8518518518518519) < 1e-9
+        and float(upgraded["critical_span_guard_extracted"]["audited_tcfr"]) > float(upgraded["generic_llm"]["audited_tcfr"])
+        and float(upgraded["generic_llm"]["audited_tcfr"]) > float(upgraded["privacy_first_llm"]["audited_tcfr"])
+        and abs(float(summary["overall"]["generic_llm"]["direct_identifier_leak"]["mean"]) - 0.0) < 1e-9
+        and abs(float(fact_summary["overall"]["critical_span_guard_extracted"]["audited_tcfr"]) - 0.8518518518518519) < 1e-9
+    )
+    usage_ok = (
+        usage["successful_cached_calls"]["rows"] == GPT55_MODEL_UPGRADE_SUCCESSFUL_CACHE_ROWS
+        and usage["successful_cached_calls"]["prompt_tokens"] == GPT55_MODEL_UPGRADE_PROMPT_TOKENS
+        and usage["successful_cached_calls"]["completion_tokens"] == GPT55_MODEL_UPGRADE_COMPLETION_TOKENS
+        and usage["successful_cached_calls"]["reasoning_tokens"] == GPT55_MODEL_UPGRADE_REASONING_TOKENS
+        and usage["successful_cached_calls"]["total_tokens"] == GPT55_MODEL_UPGRADE_TOTAL_TOKENS
+        and usage["uncached_failed_calls"] == GPT55_MODEL_UPGRADE_UNCACHED_FAILED_CALLS
+        and usage["total_call_attempts_including_uncached_failures"] == GPT55_MODEL_UPGRADE_SUCCESSFUL_CACHE_ROWS + GPT55_MODEL_UPGRADE_UNCACHED_FAILED_CALLS
+    )
+    required_text = [
+        "0.667",
+        "0.815",
+        "0.852",
+        "82,268",
+        "speed screen",
+        "full 30-example",
+        "Stronger generic prompting removes measured direct leaks",
+        "GPT-5.5 anonymization speed screen probes stronger generic prompting",
+    ]
+    haystacks = [report, claim, checklist]
+    missing = [text for text in required_text if not any(text in haystack for haystack in haystacks)]
+    passed = counts_ok and subset_ok and metrics_ok and usage_ok and not missing
+    add(
+        checks,
+        "GPT-5.5 model-upgrade speed screen is synchronized",
+        passed,
+        "n9 stronger-model anonymization screen has expected counts, CSG/generic/privacy-first ranking, usage totals, and speed-screen caveat"
+        if passed
+        else (
+            f"counts_ok={counts_ok}, subset_ok={subset_ok}, metrics_ok={metrics_ok}, usage_ok={usage_ok}"
+            + ("" if not missing else "; missing: " + "; ".join(missing))
+        ),
+    )
+
+
 def verify_fixed_sample_manual_audit(checks: list[Check]) -> None:
     payload = load_json(f"results/fixed_sample_manual_audit_{HEADLINE_SUFFIX}.json")
     report = read(f"results/fixed_sample_manual_audit_{HEADLINE_SUFFIX}.md")
@@ -1263,6 +1378,7 @@ def main() -> int:
     verify_openai_headline_expansion(checks)
     verify_headline_full_audit_bundle(checks)
     verify_gpt55_external_audit(checks)
+    verify_gpt55_model_upgrade_screen(checks)
     verify_fixed_sample_manual_audit(checks)
     verify_manual_audit_agreement(checks)
     verify_second_annotator_packet(checks)

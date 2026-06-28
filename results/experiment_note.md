@@ -31,6 +31,7 @@ CSG has zero measured direct leaks and much lower QI risk than generic prompting
 - n150 manual-audit agreement/readiness synthesis: `results/manual_audit_agreement_n150.md`
 - n150 blinded second-annotator packet: `data/processed/second_annotator_packet_n150.jsonl`
 - GPT-5.5 external audit: `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`
+- GPT-5.5 model-upgrade speed screen: `results/gpt55_model_upgrade_report_n9.md`
 - Exact provider usage for n100-to-n150 cache rows: `results/openai_api_usage_n150.md`
 - Plan/verifier status: `results/workshop_plan_compliance_audit.md`, `results/submission_verification.md`
 
@@ -48,11 +49,16 @@ From `results/local_n200_diagnostic_report.md`:
 
 This preserves the local/oracle frontier but is not a non-oracle LLM result.
 
+## Model-Upgrade Screen
+
+`results/gpt55_model_upgrade_report_n9.md` is a bounded 9-example GPT-5.5 anonymization speed screen. It shows stronger generic prompting removed measured direct leaks on the selected stress subset, while privacy-first still had low GPT-5.5-audited TCFR and CSG retained the best audited TCFR. Do not treat this as a full model-scaling result; the planned 30-example follow-up remains open.
+
 ## Conservative Claims
 
 - Clinical examples are synthetic, not real clinical-note evidence.
 - TAB-derived legal facts are heuristic and spot-checked, not expert legal annotation.
 - Audited TCFR uses an LLM judge; the fixed audit and GPT-5.5 audit are supporting checks, not ground truth.
+- The GPT-5.5 model-upgrade screen is small stress-subset triage, not a replacement for the promoted n150 result.
 - The deterministic safety/repair layer accounts for the measured CSG ablation gains.
 - The method is not formal anonymization, k-anonymity, differential privacy, or compliance proof.
 - The fixed audit and manual-agreement report are single-author/manual-style evidence; the second-annotator packet is prepared but not completed.
@@ -60,5 +66,6 @@ This preserves the local/oracle frontier but is not a non-oracle LLM result.
 ## Next Steps
 
 1. Have a second annotator complete `results/second_annotator_form_n150.csv`.
-2. If expanding beyond n150, rerun all n150 support artifacts and the verifier.
-3. If changing legal policy from strict to generalized claims, rerun the residual-QI audit and update the paper caveats.
+2. Run the planned 30-example GPT-5.5 model-upgrade anonymization check if budget allows.
+3. If expanding beyond n150, rerun all n150 support artifacts and the verifier.
+4. If changing legal policy from strict to generalized claims, rerun the residual-QI audit and update the paper caveats.

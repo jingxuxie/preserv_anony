@@ -26,6 +26,7 @@ The current manuscript is `paper/main.tex`; `paper/main.pdf` compiles to 10 page
 | n100-to-n150 expansion preserves the qualitative pattern | `results/openai_expansion_stability_n150.md` | `results/openai_api_usage_n150.md` |
 | GPT-5.5 fact audit preserves the utility ranking under a stricter judge | `results/gpt55_external_audit_comparison_fact60_privacyhard20.md` | `data/processed/gpt55_fact_judgments_stratified60.jsonl` |
 | GPT-5.5 adversarial privacy audit exposes the residual frontier | `results/gpt55_privacy_judge_results_hard20.md` | `data/processed/gpt55_privacy_judgments_hard20.jsonl` |
+| GPT-5.5 anonymization speed screen probes stronger generic prompting | `results/gpt55_model_upgrade_report_n9.md` | `data/processed/gpt55_model_upgrade_outputs_n9.jsonl` |
 | Privacy-utility frontier figure is synchronized | `paper/generated_privacy_utility_frontier.tex` | `results/openai_summary_n150.json` |
 | Safety/repair layer accounts for measured CSG gains | `results/csg_ablation_table_n150.md` | `data/processed/csg_ablation_judgments_n150.jsonl` |
 | Paired examples show privacy gains over generic and utility gains over privacy-first | `results/paired_delta_report_n150.md` | `results/paired_delta_report_n150.json` |
@@ -90,6 +91,7 @@ conda run -n preserv_anony python src/make_external_audit_report.py \
   --model gpt-5.5
 conda run -n preserv_anony python src/make_external_audit_usage_report.py
 conda run -n preserv_anony python src/make_manual_audit_agreement_report.py
+conda run -n preserv_anony python src/make_model_upgrade_report.py
 conda run -n preserv_anony python src/verify_submission_package.py
 ```
 

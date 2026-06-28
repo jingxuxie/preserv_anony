@@ -121,6 +121,7 @@ def main() -> None:
         and headline_usage.get("usage_rows") == 400
         and headline_usage.get("cache_coverage", {}).get("missing_response_slots") == 0
     )
+    model_upgrade_exists = exists("results/gpt55_model_upgrade_report_n9.md")
 
     rows: list[list[str]] = []
     add(
@@ -139,6 +140,7 @@ def main() -> None:
             + ", ".join(f"{k}={v}" for k, v in sorted(domains.items()))
             + "; `data/processed/benchmark_n200_local.jsonl` has a no-API local diagnostic expansion with 200 rows "
             + f"(clinical={local_n200.get('domain_counts', {}).get('clinical', 'missing')}, legal={local_n200.get('domain_counts', {}).get('legal', 'missing')})."
+            + (" `results/gpt55_model_upgrade_report_n9.md` adds a bounded stronger-model speed screen." if model_upgrade_exists else "")
         ),
         "For a long paper, expand the non-oracle LLM headline toward 300-500 examples; the local n200 diagnostic supports sample-size sensitivity but does not replace a larger non-oracle run.",
     )
@@ -262,12 +264,12 @@ def main() -> None:
         else:
             lines.append("1. Manual audit coverage now meets the workshop-plan transparent-subset target, but it is single-author/manual-style evidence rather than independent multi-annotator agreement.")
         lines.append("2. Exact cost/latency accounting is now available for the 400 n100-to-n150 expansion/cache rows, but remains partial for the older n100 cache rows because early calls did not persist provider usage or elapsed time.")
-        lines.append("3. The promoted n150 non-oracle headline and local n200 diagnostic improve sample-size sensitivity, but the non-oracle headline is still below the 300-500 example stronger-study target.")
+        lines.append("3. The promoted n150 non-oracle headline, local n200 diagnostic, and n9 GPT-5.5 model-upgrade screen improve sensitivity analysis, but the non-oracle headline is still below the 300-500 example stronger-study target and the full 30-example model-upgrade check remains open.")
         lines.append("4. The surface-similarity scatter now strengthens RQ2; if page pressure increases, move it to an appendix rather than dropping the underlying audit.")
     else:
         lines.append("1. Manual audit coverage is the main remaining weakness: the current n150 qualitative audit is high-signal but still single-author/manual-style evidence.")
         lines.append("2. Exact cost/latency accounting is now available for the 400 n100-to-n150 expansion/cache rows, but remains partial for the older n100 cache rows because early calls did not persist provider usage or elapsed time.")
-        lines.append("3. The promoted n150 non-oracle headline and local n200 diagnostic improve sample-size sensitivity, but the non-oracle headline is still below the 300-500 example stronger-study target.")
+        lines.append("3. The promoted n150 non-oracle headline, local n200 diagnostic, and n9 GPT-5.5 model-upgrade screen improve sensitivity analysis, but the non-oracle headline is still below the 300-500 example stronger-study target and the full 30-example model-upgrade check remains open.")
         lines.append("4. A separate semantic-similarity scatter figure is optional but would strengthen RQ2 if page space allows.")
     lines.append("")
 

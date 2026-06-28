@@ -1,0 +1,20 @@
+{
+  "by_domain": {
+    "clinical": 3,
+    "legal": 6
+  },
+  "by_screen_bucket": {
+    "clinical": 3,
+    "hard": 3,
+    "legal": 3
+  },
+  "mean_hard_score": 9.764942549699253,
+  "n": 9,
+  "reason_counts": {
+    "CSG audited fact loss": 1,
+    "clinical stratified sample": 2,
+    "generic direct identifier leak": 6,
+    "high privacy-utility stress score": 1,
+    "residual CSG QI risk": 1
+  }
+}

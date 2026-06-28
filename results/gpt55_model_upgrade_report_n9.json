@@ -1,0 +1,388 @@
+{
+  "by_domain": {
+    "current": {
+      "clinical": {
+        "critical_span_guard_extracted": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.7777777777777778,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.6666666666666666,
+          "n": 3,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 0.0
+        },
+        "generic_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.8888888888888888,
+          "direct_identifier_leak": 0.3333333333333333,
+          "exact_tcfr": 0.7222222222222223,
+          "n": 3,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 2.3333333333333335
+        },
+        "privacy_first_llm": {
+          "audited_ccr": 0.05555555555555555,
+          "audited_tcfr": 0.1111111111111111,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.05555555555555555,
+          "n": 3,
+          "qa_consistency": 0.0,
+          "quasi_identifier_risk": 0.6666666666666666
+        }
+      },
+      "legal": {
+        "critical_span_guard_extracted": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.9166666666666666,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 1.0,
+          "n": 6,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 0.16666666666666666
+        },
+        "generic_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.8333333333333334,
+          "direct_identifier_leak": 0.8333333333333334,
+          "exact_tcfr": 0.8333333333333334,
+          "n": 6,
+          "qa_consistency": 0.8333333333333334,
+          "quasi_identifier_risk": 3.0
+        },
+        "privacy_first_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.5277777777777778,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.5555555555555555,
+          "n": 6,
+          "qa_consistency": 0.5555555555555555,
+          "quasi_identifier_risk": 0.0
+        }
+      }
+    },
+    "upgraded": {
+      "clinical": {
+        "critical_span_guard_extracted": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.888888888888889,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.8333333333333334,
+          "n": 3,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 0.0
+        },
+        "generic_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.888888888888889,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.7777777777777778,
+          "n": 3,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 0.6666666666666666
+        },
+        "privacy_first_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.6666666666666666,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.611111111111111,
+          "n": 3,
+          "qa_consistency": 1.0,
+          "quasi_identifier_risk": 0.0
+        }
+      },
+      "legal": {
+        "critical_span_guard_extracted": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.8333333333333334,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.8333333333333334,
+          "n": 6,
+          "qa_consistency": 0.8333333333333334,
+          "quasi_identifier_risk": 0.8333333333333334
+        },
+        "generic_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.7777777777777777,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.8611111111111112,
+          "n": 6,
+          "qa_consistency": 0.8611111111111112,
+          "quasi_identifier_risk": 0.0
+        },
+        "privacy_first_llm": {
+          "audited_ccr": 0.0,
+          "audited_tcfr": 0.16666666666666666,
+          "direct_identifier_leak": 0.0,
+          "exact_tcfr": 0.19444444444444442,
+          "n": 6,
+          "qa_consistency": 0.19444444444444442,
+          "quasi_identifier_risk": 0.0
+        }
+      }
+    }
+  },
+  "current": {
+    "critical_span_guard_extracted": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.8703703703703703,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": 0.8888888888888888,
+      "n": 9,
+      "qa_consistency": 1.0,
+      "quasi_identifier_risk": 0.1111111111111111
+    },
+    "generic_llm": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.8518518518518517,
+      "direct_identifier_leak": 0.6666666666666666,
+      "exact_tcfr": 0.7962962962962963,
+      "n": 9,
+      "qa_consistency": 0.8888888888888888,
+      "quasi_identifier_risk": 2.7777777777777777
+    },
+    "privacy_first_llm": {
+      "audited_ccr": 0.018518518518518517,
+      "audited_tcfr": 0.3888888888888889,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": 0.3888888888888889,
+      "n": 9,
+      "qa_consistency": 0.37037037037037035,
+      "quasi_identifier_risk": 0.2222222222222222
+    }
+  },
+  "delta_upgraded_minus_current": {
+    "critical_span_guard_extracted": {
+      "audited_tcfr": -0.01851851851851849,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": -0.05555555555555547,
+      "qa_consistency": -0.11111111111111116,
+      "quasi_identifier_risk": 0.4444444444444445
+    },
+    "generic_llm": {
+      "audited_tcfr": -0.03703703703703687,
+      "direct_identifier_leak": -0.6666666666666666,
+      "exact_tcfr": 0.03703703703703709,
+      "qa_consistency": 0.018518518518518712,
+      "quasi_identifier_risk": -2.5555555555555554
+    },
+    "privacy_first_llm": {
+      "audited_tcfr": -0.05555555555555558,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": -0.05555555555555558,
+      "qa_consistency": 0.09259259259259267,
+      "quasi_identifier_risk": -0.2222222222222222
+    }
+  },
+  "interpretation": [
+    "Stronger generic prompting removes measured direct leaks on this subset; larger validation is needed before changing the main claim.",
+    "Privacy-first prompting still preserves less audited task-critical content than CSG under the GPT-5.5 judge.",
+    "CSG remains on the best observed privacy-utility corner for this bounded stronger-model screen.",
+    "Treat this as a speed screen only; the planned full model-upgrade check remains 30 examples."
+  ],
+  "metadata": {
+    "current_outputs": "gpt-4.1-nano promoted n150 outputs",
+    "fact_judge": "gpt-5.5 for both current and upgraded outputs",
+    "generated": "2026-06-28",
+    "ids_file": "data/processed/gpt55_model_upgrade_ids_n9.txt",
+    "scope": "Bounded GPT-5.5 anonymization sanity check on a 9-example stress subset. Not a replacement for the promoted n150 headline or a full 30-example model-upgrade study.",
+    "subset_manifest": "data/processed/gpt55_model_upgrade_subset_n9.jsonl",
+    "upgraded_outputs": "gpt-5.5 pilot outputs"
+  },
+  "provider_usage": {
+    "anonymization": {
+      "completion_tokens": 21240,
+      "elapsed_ms": 349374.13921399275,
+      "prompt_tokens": 28107,
+      "reasoning_tokens": 9831,
+      "rows": 45,
+      "total_tokens": 49347
+    },
+    "successful_cached_calls": {
+      "completion_tokens": 33979,
+      "elapsed_ms": 537103.6379499856,
+      "prompt_tokens": 48289,
+      "reasoning_tokens": 14742,
+      "rows": 72,
+      "total_tokens": 82268
+    },
+    "total_call_attempts_including_uncached_failures": 75,
+    "uncached_failed_calls": 3,
+    "upgraded_fact_judge": {
+      "completion_tokens": 12739,
+      "elapsed_ms": 187729.49873599282,
+      "prompt_tokens": 20182,
+      "reasoning_tokens": 4911,
+      "rows": 27,
+      "total_tokens": 32921
+    }
+  },
+  "subset": {
+    "ids": [
+      "legal_0016",
+      "legal_0053",
+      "legal_0037",
+      "clinical_0011",
+      "clinical_0030",
+      "clinical_0060",
+      "legal_0004",
+      "legal_0022",
+      "legal_0029"
+    ],
+    "manifest_rows": [
+      {
+        "bucket": "hard",
+        "domain": "legal",
+        "hard_score": 5.7936507936507935,
+        "id": "legal_0016",
+        "model_upgrade_rank": 1,
+        "rank": 7,
+        "screen_bucket": "hard",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "CSG audited fact loss"
+        ]
+      },
+      {
+        "bucket": "hard",
+        "domain": "legal",
+        "hard_score": 11.876923076923077,
+        "id": "legal_0053",
+        "model_upgrade_rank": 2,
+        "rank": 1,
+        "screen_bucket": "hard",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak",
+          "residual CSG QI risk"
+        ]
+      },
+      {
+        "bucket": "hard",
+        "domain": "legal",
+        "hard_score": 13.386363636363637,
+        "id": "legal_0037",
+        "model_upgrade_rank": 3,
+        "rank": 15,
+        "screen_bucket": "hard",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak",
+          "high privacy-utility stress score"
+        ]
+      },
+      {
+        "bucket": "clinical",
+        "domain": "clinical",
+        "hard_score": 11.619718309859154,
+        "id": "clinical_0011",
+        "model_upgrade_rank": 4,
+        "rank": 39,
+        "screen_bucket": "clinical",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak"
+        ]
+      },
+      {
+        "bucket": "clinical",
+        "domain": "clinical",
+        "hard_score": 6.076271186440678,
+        "id": "clinical_0030",
+        "model_upgrade_rank": 5,
+        "rank": 35,
+        "screen_bucket": "clinical",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "clinical stratified sample"
+        ]
+      },
+      {
+        "bucket": "clinical",
+        "domain": "clinical",
+        "hard_score": 5.636363636363638,
+        "id": "clinical_0060",
+        "model_upgrade_rank": 6,
+        "rank": 38,
+        "screen_bucket": "clinical",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "clinical stratified sample"
+        ]
+      },
+      {
+        "bucket": "legal",
+        "domain": "legal",
+        "hard_score": 11.8125,
+        "id": "legal_0004",
+        "model_upgrade_rank": 7,
+        "rank": 42,
+        "screen_bucket": "legal",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak"
+        ]
+      },
+      {
+        "bucket": "legal",
+        "domain": "legal",
+        "hard_score": 11.307692307692308,
+        "id": "legal_0022",
+        "model_upgrade_rank": 8,
+        "rank": 43,
+        "screen_bucket": "legal",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak"
+        ]
+      },
+      {
+        "bucket": "legal",
+        "domain": "legal",
+        "hard_score": 10.375,
+        "id": "legal_0029",
+        "model_upgrade_rank": 9,
+        "rank": 44,
+        "screen_bucket": "legal",
+        "selection_note": "Selected from the existing GPT-5.5 external-audit subset for a bounded stronger-model anonymization screen.",
+        "selection_reasons": [
+          "generic direct identifier leak"
+        ]
+      }
+    ],
+    "n": 9,
+    "planned_paid_calls_if_cold": {
+      "anonymization": 45,
+      "total": 72,
+      "upgraded_fact_judge": 27
+    }
+  },
+  "upgraded": {
+    "critical_span_guard_extracted": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.8518518518518519,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": 0.8333333333333334,
+      "n": 9,
+      "qa_consistency": 0.8888888888888888,
+      "quasi_identifier_risk": 0.5555555555555556
+    },
+    "generic_llm": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.8148148148148149,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": 0.8333333333333334,
+      "n": 9,
+      "qa_consistency": 0.9074074074074076,
+      "quasi_identifier_risk": 0.2222222222222222
+    },
+    "privacy_first_llm": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.3333333333333333,
+      "direct_identifier_leak": 0.0,
+      "exact_tcfr": 0.3333333333333333,
+      "n": 9,
+      "qa_consistency": 0.462962962962963,
+      "quasi_identifier_risk": 0.0
+    }
+  }
+}

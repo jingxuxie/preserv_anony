@@ -31,6 +31,7 @@ The compiled draft is `paper/main.pdf` and is 10 pages. The package is machine-c
 - `results/gpt55_fact_judge_results_stratified60.md`
 - `results/gpt55_privacy_judge_results_hard20.md`
 - `results/gpt55_external_audit_usage_report.md`
+- `results/gpt55_model_upgrade_report_n9.md`
 - `results/local_n200_diagnostic_report.md`
 - `results/submission_verification.md`
 - `results/paper_claim_package.md`
@@ -85,6 +86,7 @@ conda run -n preserv_anony python src/make_external_audit_report.py \
   --report results/gpt55_external_audit_comparison_fact60_privacyhard20.md \
   --model gpt-5.5
 conda run -n preserv_anony python src/make_manual_audit_agreement_report.py
+conda run -n preserv_anony python src/make_model_upgrade_report.py
 conda run -n preserv_anony python src/verify_submission_package.py
 ```
 

@@ -2,11 +2,11 @@
 
 Generated: 2026-06-28
 
-Passed 23/23 checks.
+Passed 24/24 checks.
 
 | Check | Status | Detail |
 |---|---|---|
-| Required paper artifacts exist | PASS | 160 required artifacts present |
+| Required paper artifacts exist | PASS | 173 required artifacts present |
 | Main result numbers match JSON summaries | PASS | all n150 main table values found in paper and combined table |
 | Privacy-utility figure matches JSON summaries | PASS | figure coordinates and manuscript reference are synchronized |
 | n100 expansion stability check is synchronized | PASS | n100 stability report matches JSON summaries; added CSG direct rows=0 |
@@ -25,6 +25,7 @@ Passed 23/23 checks.
 | OpenAI n150 headline expansion is bounded and cached | PASS | n150 headline has 150 examples, stable non-oracle pattern, 1200/1200 cached slots, and exact usage for 400 n100-to-n150 cache rows |
 | n150 full audit bundle is promotable with caveats | PASS | n150 ablation, residual-QI audit, span recall, paired deltas, fixed audit, and blinded packet are synchronized |
 | GPT-5.5 external audit bundle is synchronized | PASS | 60-id fact audit, hard20 privacy audit, comparison report, usage report, and manuscript/claim text are synchronized |
+| GPT-5.5 model-upgrade speed screen is synchronized | PASS | n9 stronger-model anonymization screen has expected counts, CSG/generic/privacy-first ranking, usage totals, and speed-screen caveat |
 | Fixed-sample manual audit covers planned subset | PASS | fixed 30-example audit covers 90 method rows, all caveat ids, and expected CSG caveat counts |
 | Manual-audit agreement/readiness synthesis is synchronized | PASS | manual-audit synthesis has hard-subset rates, complete blinded packet checks, 90/90 reference-label consistency, and explicit no-inter-rater caveat |
 | Second-annotator packet is blinded and complete | PASS | blinded second-annotator packet has 30 examples, 90 variant rows, complete answer key, and no method-label leakage |
