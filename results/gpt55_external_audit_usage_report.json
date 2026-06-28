@@ -1,0 +1,148 @@
+{
+  "fact_audit": {
+    "by_output_method": {
+      "critical_span_guard_extracted": {
+        "completion_tokens": 23011,
+        "elapsed_seconds": 300.011311199989,
+        "prompt_tokens": 46615,
+        "reasoning_tokens": 6388,
+        "rows": 60,
+        "total_tokens": 69626
+      },
+      "generic_llm": {
+        "completion_tokens": 22349,
+        "elapsed_seconds": 288.24817903000803,
+        "prompt_tokens": 45600,
+        "reasoning_tokens": 6015,
+        "rows": 60,
+        "total_tokens": 67949
+      },
+      "privacy_first_llm": {
+        "completion_tokens": 29081,
+        "elapsed_seconds": 379.10840379101137,
+        "prompt_tokens": 44494,
+        "reasoning_tokens": 11145,
+        "rows": 60,
+        "total_tokens": 73575
+      }
+    },
+    "by_stage": {
+      "fact_retention_judge": {
+        "completion_tokens": 74441,
+        "elapsed_seconds": 967.3678940210084,
+        "prompt_tokens": 136709,
+        "reasoning_tokens": 23548,
+        "rows": 180,
+        "total_tokens": 211150
+      }
+    },
+    "completion_tokens": 74441,
+    "elapsed_ms": 967367.8940210084,
+    "prompt_tokens": 136709,
+    "reasoning_tokens": 23548,
+    "rows": 180,
+    "total_tokens": 211150
+  },
+  "fact_judgments": "data/processed/gpt55_fact_judgments_stratified60.jsonl",
+  "generated": "2026-06-28",
+  "missing_fact_cache_rows": [],
+  "missing_privacy_cache_rows": [],
+  "model": "gpt-5.5",
+  "privacy_audit": {
+    "by_output_method": {
+      "critical_span_guard_extracted": {
+        "completion_tokens": 15538,
+        "elapsed_seconds": 242.35949749300198,
+        "prompt_tokens": 8261,
+        "reasoning_tokens": 8103,
+        "rows": 20,
+        "total_tokens": 23799
+      },
+      "generic_llm": {
+        "completion_tokens": 15431,
+        "elapsed_seconds": 225.8506147319713,
+        "prompt_tokens": 8159,
+        "reasoning_tokens": 6400,
+        "rows": 20,
+        "total_tokens": 23590
+      },
+      "privacy_first_llm": {
+        "completion_tokens": 12036,
+        "elapsed_seconds": 188.88838545401813,
+        "prompt_tokens": 7716,
+        "reasoning_tokens": 6284,
+        "rows": 20,
+        "total_tokens": 19752
+      }
+    },
+    "by_stage": {
+      "adversarial_privacy_judge": {
+        "completion_tokens": 43005,
+        "elapsed_seconds": 657.0984976789914,
+        "prompt_tokens": 24136,
+        "reasoning_tokens": 20787,
+        "rows": 60,
+        "total_tokens": 67141
+      }
+    },
+    "completion_tokens": 43005,
+    "elapsed_ms": 657098.4976789914,
+    "prompt_tokens": 24136,
+    "reasoning_tokens": 20787,
+    "rows": 60,
+    "total_tokens": 67141
+  },
+  "privacy_judgments": "data/processed/gpt55_privacy_judgments_hard20.jsonl",
+  "total": {
+    "by_output_method": {
+      "critical_span_guard_extracted": {
+        "completion_tokens": 38549,
+        "elapsed_seconds": 542.3708086929909,
+        "prompt_tokens": 54876,
+        "reasoning_tokens": 14491,
+        "rows": 80,
+        "total_tokens": 93425
+      },
+      "generic_llm": {
+        "completion_tokens": 37780,
+        "elapsed_seconds": 514.0987937619793,
+        "prompt_tokens": 53759,
+        "reasoning_tokens": 12415,
+        "rows": 80,
+        "total_tokens": 91539
+      },
+      "privacy_first_llm": {
+        "completion_tokens": 41117,
+        "elapsed_seconds": 567.9967892450294,
+        "prompt_tokens": 52210,
+        "reasoning_tokens": 17429,
+        "rows": 80,
+        "total_tokens": 93327
+      }
+    },
+    "by_stage": {
+      "adversarial_privacy_judge": {
+        "completion_tokens": 43005,
+        "elapsed_seconds": 657.0984976789914,
+        "prompt_tokens": 24136,
+        "reasoning_tokens": 20787,
+        "rows": 60,
+        "total_tokens": 67141
+      },
+      "fact_retention_judge": {
+        "completion_tokens": 74441,
+        "elapsed_seconds": 967.3678940210084,
+        "prompt_tokens": 136709,
+        "reasoning_tokens": 23548,
+        "rows": 180,
+        "total_tokens": 211150
+      }
+    },
+    "completion_tokens": 117446,
+    "elapsed_ms": 1624466.3917,
+    "prompt_tokens": 160845,
+    "reasoning_tokens": 44335,
+    "rows": 240,
+    "total_tokens": 278291
+  }
+}

@@ -189,13 +189,20 @@ def choose_model(api_key: str, requested: str) -> str:
     raise RuntimeError("could not find a preferred low-cost model in /v1/models")
 
 
+def uses_max_completion_tokens(model: str) -> bool:
+    model_name = model.lower()
+    return model_name.startswith("gpt-5") or model_name.startswith("o")
+
+
 def chat_completion(api_key: str, model: str, prompt: str, max_tokens: int, json_mode: bool = False) -> tuple[str, dict, float]:
     payload = {
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0,
-        "max_tokens": max_tokens,
     }
+    if not uses_max_completion_tokens(model):
+        payload["temperature"] = 0
+    token_key = "max_completion_tokens" if uses_max_completion_tokens(model) else "max_tokens"
+    payload[token_key] = max_tokens
     if json_mode:
         payload["response_format"] = {"type": "json_object"}
     last_error = None
@@ -269,8 +276,10 @@ def cached_completion(
     last_json_error = None
     usage: dict = {}
     elapsed_ms = 0.0
+    last_text = ""
     for _ in range(3 if json_mode else 1):
         text, usage, elapsed_ms = chat_completion(api_key, model, prompt, max_tokens, json_mode=json_mode)
+        last_text = text
         if not json_mode:
             break
         try:
@@ -279,7 +288,10 @@ def cached_completion(
         except (json.JSONDecodeError, ValueError) as exc:
             last_json_error = exc
     else:
-        raise RuntimeError(f"OpenAI returned invalid JSON for {example_id} {method}: {last_json_error}")
+        excerpt = repr(last_text[:300])
+        raise RuntimeError(
+            f"OpenAI returned invalid JSON for {example_id} {method}: {last_json_error}; response_excerpt={excerpt}"
+        )
     row = {
         "cache_key": key,
         "model": model,

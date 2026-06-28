@@ -1,0 +1,55 @@
+{
+  "by_domain": {
+    "clinical": {
+      "critical_span_guard_extracted": {
+        "audited_ccr": 0.0,
+        "audited_tcfr": 0.8939393939393938,
+        "n": 22
+      },
+      "generic_llm": {
+        "audited_ccr": 0.0,
+        "audited_tcfr": 0.8333333333333331,
+        "n": 22
+      },
+      "privacy_first_llm": {
+        "audited_ccr": 0.03787878787878787,
+        "audited_tcfr": 0.3560606060606061,
+        "n": 22
+      }
+    },
+    "legal": {
+      "critical_span_guard_extracted": {
+        "audited_ccr": 0.0,
+        "audited_tcfr": 0.9298245614035089,
+        "n": 38
+      },
+      "generic_llm": {
+        "audited_ccr": 0.0,
+        "audited_tcfr": 0.8991228070175438,
+        "n": 38
+      },
+      "privacy_first_llm": {
+        "audited_ccr": 0.0,
+        "audited_tcfr": 0.5570175438596492,
+        "n": 38
+      }
+    }
+  },
+  "overall": {
+    "critical_span_guard_extracted": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.9166666666666665,
+      "n": 60
+    },
+    "generic_llm": {
+      "audited_ccr": 0.0,
+      "audited_tcfr": 0.8749999999999999,
+      "n": 60
+    },
+    "privacy_first_llm": {
+      "audited_ccr": 0.013888888888888888,
+      "audited_tcfr": 0.48333333333333334,
+      "n": 60
+    }
+  }
+}

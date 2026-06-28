@@ -370,6 +370,23 @@ important caveat: \method{} is slightly worse than privacy-first prompting on
 legal QI risk because it intentionally preserves some legal facts that overlap
 with quasi-identifying content.
 
+To test judge dependence, we also ran an external GPT-5.5 fact-retention audit
+on a stratified 60-example subset containing all residual CSG QI rows, all
+strict CSG audited-loss rows, and additional high-stress cases.  The stronger
+judge is stricter than the original low-cost judge but preserves the ranking:
+audited \tcfr{} is 0.917 for \method{}, 0.875 for generic prompting, and 0.483
+for privacy-first prompting.  Fact-label agreement with the original audit is
+0.912, 0.935, and 0.833 respectively, with most disagreements caused by strict
+clinical numeric or legal specificity.  A GPT-5.5 adversarial privacy audit on
+the 20 hardest rows is similarly conservative: generic prompting has direct
+privacy flags on 60\% of rows, \method{} on 5\%, and privacy-first prompting on
+0\%, but privacy-first is the same method that loses most task-critical facts.
+We treat these external audits as robustness checks, not as expert annotation.
+
+Figure~\ref{fig:frontier} summarizes the main privacy--utility frontier: the
+task-aware protocol moves toward lower QI risk without collapsing audited
+fact retention.
+
 \input{generated_privacy_utility_frontier}
 
 \begin{table}[t]
@@ -453,7 +470,9 @@ privacy-first oracle nearly eliminates measured QI risk but loses more than
 half of task-critical facts.  The CSG oracle indicates that a gold-informed
 version of task-aware anonymization can preserve utility while substantially
 reducing QI risk, though it remains an upper-bound diagnostic rather than a
-deployable system.
+deployable system.  The domain split explains the overall Presidio row:
+Presidio's legal direct-leak rate is 0.980, while its clinical \tcfr{} is only
+0.445 under exact matching.
 
 \begin{table}[t]
 \centering

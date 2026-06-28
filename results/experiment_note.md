@@ -6,7 +6,7 @@ Date: 2026-06-28
 
 The promoted paper package is now the 150-example non-oracle OpenAI run: 75 synthetic clinical vignettes and 75 TAB-derived legal snippets. The earlier 50-, 70-, 100-, and 120-example OpenAI runs remain audit trail; the 200-example run is a no-API local/oracle diagnostic only.
 
-`paper/main.pdf` compiles to 6 pages under the local COLM submission style.
+`paper/main.pdf` compiles to 10 pages under the local COLM submission style.
 
 ## Main Non-Oracle Result
 

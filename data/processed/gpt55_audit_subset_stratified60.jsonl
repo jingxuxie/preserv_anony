@@ -1,0 +1,60 @@
+{"bucket": "hard", "domain": "legal", "hard_score": 11.876923076923077, "id": "legal_0053", "rank": 1, "selection_reasons": ["generic direct identifier leak", "residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 11.808823529411764, "id": "legal_0062", "rank": 2, "selection_reasons": ["generic direct identifier leak", "residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 10.338709677419354, "id": "legal_0055", "rank": 3, "selection_reasons": ["generic direct identifier leak", "residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 6.791044776119403, "id": "legal_0002", "rank": 4, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 6.333333333333333, "id": "legal_0054", "rank": 5, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 6.318181818181818, "id": "legal_0005", "rank": 6, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 5.7936507936507935, "id": "legal_0016", "rank": 7, "selection_reasons": ["CSG audited fact loss"]}
+{"bucket": "hard", "domain": "clinical", "hard_score": 5.615384615384617, "id": "clinical_0055", "rank": 8, "selection_reasons": ["CSG audited fact loss"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 5.357142857142857, "id": "legal_0025", "rank": 9, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 5.276595744680851, "id": "legal_0056", "rank": 10, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "clinical", "hard_score": 4.720720720720721, "id": "clinical_0059", "rank": 11, "selection_reasons": ["CSG audited fact loss"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 4.297297297297297, "id": "legal_0046", "rank": 12, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 3.2571428571428576, "id": "legal_0063", "rank": 13, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 2.2540983606557377, "id": "legal_0042", "rank": 14, "selection_reasons": ["residual CSG QI risk"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.386363636363637, "id": "legal_0037", "rank": 15, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.333333333333334, "id": "legal_0043", "rank": 16, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.323529411764707, "id": "legal_0066", "rank": 17, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.295918367346939, "id": "legal_0072", "rank": 18, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.290697674418604, "id": "legal_0064", "rank": 19, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "hard", "domain": "legal", "hard_score": 13.287234042553191, "id": "legal_0021", "rank": 20, "selection_reasons": ["generic direct identifier leak", "high privacy-utility stress score"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.546875000000001, "id": "clinical_0009", "rank": 21, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 4.596774193548387, "id": "clinical_0034", "rank": 22, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.083333333333333, "id": "clinical_0035", "rank": 23, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.583333333333334, "id": "clinical_0041", "rank": 24, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.109375, "id": "clinical_0043", "rank": 25, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.587301587301588, "id": "clinical_0051", "rank": 26, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 3.593220338983051, "id": "clinical_0002", "rank": 27, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 3.593220338983051, "id": "clinical_0026", "rank": 28, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 3.5737704918032787, "id": "clinical_0050", "rank": 29, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 3.593220338983051, "id": "clinical_0074", "rank": 30, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.087301587301587, "id": "clinical_0070", "rank": 31, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.119718309859155, "id": "clinical_0029", "rank": 32, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 4.583333333333333, "id": "clinical_0014", "rank": 33, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 4.075342465753424, "id": "clinical_0047", "rank": 34, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 6.076271186440678, "id": "clinical_0030", "rank": 35, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.078125, "id": "clinical_0073", "rank": 36, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.609375000000001, "id": "clinical_0007", "rank": 37, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.636363636363638, "id": "clinical_0060", "rank": 38, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 11.619718309859154, "id": "clinical_0011", "rank": 39, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "clinical", "domain": "clinical", "hard_score": 5.622950819672132, "id": "clinical_0021", "rank": 40, "selection_reasons": ["clinical stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 10.31132075471698, "id": "legal_0001", "rank": 41, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 11.8125, "id": "legal_0004", "rank": 42, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 11.307692307692308, "id": "legal_0022", "rank": 43, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 10.375, "id": "legal_0029", "rank": 44, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 4.815384615384615, "id": "legal_0048", "rank": 45, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 10.26923076923077, "id": "legal_0049", "rank": 46, "selection_reasons": ["generic direct identifier leak"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 2.2391304347826084, "id": "legal_0007", "rank": 47, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 3.7199999999999998, "id": "legal_0020", "rank": 48, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 2.193877551020408, "id": "legal_0023", "rank": 49, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 2.26, "id": "legal_0024", "rank": 50, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 3.5918367346938775, "id": "legal_0034", "rank": 51, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 2.746268656716418, "id": "legal_0068", "rank": 52, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.7450980392156863, "id": "legal_0000", "rank": 53, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.6666666666666666, "id": "legal_0050", "rank": 54, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.8, "id": "legal_0052", "rank": 55, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.7647058823529411, "id": "legal_0057", "rank": 56, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.7368421052631579, "id": "legal_0059", "rank": 57, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.8133333333333334, "id": "legal_0061", "rank": 58, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 0.7142857142857143, "id": "legal_0044", "rank": 59, "selection_reasons": ["legal stratified sample"]}
+{"bucket": "legal", "domain": "legal", "hard_score": 5.214285714285714, "id": "legal_0074", "rank": 60, "selection_reasons": ["legal stratified sample"]}

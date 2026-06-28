@@ -270,6 +270,18 @@ def summarize(rows: list[dict]) -> dict:
     return summary
 
 
+def load_ids(path: str | None) -> set[str] | None:
+    if not path:
+        return None
+    keep: set[str] = set()
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            value = line.strip()
+            if value:
+                keep.add(value)
+    return keep
+
+
 def markdown_report(summary: dict) -> str:
     lines = ["# LLM-Audited Fact Retention", ""]
     lines.append("Means over example-method rows. Uses gold facts for evaluation only.")
@@ -301,6 +313,12 @@ def run(args: argparse.Namespace) -> None:
     model = args.model if args.cache_only else choose_model(api_key, args.model)
     examples = {row["id"]: row for row in read_jsonl(args.benchmark)}
     outputs = read_jsonl(args.outputs)
+    keep_ids = load_ids(args.ids_file)
+    if keep_ids is not None:
+        missing = sorted(keep_ids - set(examples))
+        if missing:
+            raise ValueError(f"--ids-file contains ids not present in benchmark: {missing[:10]}")
+        outputs = [row for row in outputs if row["id"] in keep_ids]
     if args.methods:
         methods = set(args.methods)
         outputs = [row for row in outputs if row["method"] in methods]
@@ -344,6 +362,7 @@ def main() -> None:
     parser.add_argument("--model", default="auto")
     parser.add_argument("--max-tokens", type=int, default=1200)
     parser.add_argument("--methods", nargs="*", default=None)
+    parser.add_argument("--ids-file", default=None, help="optional newline-delimited example ids to judge")
     parser.add_argument("--cache-only", action="store_true", help="rebuild from cache and fail instead of making API calls")
     args = parser.parse_args()
     run(args)

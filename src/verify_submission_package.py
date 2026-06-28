@@ -37,6 +37,14 @@ HEADLINE_RESIDUAL_IDS = {
     "legal_0063",
 }
 HEADLINE_STRICT_IDS = {"clinical_0055", "clinical_0059", "legal_0016"}
+GPT55_FACT_ROWS = 180
+GPT55_PRIVACY_ROWS = 60
+GPT55_AUDIT_IDS = 60
+GPT55_PRIVACY_IDS = 20
+GPT55_TOTAL_TOKENS = 278291
+GPT55_PROMPT_TOKENS = 160845
+GPT55_COMPLETION_TOKENS = 117446
+GPT55_REASONING_TOKENS = 44335
 
 METHODS = [
     ("generic_llm", "Generic LLM"),
@@ -184,6 +192,23 @@ REQUIRED_PATHS = [
     "results/second_annotator_rubric_n150.md",
     "results/workshop_plan_compliance_audit.md",
     "results/submission_checklist.md",
+    "data/processed/gpt55_audit_ids_60.txt",
+    "data/processed/gpt55_audit_subset_stratified60.jsonl",
+    "data/processed/gpt55_fact_judgments_stratified60.jsonl",
+    "data/processed/gpt55_privacy_ids_hard20.txt",
+    "data/processed/gpt55_privacy_judgments_hard20.jsonl",
+    "results/gpt55_audit_subset_stratified60.json",
+    "results/gpt55_audit_subset_stratified60.md",
+    "results/gpt55_fact_judge_summary_stratified60.json",
+    "results/gpt55_fact_judge_results_stratified60.md",
+    "results/gpt55_privacy_judge_summary_hard20.json",
+    "results/gpt55_privacy_judge_results_hard20.md",
+    "results/gpt55_external_audit_comparison_stratified60.json",
+    "results/gpt55_external_audit_comparison_stratified60.md",
+    "results/gpt55_external_audit_comparison_fact60_privacyhard20.json",
+    "results/gpt55_external_audit_comparison_fact60_privacyhard20.md",
+    "results/gpt55_external_audit_usage_report.json",
+    "results/gpt55_external_audit_usage_report.md",
     "data/processed/benchmark.jsonl",
     "data/processed/openai_anonymized_outputs.jsonl",
     "data/processed/openai_anonymized_outputs_n70.jsonl",
@@ -919,6 +944,106 @@ def verify_headline_full_audit_bundle(checks: list[Check]) -> None:
     )
 
 
+def verify_gpt55_external_audit(checks: list[Check]) -> None:
+    ids = [line.strip() for line in Path("data/processed/gpt55_audit_ids_60.txt").read_text(encoding="utf-8").splitlines() if line.strip()]
+    privacy_ids = [
+        line.strip()
+        for line in Path("data/processed/gpt55_privacy_ids_hard20.txt").read_text(encoding="utf-8").splitlines()
+        if line.strip()
+    ]
+    manifest = read_jsonl("data/processed/gpt55_audit_subset_stratified60.jsonl")
+    fact_rows = read_jsonl("data/processed/gpt55_fact_judgments_stratified60.jsonl")
+    privacy_rows = read_jsonl("data/processed/gpt55_privacy_judgments_hard20.jsonl")
+    fact_summary = load_json("results/gpt55_fact_judge_summary_stratified60.json")
+    privacy_summary = load_json("results/gpt55_privacy_judge_summary_hard20.json")
+    comparison = load_json("results/gpt55_external_audit_comparison_fact60_privacyhard20.json")
+    usage = load_json("results/gpt55_external_audit_usage_report.json")
+    paper = read("paper/main.tex")
+    claim = read("results/paper_claim_package.md")
+    report = read("results/gpt55_external_audit_comparison_fact60_privacyhard20.md")
+    usage_report = read("results/gpt55_external_audit_usage_report.md")
+
+    fact_counts: dict[str, int] = defaultdict(int)
+    privacy_counts: dict[str, int] = defaultdict(int)
+    for row in fact_rows:
+        fact_counts[row["method"]] += 1
+    for row in privacy_rows:
+        privacy_counts[row["method"]] += 1
+    manifest_ids = {row["id"] for row in manifest}
+    hard_ids = {row["id"] for row in manifest if row.get("bucket") == "hard"}
+
+    counts_ok = (
+        len(ids) == GPT55_AUDIT_IDS
+        and len(set(ids)) == GPT55_AUDIT_IDS
+        and len(manifest) == GPT55_AUDIT_IDS
+        and set(ids) == manifest_ids
+        and HEADLINE_RESIDUAL_IDS.issubset(manifest_ids)
+        and HEADLINE_STRICT_IDS.issubset(manifest_ids)
+        and len(privacy_ids) == GPT55_PRIVACY_IDS
+        and len(set(privacy_ids)) == GPT55_PRIVACY_IDS
+        and set(privacy_ids) == hard_ids
+        and len(fact_rows) == GPT55_FACT_ROWS
+        and len(privacy_rows) == GPT55_PRIVACY_ROWS
+        and all(fact_counts[method] == GPT55_AUDIT_IDS for method, _label in METHODS)
+        and all(privacy_counts[method] == GPT55_PRIVACY_IDS for method, _label in METHODS)
+    )
+
+    fact = comparison["fact_retention"]["overall"]
+    privacy = comparison["privacy"]
+    fact_ok = (
+        abs(float(fact_summary["overall"]["critical_span_guard_extracted"]["audited_tcfr"]) - 0.9166666666666665) < 1e-9
+        and abs(float(fact_summary["overall"]["generic_llm"]["audited_tcfr"]) - 0.8749999999999999) < 1e-9
+        and abs(float(fact_summary["overall"]["privacy_first_llm"]["audited_tcfr"]) - 0.4833333333333334) < 1e-9
+        and float(fact["critical_span_guard_extracted"]["external_audited_tcfr"]) > float(fact["generic_llm"]["external_audited_tcfr"])
+        and float(fact["generic_llm"]["external_audited_tcfr"]) > float(fact["privacy_first_llm"]["external_audited_tcfr"])
+        and abs(float(fact["critical_span_guard_extracted"]["fact_label_agreement"]) - 0.9120370370370371) < 1e-9
+    )
+    privacy_ok = (
+        abs(float(privacy_summary["overall"]["critical_span_guard_extracted"]["direct_flag_rate"]) - 0.05) < 1e-9
+        and abs(float(privacy_summary["overall"]["generic_llm"]["direct_flag_rate"]) - 0.6) < 1e-9
+        and float(privacy_summary["overall"]["privacy_first_llm"]["direct_flag_rate"]) == 0.0
+        and abs(float(privacy["critical_span_guard_extracted"]["severe_flag_rate"]) - 0.9) < 1e-9
+        and float(privacy["generic_llm"]["severe_flag_rate"]) == 1.0
+        and abs(float(privacy["privacy_first_llm"]["severe_flag_rate"]) - 0.7) < 1e-9
+    )
+    usage_ok = (
+        not usage.get("missing_fact_cache_rows")
+        and not usage.get("missing_privacy_cache_rows")
+        and usage["fact_audit"]["rows"] == GPT55_FACT_ROWS
+        and usage["privacy_audit"]["rows"] == GPT55_PRIVACY_ROWS
+        and usage["total"]["rows"] == GPT55_FACT_ROWS + GPT55_PRIVACY_ROWS
+        and usage["total"]["prompt_tokens"] == GPT55_PROMPT_TOKENS
+        and usage["total"]["completion_tokens"] == GPT55_COMPLETION_TOKENS
+        and usage["total"]["reasoning_tokens"] == GPT55_REASONING_TOKENS
+        and usage["total"]["total_tokens"] == GPT55_TOTAL_TOKENS
+    )
+    required_text = [
+        "0.917",
+        "0.875",
+        "0.483",
+        "0.912",
+        "60\\%",
+        "5\\%",
+        "0\\%",
+        "model-assisted evidence, not expert annotation",
+        "278,291",
+    ]
+    haystacks = [paper, claim, report, usage_report]
+    missing = [text for text in required_text if not any(text in haystack for haystack in haystacks)]
+    passed = counts_ok and fact_ok and privacy_ok and usage_ok and not missing
+    add(
+        checks,
+        "GPT-5.5 external audit bundle is synchronized",
+        passed,
+        "60-id fact audit, hard20 privacy audit, comparison report, usage report, and manuscript/claim text are synchronized"
+        if passed
+        else (
+            f"counts_ok={counts_ok}, fact_ok={fact_ok}, privacy_ok={privacy_ok}, usage_ok={usage_ok}"
+            + ("" if not missing else "; missing: " + "; ".join(missing))
+        ),
+    )
+
+
 def verify_fixed_sample_manual_audit(checks: list[Check]) -> None:
     payload = load_json(f"results/fixed_sample_manual_audit_{HEADLINE_SUFFIX}.json")
     report = read(f"results/fixed_sample_manual_audit_{HEADLINE_SUFFIX}.md")
@@ -1055,6 +1180,7 @@ def main() -> int:
     verify_local_n200_diagnostic(checks)
     verify_openai_headline_expansion(checks)
     verify_headline_full_audit_bundle(checks)
+    verify_gpt55_external_audit(checks)
     verify_fixed_sample_manual_audit(checks)
     verify_second_annotator_packet(checks)
     verify_cost_and_plan_audits(checks)

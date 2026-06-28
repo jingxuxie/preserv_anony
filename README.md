@@ -12,7 +12,7 @@ The promoted non-oracle OpenAI run is `n150`: 75 synthetic clinical vignettes an
 | Privacy-first LLM | 0.000 | 0.573 | 0.398 | 0.529 | 0.414 |
 | Critical Span Guard | 0.000 | 0.127 | 0.884 | 0.994 | 0.974 |
 
-The compiled draft is `paper/main.pdf` and is 6 pages. The package is machine-checked by `src/verify_submission_package.py`.
+The compiled draft is `paper/main.pdf` and is 10 pages. The package is machine-checked by `src/verify_submission_package.py`.
 
 ## Key Artifacts
 
@@ -26,6 +26,10 @@ The compiled draft is `paper/main.pdf` and is 6 pages. The package is machine-ch
 - `results/fixed_sample_manual_audit_n150.md`
 - `data/processed/second_annotator_packet_n150.jsonl`
 - `results/openai_api_usage_n150.md`
+- `results/gpt55_external_audit_comparison_fact60_privacyhard20.md`
+- `results/gpt55_fact_judge_results_stratified60.md`
+- `results/gpt55_privacy_judge_results_hard20.md`
+- `results/gpt55_external_audit_usage_report.md`
 - `results/local_n200_diagnostic_report.md`
 - `results/submission_verification.md`
 - `results/paper_claim_package.md`
@@ -56,6 +60,29 @@ conda run -n preserv_anony python src/run_fact_judge.py \
   --summary results/openai_fact_judge_summary_n150.json \
   --report results/openai_fact_judge_results_n150.md \
   --cache-only
+conda run -n preserv_anony python src/run_fact_judge.py \
+  --benchmark data/processed/benchmark_n150_llm.jsonl \
+  --model gpt-5.5 \
+  --outputs data/processed/openai_anonymized_outputs_n150.jsonl \
+  --ids-file data/processed/gpt55_audit_ids_60.txt \
+  --out data/processed/gpt55_fact_judgments_stratified60.jsonl \
+  --summary results/gpt55_fact_judge_summary_stratified60.json \
+  --report results/gpt55_fact_judge_results_stratified60.md \
+  --max-tokens 1600 \
+  --cache-only
+conda run -n preserv_anony python src/run_privacy_judge.py \
+  --model gpt-5.5 \
+  --ids-file data/processed/gpt55_privacy_ids_hard20.txt \
+  --out data/processed/gpt55_privacy_judgments_hard20.jsonl \
+  --summary results/gpt55_privacy_judge_summary_hard20.json \
+  --report results/gpt55_privacy_judge_results_hard20.md \
+  --max-tokens 1800 \
+  --cache-only
+conda run -n preserv_anony python src/make_external_audit_report.py \
+  --privacy-judgments data/processed/gpt55_privacy_judgments_hard20.jsonl \
+  --summary results/gpt55_external_audit_comparison_fact60_privacyhard20.json \
+  --report results/gpt55_external_audit_comparison_fact60_privacyhard20.md \
+  --model gpt-5.5
 conda run -n preserv_anony python src/verify_submission_package.py
 ```
 

@@ -1,0 +1,82 @@
+{
+  "by_domain": {
+    "clinical": {
+      "critical_span_guard_extracted": {
+        "direct_flag_rate": 0.0,
+        "mean_max_severity": 2.0,
+        "n": 2,
+        "new_severe_beyond_deterministic_rate": 1.0,
+        "qi_flag_rate": 1.0,
+        "severe_flag_rate": 1.0
+      },
+      "generic_llm": {
+        "direct_flag_rate": 0.0,
+        "mean_max_severity": 3.0,
+        "n": 2,
+        "new_severe_beyond_deterministic_rate": 0.0,
+        "qi_flag_rate": 1.0,
+        "severe_flag_rate": 1.0
+      },
+      "privacy_first_llm": {
+        "direct_flag_rate": 0.0,
+        "mean_max_severity": 2.0,
+        "n": 2,
+        "new_severe_beyond_deterministic_rate": 0.5,
+        "qi_flag_rate": 0.5,
+        "severe_flag_rate": 0.5
+      }
+    },
+    "legal": {
+      "critical_span_guard_extracted": {
+        "direct_flag_rate": 0.05555555555555555,
+        "mean_max_severity": 2.4444444444444446,
+        "n": 18,
+        "new_severe_beyond_deterministic_rate": 0.6666666666666666,
+        "qi_flag_rate": 0.8888888888888888,
+        "severe_flag_rate": 0.8888888888888888
+      },
+      "generic_llm": {
+        "direct_flag_rate": 0.6666666666666666,
+        "mean_max_severity": 2.7777777777777777,
+        "n": 18,
+        "new_severe_beyond_deterministic_rate": 0.3333333333333333,
+        "qi_flag_rate": 1.0,
+        "severe_flag_rate": 1.0
+      },
+      "privacy_first_llm": {
+        "direct_flag_rate": 0.0,
+        "mean_max_severity": 1.7777777777777777,
+        "n": 18,
+        "new_severe_beyond_deterministic_rate": 0.6666666666666666,
+        "qi_flag_rate": 0.7222222222222222,
+        "severe_flag_rate": 0.7222222222222222
+      }
+    }
+  },
+  "overall": {
+    "critical_span_guard_extracted": {
+      "direct_flag_rate": 0.05,
+      "mean_max_severity": 2.4,
+      "n": 20,
+      "new_severe_beyond_deterministic_rate": 0.7,
+      "qi_flag_rate": 0.9,
+      "severe_flag_rate": 0.9
+    },
+    "generic_llm": {
+      "direct_flag_rate": 0.6,
+      "mean_max_severity": 2.8,
+      "n": 20,
+      "new_severe_beyond_deterministic_rate": 0.3,
+      "qi_flag_rate": 1.0,
+      "severe_flag_rate": 1.0
+    },
+    "privacy_first_llm": {
+      "direct_flag_rate": 0.0,
+      "mean_max_severity": 1.8,
+      "n": 20,
+      "new_severe_beyond_deterministic_rate": 0.65,
+      "qi_flag_rate": 0.7,
+      "severe_flag_rate": 0.7
+    }
+  }
+}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{13}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,6 +11,13 @@ Franck Dernoncourt, Ji~Young Lee, Ozlem Uzuner, and Peter Szolovits.
 \newblock {De-identification of Patient Notes with Recurrent Neural Networks},
   2016.
 \newblock URL \url{https://arxiv.org/abs/1606.03475}.
+
+\bibitem[Dwork et~al.(2006)Dwork, McSherry, Nissim, and
+  Smith]{dwork2006calibrating}
+Cynthia Dwork, Frank McSherry, Kobbi Nissim, and Adam Smith.
+\newblock {Calibrating Noise to Sensitivity in Private Data Analysis}.
+\newblock In \emph{Theory of Cryptography Conference}, pp.\  265--284, 2006.
+\newblock \doi{10.1007/11681878_14}.
 
 \bibitem[Kr{\v{c}}o et~al.(2026)Kr{\v{c}}o, Yao, Meeus, and
   de~Montjoye]{krco2026ratbench}
@@ -32,13 +39,50 @@ Gabriel Loiseau, Damien Sileo, Damien Riquet, Maxime Meyer, and Marc Tommasi.
 \newblock \url{https://microsoft.github.io/presidio/}, 2026.
 \newblock Accessed 2026-06-27.
 
-\bibitem[Pilan et~al.(2022)Pilan, Lison, Ovrelid, Papadopoulou, Sanchez, and
+\bibitem[Narayanan \& Shmatikov(2008)Narayanan and
+  Shmatikov]{narayanan2008robust}
+Arvind Narayanan and Vitaly Shmatikov.
+\newblock {Robust De-anonymization of Large Sparse Datasets}.
+\newblock In \emph{IEEE Symposium on Security and Privacy}, pp.\  111--125,
+  2008.
+\newblock \doi{10.1109/SP.2008.33}.
+
+\bibitem[Papadopoulou et~al.(2023)Papadopoulou, Lison, Pilan, Sanchez, and
+  Batet]{papadopoulou2023neural}
+Anthi Papadopoulou, Pierre Lison, Ildiko Pilan, David Sanchez, and Montserrat
+  Batet.
+\newblock {Neural Text Anonymization for Legal Documents}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2306.10375}.
+
+\bibitem[Pilan et~al.(2022)Pilan, Lison, {\O}vrelid, Papadopoulou, Sanchez, and
   Batet]{pilan2022tab}
-Ildiko Pilan, Pierre Lison, Lilja Ovrelid, Anthi Papadopoulou, David Sanchez,
-  and Montserrat Batet.
+Ildiko Pilan, Pierre Lison, Lilja {\O}vrelid, Anthi Papadopoulou, David
+  Sanchez, and Montserrat Batet.
 \newblock {The Text Anonymization Benchmark (TAB): A Dedicated Corpus and
   Evaluation Framework for Text Anonymization}, 2022.
 \newblock URL \url{https://arxiv.org/abs/2202.00443}.
+
+\bibitem[Staab et~al.(2023)Staab, Vero, Balunovi{\'{c}}, and
+  Vechev]{staab2023beyond}
+Robin Staab, Mark Vero, Mislav Balunovi{\'{c}}, and Martin Vechev.
+\newblock {Beyond Memorization: Violating Privacy via Inference with Large
+  Language Models}, 2023.
+\newblock URL \url{https://arxiv.org/abs/2310.07298}.
+
+\bibitem[Stubbs et~al.(2015)Stubbs, Kotfila, and Uzuner]{stubbs2015automated}
+Amber Stubbs, Christopher Kotfila, and {\"O}zlem Uzuner.
+\newblock {Automated Systems for the De-identification of Longitudinal Clinical
+  Narratives: Overview of 2014 i2b2/UTHealth Shared Task Track 1}.
+\newblock \emph{Journal of Biomedical Informatics}, 58:\penalty0 S11--S19,
+  2015.
+\newblock \doi{10.1016/j.jbi.2015.06.007}.
+
+\bibitem[Sweeney(2002)]{sweeney2002kanonymity}
+Latanya Sweeney.
+\newblock {k-Anonymity: A Model for Protecting Privacy}.
+\newblock \emph{International Journal of Uncertainty, Fuzziness and
+  Knowledge-Based Systems}, 10\penalty0 (5):\penalty0 557--570, 2002.
+\newblock \doi{10.1142/S0218488502001648}.
 
 \bibitem[{U.S. Department of Health and Human Services}(2012)]{hhsdeid}
 {U.S. Department of Health and Human Services}.
