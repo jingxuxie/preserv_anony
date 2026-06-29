@@ -54,9 +54,9 @@ metric, and \method, a low-cost protocol that extracts privacy spans and
 important domain facts, anonymizes under preservation constraints, verifies the
 result, and applies a deterministic safety/repair layer.  In a 150-example
 non-oracle LLM run, \method{} achieves zero measured direct identifier leaks,
-lower quasi-identifier risk (0.127 versus 1.733 for generic prompting and 0.573
+lower quasi-identifier risk (0.13 versus 1.73 for generic prompting and 0.57
 for privacy-first prompting), and higher audited task-critical fact retention
-(0.994 versus 0.938 and 0.529).  A handwritten stress slice further shows why
+(0.99 versus 0.94 and 0.53).  A handwritten stress slice further shows why
 the problem is not reducible to ``redact more'': some sensitive facts, such as
 pregnancy, sexual orientation, domestic violence, or minority status, can also
 be the task-critical answer.  The results support evaluating de-identification
@@ -88,7 +88,7 @@ which facts are too sensitive to release even when they are task-relevant.  Yet
 many evaluations still reduce de-identification to span-level recall over
 predefined identifier categories.
 
-We ask a narrower, practical question: \emph{after anonymization, is the
+We ask a practical question: \emph{after anonymization, is the
 transformed text still useful for the domain task it was meant to support?}  We
 focus on two domains where the privacy--utility tension is concrete.
 Clinical-style vignettes contain diagnoses, medications, doses, labs, symptoms,
@@ -100,23 +100,25 @@ and regulatory frameworks such as HIPAA de-identification guidance
 \cite{hhsdeid} are essential privacy infrastructure, but they do not by
 themselves answer whether the remaining text preserves task-critical meaning.
 
-This paper makes four contributions.  First, we construct a 150-example
-controlled benchmark with synthetic clinical vignettes and TAB-derived legal
-snippets, each annotated with direct identifiers, quasi-identifiers,
-task-critical facts, and downstream QA items.  Second, we propose
-\textit{Task-Critical Fact Retention} (\tcfr), a fact-level utility metric that
-distinguishes retained domain meaning from generic surface similarity.  Third,
-we introduce \method, a simple anonymization protocol that extracts privacy
-spans and task-critical facts, anonymizes under explicit preservation
+This paper makes four contributions:
+\begin{itemize}[leftmargin=*,nosep]
+\item We construct a 150-example controlled benchmark with synthetic clinical
+vignettes and TAB-derived legal snippets, each annotated with direct
+identifiers, quasi-identifiers, task-critical facts, and downstream QA items.
+\item We propose \textit{Task-Critical Fact Retention} (\tcfr), a fact-level
+utility metric that distinguishes retained domain meaning from generic surface
+similarity.
+\item We introduce \method, a simple anonymization protocol that extracts
+privacy spans and task-critical facts, anonymizes under explicit preservation
 constraints, and applies deterministic safety/repair rules for direct
-identifiers and known domain-specific failure modes.  Fourth, we provide a
-bounded empirical audit showing that generic prompting tends to preserve utility
-but leak identifiers, privacy-first prompting removes identifiers but often
-removes the answer, and task-aware structure improves the observed
-privacy--utility frontier.
+identifiers and known domain-specific failure modes.
+\item We provide a bounded empirical audit showing that generic prompting tends
+to preserve utility but leak identifiers, privacy-first prompting removes
+identifiers but often removes the answer, and task-aware structure improves the
+observed privacy--utility frontier.
+\end{itemize}
 
-Our goal is not to claim formal anonymization, regulatory compliance, or broad
-clinical deployment.  Instead, we argue that span-level privacy evaluation alone
+We argue that span-level privacy evaluation alone
 can both miss residual risk and reward over-redaction.  For sensitive text used
 in foundation-model workflows, a more useful evaluation must ask two questions
 jointly: what identifying information remains, and what domain meaning has been
@@ -157,8 +159,11 @@ not provide such guarantees.  Recent LLM privacy work shows that powerful
 models can infer personal attributes from seemingly innocuous text
 \cite{staab2023beyond}.  Recent anonymization benchmarks therefore increasingly
 consider residual re-identification risk and utility together
-\cite{loiseau2025taueval,krco2026ratbench}.  We share this motivation, but make
-the utility target explicit at the level of domain facts and QA answers.
+\cite{loiseau2025taueval,krco2026ratbench}, and contemporaneous adaptive
+anonymization work treats the privacy--utility tradeoff as a task-specific
+prompt-optimization problem \cite{loiseau2026adaptive}.  We share this
+motivation, but make the utility target explicit at the level of domain facts
+and QA answers.
 
 \paragraph{Utility and faithfulness metrics.}
 Generic text-generation metrics such as token overlap, embedding similarity, or
@@ -211,8 +216,7 @@ We also construct a 12-example handwritten diagnostic slice that stresses cases
 where privacy and utility overlap: pregnancy, sexual orientation, domestic
 violence, Roma marriage, exact ages, rare occupations, case labels, secret
 evidence, exact legal article/protocol specificity, numeric labs, and dose
-preservation.  This slice is not used as the headline non-oracle result; it is
-an interpretability check on the privacy--utility frontier.
+preservation.
 
 \section{Metrics}
 
@@ -241,7 +245,7 @@ diagnostic foils, not as privacy or task-utility guarantees.
 
 \section{Methods}
 
-We compare three non-oracle LLM anonymizers in the 150-example OpenAI run.  All
+We compare three non-oracle LLM anonymizers in the 150-example run.  All
 methods operate on the same inputs and are evaluated with the same gold privacy
 and utility annotations.
 
@@ -259,7 +263,7 @@ is intentionally conservative.  This baseline tests the cost of resolving
 uncertainty by redacting or generalizing aggressively.
 
 \paragraph{\method.}
-\method{} uses the same low-cost model family but adds structure.  First, an
+\method{} adds structure.  First, an
 extraction prompt identifies privacy spans and task-critical domain facts.
 Second, an anonymization prompt receives these structures and is instructed to
 replace direct identifiers with typed placeholders, generalize
@@ -287,7 +291,7 @@ diagnose upper bounds and failure modes.
 
 The promoted non-oracle run contains 150 examples: 75 synthetic clinical
 vignettes and 75 TAB-derived legal snippets.  The LLM methods are run with a
-low-cost OpenAI model and cached responses.  The exact model is not central to
+GPT model.  The exact model is not central to
 our claim: the paper evaluates prompt protocols and safety layers under a
 bounded budget rather than training a new model.  We use no real protected
 health information.  Clinical examples are synthetic, and legal examples are
@@ -295,8 +299,8 @@ public TAB-derived snippets.
 
 We compute deterministic privacy and exact-utility metrics from gold spans and
 facts.  We then run an LLM-assisted fact-retention audit over the anonymized
-outputs.  Bootstrap confidence intervals and paired deltas are computed over
-the same examples to compare \method{} against each baseline.  We also inspect
+outputs.  Paired deltas are computed over the same examples to compare
+\method{} against each baseline.  We also inspect
 qualitative failures and maintain explicit claim boundaries: the privacy metrics
 are string/span and heuristic risk audits, not k-anonymity, differential
 privacy, legal compliance, or protection against an adversary with external
@@ -311,9 +315,9 @@ databases.
 \toprule
 Method & Direct leak $\downarrow$ & QI risk $\downarrow$ & Exact \tcfr{} $\uparrow$ & Audited \tcfr{} $\uparrow$ & QA $\uparrow$ \\
 \midrule
-Generic LLM & 0.180 & 1.733 & 0.813 & 0.938 & 0.888 \\
-Privacy-first LLM & 0.000 & 0.573 & 0.398 & 0.529 & 0.414 \\
-\method{} & 0.000 & 0.127 & 0.884 & 0.994 & 0.974 \\
+Generic LLM & 0.18 & 1.73 & 0.81 & 0.94 & 0.89 \\
+Privacy-first LLM & 0.00 & 0.57 & 0.40 & 0.53 & 0.41 \\
+\method{} & 0.00 & 0.13 & 0.88 & 0.99 & 0.97 \\
 \bottomrule
 \end{tabular}
 \caption{Main 150-example non-oracle results.  Generic prompting preserves many facts but leaks identifiers; privacy-first prompting protects direct identifiers but often removes the answer; \method{} improves the measured privacy--utility frontier.}
@@ -323,9 +327,9 @@ Privacy-first LLM & 0.000 & 0.573 & 0.398 & 0.529 & 0.414 \\
 Table~\ref{tab:main} shows the core privacy--utility tradeoff.  Generic
 prompting preserves many task facts, but leaks direct identifiers in 27 of 150
 examples and has high QI risk.  Privacy-first prompting removes all measured
-direct identifiers, but exact \tcfr{} falls to 0.398 and QA consistency to
-0.414.  \method{} achieves zero measured direct leaks, the lowest overall QI
-risk, audited \tcfr{} of 0.994, and QA consistency of 0.974.
+direct identifiers, but exact \tcfr{} falls to 0.40 and QA consistency to
+0.41.  \method{} achieves zero measured direct leaks, the lowest overall QI
+risk, audited \tcfr{} of 0.99, and QA consistency of 0.97.
 
 \begin{table}[t]
 \centering
@@ -334,13 +338,13 @@ risk, audited \tcfr{} of 0.994, and QA consistency of 0.974.
 \toprule
 Domain & Method & Direct leak & QI risk & Exact \tcfr{} & Audited \tcfr{} & QA \\
 \midrule
-Clinical & Generic & 0.027 & 2.027 & 0.704 & 0.933 & 0.853 \\
-Clinical & Privacy-first & 0.000 & 1.067 & 0.193 & 0.458 & 0.227 \\
-Clinical & \method{} & 0.000 & 0.000 & 0.820 & 0.996 & 1.000 \\
+Clinical & Generic & 0.03 & 2.03 & 0.70 & 0.93 & 0.85 \\
+Clinical & Privacy-first & 0.00 & 1.07 & 0.19 & 0.46 & 0.23 \\
+Clinical & \method{} & 0.00 & 0.00 & 0.82 & 1.00 & 1.00 \\
 \midrule
-Legal & Generic & 0.333 & 1.440 & 0.922 & 0.942 & 0.922 \\
-Legal & Privacy-first & 0.000 & 0.080 & 0.602 & 0.600 & 0.602 \\
-Legal & \method{} & 0.000 & 0.253 & 0.949 & 0.993 & 0.949 \\
+Legal & Generic & 0.33 & 1.44 & 0.92 & 0.94 & 0.92 \\
+Legal & Privacy-first & 0.00 & 0.08 & 0.60 & 0.60 & 0.60 \\
+Legal & \method{} & 0.00 & 0.25 & 0.95 & 0.99 & 0.95 \\
 \bottomrule
 \end{tabular}
 \caption{Domain split for the 150-example non-oracle run.  The legal split exposes the hardest residual tradeoff: privacy-first redaction attains lower QI risk by deleting or generalizing legally meaningful details, while \method{} preserves more legal utility but retains a small number of task-overlapping quasi-identifiers.}
@@ -358,30 +362,55 @@ sensitive attributes.  This improves the measured privacy score but damages the
 legal utility target.
 
 The span-level privacy audit agrees with the row-level picture.  \method{}
-reaches direct span recall of 1.000 and all privacy-span recall of 0.982,
-compared with 0.919 and 0.771 for generic prompting and 1.000 and 0.964 for
+reaches direct span recall of 1.00 and all privacy-span recall of 0.98,
+compared with 0.92 and 0.77 for generic prompting and 1.00 and 0.96 for
 privacy-first prompting.  Paired deltas on the same examples sharpen this
 interpretation.  Relative to generic prompting, \method{} reduces direct-leak
-rate by 0.180 (95\% bootstrap CI 0.120--0.247) and QI risk by 1.607
-(1.407--1.807).  Relative to privacy-first prompting, it improves exact \tcfr{}
-by 0.487 (0.434--0.538), audited \tcfr{} by 0.466 (0.416--0.514), and QA
-consistency by 0.560 (0.498--0.620).  The legal-only QI comparison is an
+rate by 0.18 and QI risk by 1.61; on legal rows alone, the QI reduction is
+1.19.  Relative to privacy-first prompting, it improves exact \tcfr{} by 0.49,
+audited \tcfr{} by 0.47, and QA consistency by 0.56.  The domain-level
+audited-\tcfr{} gains over privacy-first are 0.54 on clinical rows and 0.39 on
+legal rows.  The legal-only QI comparison is an
 important caveat: \method{} is slightly worse than privacy-first prompting on
 legal QI risk because it intentionally preserves some legal facts that overlap
 with quasi-identifying content.
 
+As a sample-size diagnostic, we also ran a bounded 300-example diagnostic
+expansion, adding 75 clinical and 75 legal rows beyond the promoted n150 run.
+The qualitative frontier persists: \method{} has zero measured direct leaks, QI
+risk 0.21, and audited \tcfr{} 0.99, compared with 0.19, 1.79, and 0.93
+for generic prompting and 0.00, 0.62, and 0.52 for privacy-first prompting.
+On the added n200-to-n300 100-example slice alone, \method{} has zero direct
+leak rows, 14 QI-hit rows, and audited \tcfr{} 0.99.  We keep n150 as the
+promoted headline because the manuscript tables and completed manual-audit plan
+remain anchored there; the n300 downstream bundle is synchronized but its
+second-annotator packet has not yet been completed.  Thus n300 is sample-size
+robustness evidence, not a promoted headline replacement.
+
 To test judge dependence, we also ran an external GPT-5.5 fact-retention audit
-on a stratified 60-example subset containing all residual CSG QI rows, all
-strict CSG audited-loss rows, and additional high-stress cases.  The stronger
-judge is stricter than the original low-cost judge but preserves the ranking:
-audited \tcfr{} is 0.917 for \method{}, 0.875 for generic prompting, and 0.483
-for privacy-first prompting.  Fact-label agreement with the original audit is
-0.912, 0.935, and 0.833 respectively, with most disagreements caused by strict
-clinical numeric or legal specificity.  A GPT-5.5 adversarial privacy audit on
-the 20 hardest rows is similarly conservative: generic prompting has direct
+over all promoted n150 outputs.  The stronger judge is stricter than the
+low-cost judge but preserves the utility ordering: audited \tcfr{} is
+0.92 for \method{}, 0.90 for generic prompting, and 0.41 for privacy-first
+prompting.  The paired \method{}-minus-generic audited-\tcfr{} gain is small and
+statistically uncertain (0.02), while the same rows still show generic direct
+leakage (0.18) and QI risk (1.73) versus zero direct leakage and QI risk 0.13
+for \method{}.  Fact-label agreement with the
+original audit is 0.92, 0.95, and 0.83 respectively, with most disagreements
+caused by strict clinical numeric or legal specificity.  A GPT-5.5 adversarial
+privacy audit on the 20 hardest rows is similarly conservative:
+generic prompting has direct
 privacy flags on 60\% of rows, \method{} on 5\%, and privacy-first prompting on
 0\%, but privacy-first is the same method that loses most task-critical facts.
 We treat these external audits as robustness checks, not as expert annotation.
+Table~\ref{tab:followup} combines the follow-up checks used for claim
+triangulation.  The bounded n30 GPT-5.5 anonymization screen shows that stronger
+generic prompting can remove obvious direct leaks on selected stress cases, but
+privacy-first prompting still loses utility and \method{} remains the best
+audited-\tcfr{} corner.  \method{} does not have the lowest upgraded QI risk on
+that stress screen, so we treat the result as reviewer-risk triage rather than
+a model-scaling claim.
+
+\input{generated_followup_robustness_table}
 
 Figure~\ref{fig:frontier} summarizes the main privacy--utility frontier: the
 task-aware protocol moves toward lower QI risk without collapsing audited
@@ -396,16 +425,16 @@ fact retention.
 \toprule
 Stage & Direct leak & QI risk & Exact \tcfr{} & QA \\
 \midrule
-CSG draft & 0.073 & 1.027 & 0.881 & 0.969 \\
-CSG verified & 0.073 & 1.027 & 0.881 & 0.969 \\
-CSG + safety/repair & 0.000 & 0.127 & 0.884 & 0.974 \\
+CSG draft & 0.07 & 1.03 & 0.88 & 0.97 \\
+CSG verified & 0.07 & 1.03 & 0.88 & 0.97 \\
+CSG + safety/repair & 0.00 & 0.13 & 0.88 & 0.97 \\
 \bottomrule
 \end{tabular}
-\caption{\method{} ablation reconstructed from cached outputs.  The verification prompt did not change deterministic metrics in this sample; the measured gain comes from the deterministic safety/repair layer.}
+\caption{\method{} ablation.  The verification prompt did not change deterministic metrics in this sample; the measured gain comes from the deterministic safety/repair layer.}
 \label{tab:ablation}
 \end{table}
 
-Table~\ref{tab:ablation} is important for claim discipline.  In this cached
+Table~\ref{tab:ablation} is important for claim discipline.  In this
 sample, the verification/repair prompt did not change deterministic metrics:
 the draft and verified rows are numerically identical.  The measured gain comes
 from the deterministic safety/repair layer, which closes eleven direct leaks,
@@ -421,9 +450,9 @@ not trusted as a single-pass transformation.
 \toprule
 Method & Token F1 & TF-IDF & Edit rate & Audited fact-fail rate & Privacy-fail rate \\
 \midrule
-Generic LLM & 0.776 & 0.708 & 0.247 & 0.240 & 0.747 \\
-Privacy-first LLM & 0.577 & 0.472 & 0.464 & 0.793 & 0.273 \\
-\method{} & 0.773 & 0.617 & 0.274 & 0.020 & 0.027 \\
+Generic LLM & 0.78 & 0.71 & 0.25 & 0.24 & 0.75 \\
+Privacy-first LLM & 0.58 & 0.47 & 0.46 & 0.79 & 0.27 \\
+\method{} & 0.77 & 0.62 & 0.27 & 0.02 & 0.03 \\
 \bottomrule
 \end{tabular}
 \caption{Surface similarity metrics are not sufficient proxies for privacy-safe utility.}
@@ -450,11 +479,11 @@ themselves \cite{bertscore}.
 \toprule
 Method & Direct leak & QI risk & \tcfr{} & QA \\
 \midrule
-Regex & 0.075 & 1.780 & 0.993 & 0.993 \\
-Presidio & 0.490 & 2.490 & 0.678 & 0.786 \\
-Direct-span oracle & 0.000 & 2.810 & 1.000 & 1.000 \\
-Privacy-first oracle & 0.000 & 0.005 & 0.448 & 0.336 \\
-CSG oracle & 0.000 & 0.225 & 1.000 & 1.000 \\
+Regex & 0.08 & 1.78 & 0.99 & 0.99 \\
+Presidio & 0.49 & 2.49 & 0.68 & 0.79 \\
+Direct-span oracle & 0.00 & 2.81 & 1.00 & 1.00 \\
+Privacy-first oracle & 0.00 & 0.01 & 0.45 & 0.34 \\
+CSG oracle & 0.00 & 0.23 & 1.00 & 1.00 \\
 \bottomrule
 \end{tabular}
 \caption{Local n200 diagnostic expansion.  These local/oracle baselines are not the headline non-oracle result; they test whether the qualitative frontier persists under a larger deterministic diagnostic slice.}
@@ -471,8 +500,8 @@ half of task-critical facts.  The CSG oracle indicates that a gold-informed
 version of task-aware anonymization can preserve utility while substantially
 reducing QI risk, though it remains an upper-bound diagnostic rather than a
 deployable system.  The domain split explains the overall Presidio row:
-Presidio's legal direct-leak rate is 0.980, while its clinical \tcfr{} is only
-0.445 under exact matching.
+Presidio's legal direct-leak rate is 0.98, while its clinical \tcfr{} is only
+0.45 under exact matching.
 
 \begin{table}[t]
 \centering
@@ -481,11 +510,11 @@ Presidio's legal direct-leak rate is 0.980, while its clinical \tcfr{} is only
 \toprule
 Method & Direct leak & QI risk & Exact \tcfr{} & QA \\
 \midrule
-Regex & 0.083 & 2.167 & 1.000 & 1.000 \\
-Presidio & 0.667 & 2.667 & 0.817 & 0.833 \\
-Direct-span oracle & 0.000 & 2.500 & 1.000 & 1.000 \\
-Privacy-first oracle & 0.000 & 0.000 & 0.608 & 0.528 \\
-CSG oracle & 0.000 & 0.667 & 1.000 & 1.000 \\
+Regex & 0.08 & 2.17 & 1.00 & 1.00 \\
+Presidio & 0.67 & 2.67 & 0.82 & 0.83 \\
+Direct-span oracle & 0.00 & 2.50 & 1.00 & 1.00 \\
+Privacy-first oracle & 0.00 & 0.00 & 0.61 & 0.53 \\
+CSG oracle & 0.00 & 0.67 & 1.00 & 1.00 \\
 \bottomrule
 \end{tabular}
 \caption{Handwritten robustness stress slice.  This diagnostic slice is separate from the non-oracle headline run.}
@@ -540,37 +569,16 @@ makes them visible.
 
 \section{Limitations and Ethics}
 
-This is a small fast-iteration study, not a formal anonymization guarantee.  The
-clinical split is synthetic and should not be presented as evidence on real
-clinical notes.  The legal split is public TAB-derived text, but legal fact and
+The
+clinical split is synthetic. The legal split is public TAB-derived text, but legal fact and
 claim extraction is heuristic and manually spot-checked rather than fully expert
 annotated.  Audited \tcfr{} uses an LLM judge; it is useful for separating
-paraphrase from omission, but manual review remains necessary for final paper
-claims.  The privacy metrics detect known direct spans and heuristic
+paraphrase from omission, but independent annotations have not yet returned and
+manual review remains necessary for final paper claims. 
+The privacy metrics detect known direct spans and heuristic
 quasi-identifiers; they do not provide k-anonymity, differential privacy, legal
 compliance, or protection against a motivated adversary with external
 knowledge.
-
-The remaining CSG quasi-identifier rows should be read as audit targets, not as
-solved cases: several involve quasi-identifying text inside the annotated legal
-claim, and five are frontier candidates requiring policy review.  A more
-privacy-aggressive release policy could generalize those claims, but that would
-change the downstream legal utility target.  In the promoted 150-example run,
-three CSG rows have audited fact loss under strict labeling:
-\texttt{legal\_0016} generalizes ``Polish authorities'' to ``authorities,''
-while \texttt{clinical\_0055} and \texttt{clinical\_0059} generalize or omit
-strict clinical specificity.  These rows mark jurisdictional, temporal, and
-diagnostic specificity as policy-sensitive utility targets rather than simple
-privacy failures.
-
-\paragraph{Threat model.}
-We evaluate direct string leakage and heuristic quasi-identifier retention under
-a bounded controlled-release scenario: an inspector can search transformed text
-for known direct identifiers and retained quasi-identifying details.  We do not
-model linkage attacks by an adversary with external databases or case-specific
-background knowledge.  Public redistribution should therefore preserve
-provenance and license information and include residual-risk notes, especially
-for TAB-derived legal snippets.
 
 The intended use of this work is evaluation and safer data transformation
 research.  We do not release or process real protected health information.  The

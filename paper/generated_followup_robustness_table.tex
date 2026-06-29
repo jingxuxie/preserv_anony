@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+Method & n150 audit & GPT-5.5 fact60 & Full-n150 & Hard20 severe & Fixed30 audit & GPT-5.5 anon n30 \\
+\midrule
+Generic LLM & 0.94 & 0.87 & 0.90 & 1.00 & 0.84 & 0.81 \\
+Privacy-first LLM & 0.53 & 0.48 & 0.41 & 0.70 & 0.51 & 0.42 \\
+\method{} & 0.99 & 0.92 & 0.92 & 0.90 & 0.97 & 0.89 \\
+\bottomrule
+\end{tabular}%
+}
+\caption{Follow-up robustness checks.  Columns report audited \tcfr{} except Hard20 severe, which is the GPT-5.5 adversarial privacy severe-flag rate on the 20 hardest rows.  Full-n150 is completed model-auditor coverage for the promoted n150 outputs, but is not expert/human annotation.  Fixed30 is a deliberately hard manual-style subset; GPT-5.5 anon n30 is a bounded stronger-model screen, not a broad model-scaling result.}
+\label{tab:followup}
+\end{table}

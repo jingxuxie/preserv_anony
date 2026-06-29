@@ -1,4 +1,4 @@
-\begin{thebibliography}{13}
+\begin{thebibliography}{14}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -19,6 +19,15 @@ Cynthia Dwork, Frank McSherry, Kobbi Nissim, and Adam Smith.
 \newblock In \emph{Theory of Cryptography Conference}, pp.\  265--284, 2006.
 \newblock \doi{10.1007/11681878_14}.
 
+\bibitem[{HHS}(2012)]{hhsdeid}
+{HHS}.
+\newblock {Guidance Regarding Methods for De-identification of Protected Health
+  Information in Accordance with the HIPAA Privacy Rule}.
+\newblock
+  \url{https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html},
+  2012.
+\newblock Accessed 2026-06-27.
+
 \bibitem[Kr{\v{c}}o et~al.(2026)Kr{\v{c}}o, Yao, Meeus, and
   de~Montjoye]{krco2026ratbench}
 Nata{\v{s}}a Kr{\v{c}}o, Zexi Yao, Matthieu Meeus, and Yves-Alexandre
@@ -32,6 +41,13 @@ Gabriel Loiseau, Damien Sileo, Damien Riquet, Maxime Meyer, and Marc Tommasi.
 \newblock {Tau-Eval: A Unified Evaluation Framework for Useful and Private Text
   Anonymization}, 2025.
 \newblock URL \url{https://arxiv.org/abs/2506.05979}.
+
+\bibitem[Loiseau et~al.(2026)Loiseau, Sileo, Riquet, Meyer, and
+  Tommasi]{loiseau2026adaptive}
+Gabriel Loiseau, Damien Sileo, Damien Riquet, Maxime Meyer, and Marc Tommasi.
+\newblock {Adaptive Text Anonymization: Learning Privacy-Utility Trade-offs via
+  Prompt Optimization}, 2026.
+\newblock URL \url{https://arxiv.org/abs/2602.20743}.
 
 \bibitem[{Microsoft}(2026)]{presidio}
 {Microsoft}.
@@ -83,15 +99,6 @@ Latanya Sweeney.
 \newblock \emph{International Journal of Uncertainty, Fuzziness and
   Knowledge-Based Systems}, 10\penalty0 (5):\penalty0 557--570, 2002.
 \newblock \doi{10.1142/S0218488502001648}.
-
-\bibitem[{U.S. Department of Health and Human Services}(2012)]{hhsdeid}
-{U.S. Department of Health and Human Services}.
-\newblock {Guidance Regarding Methods for De-identification of Protected Health
-  Information in Accordance with the HIPAA Privacy Rule}.
-\newblock
-  \url{https://www.hhs.gov/hipaa/for-professionals/special-topics/de-identification/index.html},
-  2012.
-\newblock Accessed 2026-06-27.
 
 \bibitem[Zhang et~al.(2020)Zhang, Kishore, Wu, Weinberger, and
   Artzi]{bertscore}
