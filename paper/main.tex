@@ -24,6 +24,7 @@
 
 \newcommand{\method}{Critical Span Guard}
 \newcommand{\tcfr}{TCFR}
+\newcommand{\qiq}{QI}
 
 \title{Do Not Anonymize Away the Answer:\
 Measuring Task-Critical Meaning Loss in Text De-identification}
@@ -43,270 +44,366 @@ Measuring Task-Critical Meaning Loss in Text De-identification}
 Text de-identification is often evaluated as a span removal problem: did a
 system remove names, dates, locations, contact information, and other explicit
 identifiers?  For sensitive text used in foundation-model workflows, this is
-necessary but incomplete.  A transformed clinical vignette or legal case
-excerpt can pass a privacy-oriented screen while removing the medication dose,
-lab value, statutory article, procedural posture, or legal claim needed for
-downstream reasoning.  We study this failure mode through a small
-clinical/legal benchmark for utility-preserving anonymization.  The benchmark
-pairs privacy labels with task-critical facts and downstream QA items.  We
-introduce \textit{Task-Critical Fact Retention} (\tcfr), a fact-level utility
-metric, and \method, a low-cost protocol that extracts privacy spans and
-important domain facts, anonymizes under preservation constraints, verifies the
-result, and applies a deterministic safety/repair layer.  In a 150-example
-non-oracle LLM run, \method{} achieves zero measured direct identifier leaks,
-lower quasi-identifier risk (0.13 versus 1.73 for generic prompting and 0.57
-for privacy-first prompting), and higher audited task-critical fact retention
-(0.99 versus 0.94 and 0.53).  A handwritten stress slice further shows why
-the problem is not reducible to ``redact more'': some sensitive facts, such as
-pregnancy, sexual orientation, domestic violence, or minority status, can also
-be the task-critical answer.  The results support evaluating de-identification
+necessary but incomplete.  A transformed clinical vignette or legal case excerpt
+can pass a privacy-oriented screen while removing the medication dose, lab value,
+statutory article, procedural posture, or legal claim needed for downstream
+reasoning.  We study this failure mode through a controlled clinical/legal
+benchmark for utility-preserving anonymization.  The benchmark pairs privacy
+labels with task-critical facts and downstream QA items.  We introduce
+\textit{Task-Critical Fact Retention} (\tcfr), a fact-level utility metric, and
+\method, a low-cost protocol that extracts privacy spans and important domain
+facts, anonymizes under preservation constraints, verifies the result, and
+applies deterministic safety/repair rules.  In a 150-example non-oracle LLM run,
+\method{} attains zero measured direct identifier leaks, lower quasi-identifier
+risk than both baselines, and the best audited fact retention.  Additional
+GPT-5.5 audits and diagnostic stress cases support the same qualitative lesson:
+``redact more'' is not a general solution, because some sensitive facts are also
+the task-critical answer.  The results support evaluating de-identification
 systems by both privacy protection and retained domain meaning.
 \end{abstract}
 
 \section{Introduction}
 
-Sensitive clinical and legal text is valuable for retrieval-augmented
-generation, supervised fine-tuning, model evaluation, safety auditing, and
-synthetic-data generation.  The usual first step before such use is
-de-identification, anonymization, or pseudonymization.  However, a system
-optimized only for removing personally identifying information can destroy the
-very facts that make the text useful.  In a clinical note, replacing
-``methotrexate 15 mg weekly'' with ``a medication'' may preserve broad topical
-similarity while breaking the answer to a treatment question.  In a legal
-excerpt, replacing ``Article 6'' with ``a specified article'' removes the legal
-basis needed to reason about the claim.  These are not cosmetic changes: they
-alter the information that downstream models or evaluators are expected to use.
+Sensitive text is increasingly important in foundation-model workflows.  Clinical
+notes, legal decisions, support logs, and other restricted corpora can support
+retrieval-augmented generation, supervised fine-tuning, evaluation, safety
+auditing, and synthetic-data generation \cite{bommasani2021foundation,lewis2020rag}.
+Clinical resources such as MIMIC-IV-Note illustrate both the scientific value of
+free-text records and the operational burden of de-identification before
+research access \cite{johnson2023mimicnote}.  Legal corpora raise a parallel
+problem: case narratives may contain names, application numbers, dates,
+locations, party roles, confidential attributes, and statutory details, while the
+same documents are valuable for legal QA and reasoning benchmarks
+\cite{pilan2022tab}.  The core promise of responsible data transformation is to
+unlock such data while reducing privacy risk.
 
-This tension is especially important for foundation-model data pipelines.  A
-release pipeline that over-redacts data may be privacy-conservative but unable
-to support clinical decision-support evaluation, legal QA, or domain-specific
-retrieval.  A pipeline that preserves all clinically or legally meaningful
-facts may leave quasi-identifiers, rare events, or sensitive attributes that can
-aid re-identification.  In practice, data stewards must make policy choices
-about which facts are safe to preserve, which facts must be generalized, and
-which facts are too sensitive to release even when they are task-relevant.  Yet
-many evaluations still reduce de-identification to span-level recall over
-predefined identifier categories.
+Most practical de-identification pipelines begin with a reasonable objective:
+remove or mask personally identifying information.  This objective is reflected
+in regulatory and operational guidance such as HIPAA de-identification guidance
+\cite{hhsdeid}, the GDPR distinction between personal data, pseudonymization, and
+anonymization \cite{gdpr}, and widely used tools such as Microsoft Presidio
+\cite{presidio}.  These resources are essential, but they do not by themselves
+answer the question that matters for model development: after transformation,
+can the data still support the task for which it was retained?
 
-We ask a practical question: \emph{after anonymization, is the
-transformed text still useful for the domain task it was meant to support?}  We
-focus on two domains where the privacy--utility tension is concrete.
-Clinical-style vignettes contain diagnoses, medications, doses, labs, symptoms,
-procedures, and timelines.  Public legal snippets derived from the Text
-Anonymization Benchmark (TAB) contain application identifiers, party roles,
-claims, legal articles, procedural facts, confidential attributes, and outcomes
-\cite{pilan2022tab}.  Existing tools such as Microsoft Presidio \cite{presidio}
-and regulatory frameworks such as HIPAA de-identification guidance
-\cite{hhsdeid} are essential privacy infrastructure, but they do not by
-themselves answer whether the remaining text preserves task-critical meaning.
+The answer is not obvious.  In a clinical note, replacing ``methotrexate 15 mg
+weekly'' with ``a medication'' may look privacy-conservative, yet it removes the
+answer to a treatment question.  In a legal excerpt, replacing ``Article 6'' with
+``a specified article'' removes the legal basis needed for downstream reasoning.
+These are not cosmetic edits.  They change the meaning that a retrieval system,
+model evaluator, or downstream annotator is expected to use.  Conversely,
+preserving every useful clinical or legal fact can leave quasi-identifiers, rare
+events, sensitive attributes, or combinations of details that support linkage or
+re-identification.  Classical privacy work shows that quasi-identifiers can be
+linkable even when names are removed \cite{sweeney2002kanonymity,narayanan2008robust},
+and recent work shows that large language models can infer personal attributes
+from ordinary text \cite{staab2023beyond}.
 
-This paper makes four contributions:
+This paper studies the boundary between privacy removal and meaning preservation.
+Our central question is:
+\begin{quote}
+\emph{When text is de-identified for foundation-model use, does the transformed
+text still contain the facts needed for the intended clinical or legal task?}
+\end{quote}
+We focus on clinical-style vignettes and TAB-derived legal snippets because they
+make the privacy--utility conflict concrete.  The important facts are not merely
+surface tokens: they are medications, doses, lab values, diagnoses, legal
+articles, claims, procedures, outcomes, and reasoning.  A useful anonymizer must
+handle four cases differently: direct identifiers that should be removed, quasi-
+identifiers that should often be generalized, task-critical facts that should be
+preserved, and overlap facts that are both useful and privacy-relevant.
+
+We make four contributions.
 \begin{itemize}[leftmargin=*,nosep]
-\item We construct a 150-example controlled benchmark with synthetic clinical
-vignettes and TAB-derived legal snippets, each annotated with direct
-identifiers, quasi-identifiers, task-critical facts, and downstream QA items.
-\item We propose \textit{Task-Critical Fact Retention} (\tcfr), a fact-level
-utility metric that distinguishes retained domain meaning from generic surface
-similarity.
-\item We introduce \method, a simple anonymization protocol that extracts
-privacy spans and task-critical facts, anonymizes under explicit preservation
-constraints, and applies deterministic safety/repair rules for direct
-identifiers and known domain-specific failure modes.
-\item We provide a bounded empirical audit showing that generic prompting tends
-to preserve utility but leak identifiers, privacy-first prompting removes
-identifiers but often removes the answer, and task-aware structure improves the
-observed privacy--utility frontier.
+  \item We construct a controlled benchmark with synthetic clinical vignettes and
+  TAB-derived legal snippets, each annotated with direct identifiers, quasi-
+  identifiers, task-critical facts, and downstream QA items.
+  \item We introduce \textit{Task-Critical Fact Retention} (\tcfr), a fact-level
+  utility metric that distinguishes retained domain meaning from generic surface
+  similarity.
+  \item We propose \method, a simple low-cost anonymization protocol that makes
+  the privacy--utility boundary explicit by extracting privacy spans and
+  task-critical facts before transformation, then applying deterministic safety
+  and repair checks.
+  \item We provide an empirical audit showing a clear qualitative frontier:
+  generic prompting preserves many facts but leaks identifiers; privacy-first
+  prompting removes identifiers but often removes the answer; task-aware
+  anonymization improves the observed privacy--utility tradeoff while surfacing
+  residual policy-sensitive cases.
 \end{itemize}
 
-We argue that span-level privacy evaluation alone
-can both miss residual risk and reward over-redaction.  For sensitive text used
-in foundation-model workflows, a more useful evaluation must ask two questions
-jointly: what identifying information remains, and what domain meaning has been
-lost?
+\begin{figure*}[t]
+\centering
+\fbox{%
+\begin{minipage}{0.94\linewidth}
+\vspace{0.7em}
+\textbf{Figure 1 placeholder: visual abstract / method-and-result overview.}
+
+\smallskip
+\textbf{Panel A: Problem.} Draw an input clinical/legal text with three colored
+span types: direct identifiers (e.g., name, MRN, application number), quasi-
+identifiers (e.g., rare occupation, jurisdiction, exact date, sensitive family
+attribute), and task-critical facts (e.g., medication dose, lab value, Article 6,
+claim outcome). Show that some spans overlap: a fact can be both privacy-relevant
+and needed for QA.
+
+\smallskip
+\textbf{Panel B: Three anonymization behaviors.} Use three arrows from the same
+input: (i) generic LLM leaves some red privacy spans but keeps many green facts;
+(ii) privacy-first LLM removes red spans but also deletes green answer facts;
+(iii) \method{} removes direct identifiers, generalizes risky context, and
+preserves task-critical facts.
+
+\smallskip
+\textbf{Panel C: Method pipeline.} Show four boxes: extract privacy spans and
+critical facts $\rightarrow$ constrained anonymization $\rightarrow$ verification
+/ repair $\rightarrow$ deterministic safety layer. Label the deterministic layer
+as the component that catches high-precision identifiers such as IDs, dates,
+phone numbers, emails, MRNs, and application numbers.
+
+\smallskip
+\textbf{Panel D: Main result impression.} Plot a simple 2D privacy--utility
+frontier: x-axis = QI risk or privacy failure (lower is better), y-axis = audited
+\tcfr{} or QA consistency (higher is better). Place three labeled points:
+Generic = high utility but high risk; Privacy-first = low risk but low utility;
+\method{} = low risk and high utility. Use only the headline numbers, not every
+secondary metric.
+\vspace{0.7em}
+\end{minipage}}
+\caption{Planned Figure 1.  The figure should act as a visual abstract: it should
+explain why span removal alone is insufficient, how \method{} works, and what the
+main result is before the reader reaches the tables.}
+\label{fig:overview}
+\end{figure*}
 
 \section{Related Work}
 
-\paragraph{Text de-identification.}
+\paragraph{Clinical de-identification.}
 Clinical de-identification has a long history in shared tasks and patient-note
-benchmarks.  Early neural systems framed the problem as sequence labeling over
-protected-health-information spans \cite{dernoncourt2016patientnotes}, while
-annotation resources from i2b2 and related challenges supported systematic PHI
-recognition and normalization \cite{stubbs2015automated}.  Recent work has
-explored stronger neural and LLM-based de-identification, but the dominant
-evaluation mode is still identifier detection or span replacement.  This is a
-necessary component of privacy evaluation, but it does not directly measure
-whether clinically material facts such as drugs, doses, lab values, and
-procedures remain intact.
+benchmarks.  i2b2/UTHealth and related challenges framed the problem as detecting
+and removing protected-health-information spans from longitudinal clinical
+narratives \cite{stubbs2015automated}.  Neural systems later treated the task as
+sequence labeling over PHI spans \cite{dernoncourt2016patientnotes}.  These
+benchmarks and tools are important, but span recall does not directly measure
+whether clinically material facts such as medications, doses, lab values,
+procedures, diagnoses, and temporal relations remain usable after transformation.
+MIMIC-IV-Note further shows the importance and difficulty of making clinical text
+available: it contains de-identified clinical notes, but access remains
+credentialed and its release required substantial de-identification work
+\cite{johnson2023mimicnote}.
 
 \paragraph{Legal anonymization.}
-TAB provides an important benchmark for legal-text anonymization by annotating
-European Court of Human Rights cases with entity spans, masking decisions,
-confidential attributes, and coreference relations \cite{pilan2022tab}.  Later
-work on neural legal anonymization further shows that legal documents require
-more than generic named-entity recognition because case identifiers, party
-roles, procedural details, and confidential attributes interact with legal
-meaning \cite{papadopoulou2023neural}.  Our legal split builds on TAB but adds a
-utility target: legal article references, claims, outcomes, and procedural
-facts should be preserved when they are necessary for downstream reasoning.
+Legal anonymization differs from generic named-entity removal because legal
+meaning is often carried by facts that look identifying: jurisdiction, statute,
+case posture, party role, dates, and procedural history.  TAB provides an
+important benchmark for legal anonymization by annotating European Court of Human
+Rights cases with entity spans, masking decisions, confidential attributes, and
+coreference relations \cite{pilan2022tab}.  Subsequent work on legal text
+anonymization highlights that legal documents require privacy decisions that are
+sensitive to document structure and legal meaning \cite{papadopoulou2023neural}.
+Our legal split builds on TAB but adds a utility target: the legal article,
+claim, outcome, and procedure should remain answerable after anonymization.
 
 \paragraph{Privacy risk beyond direct identifiers.}
-Classical privacy work distinguishes direct identifiers from quasi-identifiers:
-attributes that may not identify a person alone but can do so in combination
-\cite{sweeney2002kanonymity,narayanan2008robust}.  Differential privacy gives a
-formal framework for aggregate releases and learning algorithms
-\cite{dwork2006calibrating}, but most practical text anonymization pipelines do
-not provide such guarantees.  Recent LLM privacy work shows that powerful
-models can infer personal attributes from seemingly innocuous text
-\cite{staab2023beyond}.  Recent anonymization benchmarks therefore increasingly
-consider residual re-identification risk and utility together
-\cite{loiseau2025taueval,krco2026ratbench}, and contemporaneous adaptive
-anonymization work treats the privacy--utility tradeoff as a task-specific
-prompt-optimization problem \cite{loiseau2026adaptive}.  We share this
-motivation, but make the utility target explicit at the level of domain facts
-and QA answers.
+Removing direct identifiers does not guarantee anonymity.  Classical work on
+k-anonymity and dataset de-anonymization shows that combinations of non-name
+attributes can support linkage \cite{sweeney2002kanonymity,narayanan2008robust}.
+Differential privacy provides formal guarantees for aggregate analysis and
+learning algorithms \cite{dwork2006calibrating}, but most practical text
+anonymization pipelines do not provide such guarantees.  Large language models
+add a new practical concern: even when obvious identifiers are absent, models can
+infer attributes from context \cite{staab2023beyond}.  Recent anonymization
+benchmarks therefore increasingly evaluate residual re-identification risk and
+utility jointly \cite{loiseau2025taueval,krco2026ratbench}, and adaptive
+anonymization work treats the privacy--utility balance as a task-dependent
+optimization problem \cite{loiseau2026adaptive}.  We share this motivation but
+make the utility target explicit at the level of domain facts and QA answers.
 
 \paragraph{Utility and faithfulness metrics.}
 Generic text-generation metrics such as token overlap, embedding similarity, or
 BERTScore \cite{bertscore} can be useful diagnostics, but they do not encode
-what domain facts must be preserved.  High similarity to the original can even
-be a warning sign in anonymization because identifiers and quasi-identifiers
-may remain.  Conversely, low similarity may be acceptable if the transformed
-text preserves the clinically or legally relevant answer.  This motivates a
-fact-level metric rather than relying only on surface similarity.
+which domain facts must be preserved.  High similarity can be bad if identifiers
+remain; low similarity can be acceptable if the transformed text safely
+paraphrases the original while preserving the answer.  This motivates evaluating
+privacy-safe utility through task-critical facts rather than surface similarity
+alone.  Our work is also related to broader calls for better dataset
+documentation and explicit reporting of intended use and limitations
+\cite{gebru2021datasheets,bender2018datastatements}.
 
 \section{Benchmark and Task}
 
-\paragraph{Task definition.}
+\paragraph{What counts as a good transformation?}
 Given an input text $x$, a de-identification method outputs transformed text
-$\hat{x}$.  Each example contains three types of annotation: direct identifiers
-$D$, quasi-identifiers $Q$, and task-critical facts $F$.  Direct identifiers
-include names, contact information, exact dates, medical record numbers, legal
-application numbers, and named institutions tied to a person.  Quasi-identifiers
-include age, occupation, city, nationality, sensitive attributes, family
-relations, rare events, and combinations of details that may enable linkage.
-Task-critical facts include information needed to answer a domain question:
-clinical diagnoses, labs, medications, doses, symptoms, procedures, timelines,
-or legal articles, claims, procedures, outcomes, and reasoning.  A good output
-should remove or generalize $D$ and high-risk $Q$ while preserving the facts in
-$F$ at the specificity required by the downstream task.
+$\hat{x}$.  Each example contains direct identifiers $D$, quasi-identifiers $Q$,
+task-critical facts $F$, and QA items $A$.  The desired transformation should
+remove direct identifiers, reduce linkability from quasi-identifiers, and retain
+the facts needed to answer the domain questions.  This formulation separates
+three notions that are often conflated:
+\begin{enumerate}[leftmargin=*,nosep]
+  \item \textbf{Privacy removal}: names, IDs, exact dates, contact details, and
+  case or record numbers should not remain.
+  \item \textbf{Risk reduction}: rare or linkable context should be generalized
+  when possible.
+  \item \textbf{Task preservation}: medications, doses, labs, diagnoses,
+  statutes, claims, outcomes, and procedural facts should remain when they are
+  needed for the intended task.
+\end{enumerate}
+The hard cases occur when a fact belongs to both the second and third categories.
+For example, a pregnancy status, domestic-violence claim, jurisdiction-specific
+statute, or rare diagnosis may be both sensitive and central to the task.
 
 \paragraph{Clinical split.}
-We generate 75 synthetic clinical vignettes from templates.  Each example
+We generate 75 synthetic clinical vignettes from templates.  Each vignette
 contains direct identifiers such as patient name, clinician name, clinic, date,
 medical record number, phone number, and email; quasi-identifiers such as age,
-city, and occupation; and task-critical facts such as diagnosis, medication,
-dose, lab result, symptom duration, imaging result, or treatment plan.  The
-clinical split is synthetic by design: it provides controlled utility labels
-without exposing real protected health information.  It should be interpreted
-as a controlled stress test, not as evidence of performance on real clinical
-notes.
+city, occupation, and family context; and task-critical facts such as diagnosis,
+medication, dose, lab result, symptom duration, imaging result, or treatment
+plan.  The split is synthetic by design: it provides controlled utility labels
+without exposing real protected health information.  It should be read as a
+controlled stress test, not as evidence of performance on real clinical notes.
 
 \paragraph{Legal split.}
 We sample 75 short excerpts from TAB, an open-source corpus of English-language
-European Court of Human Rights cases annotated with personal identifiers,
-masking decisions, confidential attributes, and coreference relations
-\cite{pilan2022tab}.  For each sampled snippet, we keep short procedure,
-complaint, and outcome sentences when available.  We use TAB spans for privacy
-labels and heuristic extraction plus manual spot checks for legal articles,
-claims, outcomes, and QA answers.  This lets us study legal meaning without
-processing private legal files.
+European Court of Human Rights cases annotated with personal identifiers, masking
+decisions, confidential attributes, and coreference relations \cite{pilan2022tab}.
+For each sampled snippet, we keep short procedure, complaint, and outcome
+sentences when available.  We use TAB spans for privacy labels and heuristic
+extraction plus manual spot checks for legal articles, claims, outcomes, and QA
+answers.  This lets us study legal meaning without processing private legal
+files.
 
-\paragraph{Stress slice.}
-We also construct a 12-example handwritten diagnostic slice that stresses cases
-where privacy and utility overlap: pregnancy, sexual orientation, domestic
-violence, Roma marriage, exact ages, rare occupations, case labels, secret
-evidence, exact legal article/protocol specificity, numeric labs, and dose
-preservation.
+\paragraph{Stress and robustness slices.}
+We also construct a 12-example handwritten stress slice.  These examples place
+privacy and utility in explicit conflict: pregnancy, sexual orientation,
+domestic violence, Roma marriage, exact ages, rare occupations, case labels,
+secret evidence, legal article/protocol specificity, numeric labs, and dose
+preservation.  The stress slice is diagnostic rather than a headline benchmark;
+it helps us interpret cases where the correct transformation depends on release
+policy.
 
 \section{Metrics}
 
-We report privacy and utility metrics together.  \textit{Direct leak} is the
-fraction of rows where any gold direct identifier remains in the anonymized
-text.  \textit{QI risk} is the mean quasi-identifier risk score, where retained
-specific dates, locations, occupations, sensitive attributes, or combinations of
-details increase the risk.  We also report direct, quasi, and all-span privacy
-recall: the fraction of gold privacy spans not found verbatim after
-anonymization.
+We report privacy and utility metrics together because either side alone can be
+misleading.
 
-For utility, exact \tcfr{} measures the fraction of gold task-critical facts
-retained by deterministic phrase or alias matching:
+\paragraph{Privacy.}
+\textit{Direct leak} is the fraction of outputs where any gold direct identifier
+remains.  \textit{Direct span recall}, \textit{quasi span recall}, and
+\textit{all-span recall} measure the fraction of annotated privacy spans no
+longer found verbatim after transformation.  \textit{QI risk} is a row-level
+audit score for retained quasi-identifiers such as specific locations, rare
+occupations, exact dates, sensitive attributes, family relations, statute or
+jurisdiction details, and unusual combinations of details.  The QI score is an
+audit signal, not a formal anonymity guarantee.
+
+\paragraph{Task-critical utility.}
+For each example, let $F$ be the set of task-critical facts.  Exact
+Task-Critical Fact Retention is
 \begin{equation}
 \mathrm{TCFR}(\hat{x}) = \frac{1}{|F|}\sum_{f \in F} \mathbb{1}[f \text{ is retained in } \hat{x}].
 \end{equation}
-Exact matching is reproducible but conservative because faithful paraphrases
-may not match the gold string.  We therefore also report audited \tcfr{} using a
+Exact matching is reproducible but conservative because faithful paraphrases may
+not match the gold string.  We therefore also report audited \tcfr{} using a
 structured LLM fact judge that marks each fact as preserved,
 generalized-but-acceptable, omitted, contradicted, or unclear.  The judge is
 strict for medication names, doses, lab values, legal Article numbers, outcomes,
 and legal claims.  \textit{QA consistency} asks whether downstream questions can
-still recover the gold answers from the anonymized text.  Finally, we report
-surface metrics such as token F1, TF-IDF cosine, and edit rate only as
-diagnostic foils, not as privacy or task-utility guarantees.
+still recover the gold answers from the anonymized text.
+
+\paragraph{Diagnostic surface metrics.}
+We compute token F1, TF-IDF cosine, and edit rate as diagnostic foils.  They are
+not headline utility metrics: a high-similarity output may retain private
+information, and a low-similarity output may still preserve the task answer.
 
 \section{Methods}
 
-We compare three non-oracle LLM anonymizers in the 150-example run.  All
-methods operate on the same inputs and are evaluated with the same gold privacy
-and utility annotations.
+We compare three non-oracle LLM anonymization protocols in the promoted
+150-example run.  All methods operate on the same inputs and are evaluated with
+the same gold privacy and utility annotations.
 
 \paragraph{Generic LLM.}
-The generic prompt asks the model to remove personally identifying information
-while preserving document meaning.  It resembles the simple instruction a data
-steward might give to a general-purpose model.  This baseline tests whether
+The generic baseline asks the model to remove personally identifying information
+while preserving document meaning.  It resembles a common one-shot instruction a
+data steward might give to a general-purpose model.  This baseline tests whether
 broad de-identification instructions are sufficient.
 
 \paragraph{Privacy-first LLM.}
-The privacy-first prompt asks the model to remove or generalize any information
+The privacy-first baseline asks the model to remove or generalize any information
 that could identify a person, including rare locations, exact dates, named
-institutions, rare occupations, unique events, and combinations of details.  It
-is intentionally conservative.  This baseline tests the cost of resolving
-uncertainty by redacting or generalizing aggressively.
+institutions, rare occupations, unique events, and combinations of details.  When
+uncertain, the prompt resolves the conflict by generalizing or deleting.  This
+baseline tests the cost of maximizing apparent privacy without an explicit
+utility target.
 
 \paragraph{\method.}
-\method{} adds structure.  First, an
-extraction prompt identifies privacy spans and task-critical domain facts.
-Second, an anonymization prompt receives these structures and is instructed to
-replace direct identifiers with typed placeholders, generalize
-quasi-identifiers when possible, preserve task-critical facts, and use the least
-identifying version of facts that are both privacy-relevant and task-critical.
-For clinical text, the prompt explicitly protects medications, doses, labs,
-diagnoses, symptoms, imaging findings, and meaningful timelines.  For legal
-text, it protects legal article/statute numbers, claims, procedural posture,
-outcomes, and reasoning, while treating legal case/application numbers as direct
-identifiers.  Third, a verification/repair prompt checks for leaked direct
-identifiers, generalizable quasi-identifiers, omitted facts, contradictions, and
-invented facts.  Finally, a deterministic safety/repair layer replaces direct
-identifiers such as case/application numbers, dates, MRNs, phone numbers,
-emails, names, and institutions, and repairs known domain mistakes such as legal
-Article over-generalization and medication placeholdering.
+\method{} is a structured protocol rather than a new model.  It has four stages.
+First, an extraction prompt identifies privacy spans and task-critical domain
+facts.  Privacy spans are labeled as direct identifiers or quasi-identifiers;
+critical facts are labeled with whether generalization is allowed.  Second, a
+constrained anonymization prompt receives these structures and is instructed to
+replace direct identifiers with typed placeholders, generalize quasi-identifiers
+when possible, preserve task-critical facts, and use the least identifying form
+of facts that are both privacy-relevant and task-critical.  Third, a
+verification/repair prompt checks for leaked direct identifiers, generalizable
+quasi-identifiers, omitted facts, contradictions, and invented facts.  Finally, a
+deterministic safety/repair layer replaces high-precision identifiers such as
+case/application numbers, dates, MRNs, phone numbers, emails, names, and
+institutions, and repairs known domain mistakes such as legal Article
+over-generalization and medication placeholdering.
 
-\paragraph{Diagnostic local baselines.}
-We also run local diagnostic baselines on the original benchmark, a 200-example
-local expansion, and the stress slice: regex rules, Presidio, direct-span oracle
-replacement, privacy-first oracle redaction, and a CSG oracle using gold
-benchmark annotations.  These oracle variants are not deployable systems; they
-diagnose upper bounds and failure modes.
+The method is intentionally simple.  The claim is not that LLM prompting solves
+anonymization.  The claim is that de-identification improves when the prompt and
+post-processing pipeline are organized around the privacy--utility boundary
+rather than around a single instruction to ``remove PII.''
+
+\paragraph{Diagnostic baselines.}
+We additionally run local diagnostic baselines on a 200-example expansion and on
+the stress slice: regex rules, Presidio, direct-span oracle replacement,
+privacy-first oracle redaction, and a CSG oracle using gold benchmark
+annotations.  Oracle variants are not deployable systems; they diagnose upper
+bounds and failure modes.
 
 \section{Experimental Setup}
 
 The promoted non-oracle run contains 150 examples: 75 synthetic clinical
-vignettes and 75 TAB-derived legal snippets.  The LLM methods are run with a
-GPT model.  The exact model is not central to
-our claim: the paper evaluates prompt protocols and safety layers under a
-bounded budget rather than training a new model.  We use no real protected
-health information.  Clinical examples are synthetic, and legal examples are
-public TAB-derived snippets.
+vignettes and 75 TAB-derived legal snippets.  The LLM methods are run with a GPT
+model under a bounded API budget.  We use no real protected health information:
+clinical examples are synthetic, and legal examples are public TAB-derived
+snippets.  We compute deterministic privacy and exact-utility metrics from gold
+spans and facts, then run an LLM-assisted fact-retention audit over the
+anonymized outputs.  Paired deltas are computed over the same examples to compare
+\method{} against each baseline.
 
-We compute deterministic privacy and exact-utility metrics from gold spans and
-facts.  We then run an LLM-assisted fact-retention audit over the anonymized
-outputs.  Paired deltas are computed over the same examples to compare
-\method{} against each baseline.  We also inspect
-qualitative failures and maintain explicit claim boundaries: the privacy metrics
-are string/span and heuristic risk audits, not k-anonymity, differential
-privacy, legal compliance, or protection against an adversary with external
-databases.
+We also ran three follow-up checks after the initial submission draft.  First, a
+300-example sample-size diagnostic added 75 clinical and 75 legal rows beyond the
+promoted n150 run.  Second, a GPT-5.5 fact-retention audit re-judged all
+promoted n150 outputs to test judge dependence.  Third, a GPT-5.5 adversarial
+privacy audit examined the 20 hardest rows.  These follow-ups are reported as
+robustness checks, not as replacements for the main benchmark.
 
 \section{Results}
+
+\subsection{Results at a glance}
+
+The results are easiest to read as three takeaways.
+
+\textbf{Takeaway 1: generic de-identification keeps useful facts but leaks
+privacy-relevant details.}  Generic prompting preserves many clinical and legal
+facts, but it leaves direct identifiers in 27 of 150 examples and has the highest
+QI risk.
+
+\textbf{Takeaway 2: privacy-first de-identification removes identifiers but often
+removes the answer.}  Privacy-first prompting reaches zero measured direct leaks,
+but its exact \tcfr{} and QA consistency collapse because it frequently replaces
+medications, doses, labs, diagnoses, legal articles, and claims with vague
+placeholders.
+
+\textbf{Takeaway 3: task-aware structure gives a better frontier, but does not
+eliminate policy-sensitive residual cases.}  \method{} reaches zero measured
+direct leaks, the lowest overall QI risk in the main run, and the best audited
+\tcfr{} and QA consistency.  The remaining failures are concentrated in legal
+cases where statute, jurisdiction, or sensitive-attribute specificity overlaps
+with the task itself.
 
 \begin{table}[t]
 \centering
@@ -320,103 +417,50 @@ Privacy-first LLM & 0.00 & 0.57 & 0.40 & 0.53 & 0.41 \\
 \method{} & 0.00 & 0.13 & 0.88 & 0.99 & 0.97 \\
 \bottomrule
 \end{tabular}
-\caption{Main 150-example non-oracle results.  Generic prompting preserves many facts but leaks identifiers; privacy-first prompting protects direct identifiers but often removes the answer; \method{} improves the measured privacy--utility frontier.}
+\caption{Main 150-example non-oracle results.  The table is intended to support
+the three qualitative takeaways rather than stand alone: generic prompting leaks,
+privacy-first prompting over-redacts, and \method{} better balances privacy and
+meaning preservation.}
 \label{tab:main}
 \end{table}
 
-Table~\ref{tab:main} shows the core privacy--utility tradeoff.  Generic
-prompting preserves many task facts, but leaks direct identifiers in 27 of 150
-examples and has high QI risk.  Privacy-first prompting removes all measured
-direct identifiers, but exact \tcfr{} falls to 0.40 and QA consistency to
-0.41.  \method{} achieves zero measured direct leaks, the lowest overall QI
-risk, audited \tcfr{} of 0.99, and QA consistency of 0.97.
+Table~\ref{tab:main} gives the compact quantitative version of the story.  The
+clinical split and legal split reveal different failure modes.  In clinical
+examples, privacy-first prompting often deletes or over-generalizes medically
+material facts such as a drug, dose, lab value, or diagnosis.  In legal examples,
+the tradeoff is sharper: privacy-first prompting can reduce measured legal QI
+risk by deleting jurisdictional or statutory specificity, but that same
+specificity is often needed to answer the legal question.  Thus, the legal subset
+is where \method{} most clearly exposes policy-sensitive overlap rather than
+simple anonymization errors.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{llccccc}
-\toprule
-Domain & Method & Direct leak & QI risk & Exact \tcfr{} & Audited \tcfr{} & QA \\
-\midrule
-Clinical & Generic & 0.03 & 2.03 & 0.70 & 0.93 & 0.85 \\
-Clinical & Privacy-first & 0.00 & 1.07 & 0.19 & 0.46 & 0.23 \\
-Clinical & \method{} & 0.00 & 0.00 & 0.82 & 1.00 & 1.00 \\
-\midrule
-Legal & Generic & 0.33 & 1.44 & 0.92 & 0.94 & 0.92 \\
-Legal & Privacy-first & 0.00 & 0.08 & 0.60 & 0.60 & 0.60 \\
-Legal & \method{} & 0.00 & 0.25 & 0.95 & 0.99 & 0.95 \\
-\bottomrule
-\end{tabular}
-\caption{Domain split for the 150-example non-oracle run.  The legal split exposes the hardest residual tradeoff: privacy-first redaction attains lower QI risk by deleting or generalizing legally meaningful details, while \method{} preserves more legal utility but retains a small number of task-overlapping quasi-identifiers.}
-\label{tab:domain}
-\end{table}
+Figure~\ref{fig:overview} should be used as the paper's visual abstract.  A
+second quantitative frontier plot can then show the same takeaway numerically.
 
-The domain split in Table~\ref{tab:domain} reveals different failure modes.
-In clinical examples, generic prompting leaves nearly all quasi-identifiers,
-whereas privacy-first prompting often replaces specific diagnoses, drugs, labs,
-or doses with vague placeholders.  \method{} removes all measured clinical QI
-hits while retaining almost all audited facts.  In legal examples, the frontier
-is harder.  Privacy-first prompting has lower QI risk than \method{} on the
-legal subset because it generalizes legal claims, jurisdictions, statutes, or
-sensitive attributes.  This improves the measured privacy score but damages the
-legal utility target.
+\input{generated_privacy_utility_frontier}
 
-The span-level privacy audit agrees with the row-level picture.  \method{}
-reaches direct span recall of 1.00 and all privacy-span recall of 0.98,
-compared with 0.92 and 0.77 for generic prompting and 1.00 and 0.96 for
-privacy-first prompting.  Paired deltas on the same examples sharpen this
-interpretation.  Relative to generic prompting, \method{} reduces direct-leak
-rate by 0.18 and QI risk by 1.61; on legal rows alone, the QI reduction is
-1.19.  Relative to privacy-first prompting, it improves exact \tcfr{} by 0.49,
-audited \tcfr{} by 0.47, and QA consistency by 0.56.  The domain-level
-audited-\tcfr{} gains over privacy-first are 0.54 on clinical rows and 0.39 on
-legal rows.  The legal-only QI comparison is an
-important caveat: \method{} is slightly worse than privacy-first prompting on
-legal QI risk because it intentionally preserves some legal facts that overlap
-with quasi-identifying content.
+\subsection{Follow-up audits support the same qualitative story}
 
-As a sample-size diagnostic, we also ran a bounded 300-example diagnostic
-expansion, adding 75 clinical and 75 legal rows beyond the promoted n150 run.
-The qualitative frontier persists: \method{} has zero measured direct leaks, QI
-risk 0.21, and audited \tcfr{} 0.99, compared with 0.19, 1.79, and 0.93
-for generic prompting and 0.00, 0.62, and 0.52 for privacy-first prompting.
-On the added n200-to-n300 100-example slice alone, \method{} has zero direct
-leak rows, 14 QI-hit rows, and audited \tcfr{} 0.99.  We keep n150 as the
-promoted headline because the manuscript tables and completed manual-audit plan
-remain anchored there; the n300 downstream bundle is synchronized but its
-second-annotator packet has not yet been completed.  Thus n300 is sample-size
-robustness evidence, not a promoted headline replacement.
+The follow-up experiments are useful because they reduce two likely reviewer
+concerns: sample-size dependence and judge dependence.  In the 300-example
+sample-size diagnostic, the qualitative frontier persists: \method{} has zero
+measured direct leaks, QI risk 0.21, and audited \tcfr{} 0.99, compared with
+higher privacy risk for generic prompting and much lower utility for
+privacy-first prompting.  We keep n150 as the promoted headline because the
+manual-audit and analysis package is anchored there; n300 is robustness evidence.
 
-To test judge dependence, we also ran an external GPT-5.5 fact-retention audit
-over all promoted n150 outputs.  The stronger judge is stricter than the
-low-cost judge but preserves the utility ordering: audited \tcfr{} is
-0.92 for \method{}, 0.90 for generic prompting, and 0.41 for privacy-first
-prompting.  The paired \method{}-minus-generic audited-\tcfr{} gain is small and
-statistically uncertain (0.02), while the same rows still show generic direct
-leakage (0.18) and QI risk (1.73) versus zero direct leakage and QI risk 0.13
-for \method{}.  Fact-label agreement with the
-original audit is 0.92, 0.95, and 0.83 respectively, with most disagreements
-caused by strict clinical numeric or legal specificity.  A GPT-5.5 adversarial
-privacy audit on the 20 hardest rows is similarly conservative:
-generic prompting has direct
-privacy flags on 60\% of rows, \method{} on 5\%, and privacy-first prompting on
-0\%, but privacy-first is the same method that loses most task-critical facts.
-We treat these external audits as robustness checks, not as expert annotation.
-Table~\ref{tab:followup} combines the follow-up checks used for claim
-triangulation.  The bounded n30 GPT-5.5 anonymization screen shows that stronger
-generic prompting can remove obvious direct leaks on selected stress cases, but
-privacy-first prompting still loses utility and \method{} remains the best
-audited-\tcfr{} corner.  \method{} does not have the lowest upgraded QI risk on
-that stress screen, so we treat the result as reviewer-risk triage rather than
-a model-scaling claim.
+The external GPT-5.5 fact-retention audit is stricter than the original low-cost
+judge, but it preserves the utility ordering.  It scores audited \tcfr{} as 0.92
+for \method{}, 0.90 for generic prompting, and 0.41 for privacy-first prompting.
+This result is intentionally interpreted conservatively: the \method{}--generic
+utility difference under GPT-5.5 is small, but generic still carries much higher
+measured direct leakage and QI risk.  The GPT-5.5 adversarial privacy audit on
+the 20 hardest rows similarly flags generic prompting more often than \method{},
+while privacy-first remains safest by privacy flags but worst by task utility.
 
 \input{generated_followup_robustness_table}
 
-Figure~\ref{fig:frontier} summarizes the main privacy--utility frontier: the
-task-aware protocol moves toward lower QI risk without collapsing audited
-fact retention.
-
-\input{generated_privacy_utility_frontier}
+\subsection{What the ablation teaches}
 
 \begin{table}[t]
 \centering
@@ -430,117 +474,66 @@ CSG verified & 0.07 & 1.03 & 0.88 & 0.97 \\
 CSG + safety/repair & 0.00 & 0.13 & 0.88 & 0.97 \\
 \bottomrule
 \end{tabular}
-\caption{\method{} ablation.  The verification prompt did not change deterministic metrics in this sample; the measured gain comes from the deterministic safety/repair layer.}
+\caption{\method{} ablation.  In this sample, the verification prompt does not
+change deterministic metrics; the measured privacy gain comes from the
+deterministic safety/repair layer.}
 \label{tab:ablation}
 \end{table}
 
-Table~\ref{tab:ablation} is important for claim discipline.  In this
-sample, the verification/repair prompt did not change deterministic metrics:
-the draft and verified rows are numerically identical.  The measured gain comes
-from the deterministic safety/repair layer, which closes eleven direct leaks,
-reduces QI-risk rows from 74 to 11, repairs legal Article specificity losses,
-and leaves eleven legal residual cases.  This result suggests that
-LLM-generated anonymization should be paired with explicit deterministic checks,
-not trusted as a single-pass transformation.
+Table~\ref{tab:ablation} is important for claim discipline.  The verification
+prompt did not improve deterministic metrics in this cached run.  The measured
+privacy gain comes from deterministic safety/repair, which closes eleven direct
+leaks, reduces QI-risk rows from 74 to 11, repairs legal Article specificity
+losses, and leaves eleven legal residual cases.  This does not weaken the method;
+it clarifies it.  LLMs are useful for proposing structured transformations, but
+high-precision identifiers such as IDs, dates, phone numbers, MRNs, emails, and
+case/application numbers should still be checked deterministically.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lccccc}
-\toprule
-Method & Token F1 & TF-IDF & Edit rate & Audited fact-fail rate & Privacy-fail rate \\
-\midrule
-Generic LLM & 0.78 & 0.71 & 0.25 & 0.24 & 0.75 \\
-Privacy-first LLM & 0.58 & 0.47 & 0.46 & 0.79 & 0.27 \\
-\method{} & 0.77 & 0.62 & 0.27 & 0.02 & 0.03 \\
-\bottomrule
-\end{tabular}
-\caption{Surface similarity metrics are not sufficient proxies for privacy-safe utility.}
-\label{tab:surface}
-\end{table}
+\subsection{Surface similarity hides both privacy and utility failures}
 
-Table~\ref{tab:surface} addresses whether generic utility metrics are enough.
 Generic prompting and \method{} have nearly identical token F1 against the
-original text, and generic prompting has higher TF-IDF cosine similarity, but it
-also has far higher privacy failure and audited fact failure rates.  Among the
-225 method-example rows at or above the median TF-IDF cosine score, 73 still
-have privacy failures and 34 still have audited fact loss.  Surface similarity
-therefore rewards text that may be too close to the original and misses
-task-critical failures; this is consistent with broader concerns that generic
-text-generation metrics do not encode domain-specific faithfulness by
-themselves \cite{bertscore}.
+original text, and generic prompting has higher TF-IDF similarity.  If we used
+surface similarity as the utility metric, generic prompting would look
+competitive or better.  But among high-similarity outputs, many still contain
+privacy failures or audited fact losses.  This is why the paper uses fact-level
+\tcfr{} and QA consistency as the primary utility measures.  Surface similarity
+is a useful diagnostic, not a privacy-safe utility metric.
 
 \input{generated_surface_failure_scatter}
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lcccc}
-\toprule
-Method & Direct leak & QI risk & \tcfr{} & QA \\
-\midrule
-Regex & 0.08 & 1.78 & 0.99 & 0.99 \\
-Presidio & 0.49 & 2.49 & 0.68 & 0.79 \\
-Direct-span oracle & 0.00 & 2.81 & 1.00 & 1.00 \\
-Privacy-first oracle & 0.00 & 0.01 & 0.45 & 0.34 \\
-CSG oracle & 0.00 & 0.23 & 1.00 & 1.00 \\
-\bottomrule
-\end{tabular}
-\caption{Local n200 diagnostic expansion.  These local/oracle baselines are not the headline non-oracle result; they test whether the qualitative frontier persists under a larger deterministic diagnostic slice.}
-\label{tab:n200}
-\end{table}
+\subsection{Diagnostic baselines and stress cases}
 
-The n200 diagnostic expansion in Table~\ref{tab:n200} gives the same
-qualitative frontier.  Regex and direct-span replacement preserve exact utility
-but leave high QI risk.  Presidio is useful infrastructure but performs poorly
-on our legal snippets because the benchmark contains legal identifiers and
-confidential attributes that are not standard clinical or generic PII.  The
-privacy-first oracle nearly eliminates measured QI risk but loses more than
-half of task-critical facts.  The CSG oracle indicates that a gold-informed
-version of task-aware anonymization can preserve utility while substantially
-reducing QI risk, though it remains an upper-bound diagnostic rather than a
-deployable system.  The domain split explains the overall Presidio row:
-Presidio's legal direct-leak rate is 0.98, while its clinical \tcfr{} is only
-0.45 under exact matching.
+The local/oracle diagnostics reinforce the same interpretation without adding a
+large table to the main narrative.  Regex and direct-span replacement preserve
+almost all exact task facts but leave high QI risk.  Presidio is useful
+infrastructure but is not tailored to our mixed clinical/legal benchmark: it
+misses many legal identifiers and sometimes removes clinical facts under exact
+matching.  The privacy-first oracle nearly eliminates measured QI risk but loses
+more than half of task-critical facts.  The CSG oracle shows that a gold-informed
+task-aware policy can preserve utility while reducing QI risk, but it is an
+upper-bound diagnostic rather than a deployable system.
 
-\begin{table}[t]
-\centering
-\small
-\begin{tabular}{lcccc}
-\toprule
-Method & Direct leak & QI risk & Exact \tcfr{} & QA \\
-\midrule
-Regex & 0.08 & 2.17 & 1.00 & 1.00 \\
-Presidio & 0.67 & 2.67 & 0.82 & 0.83 \\
-Direct-span oracle & 0.00 & 2.50 & 1.00 & 1.00 \\
-Privacy-first oracle & 0.00 & 0.00 & 0.61 & 0.53 \\
-CSG oracle & 0.00 & 0.67 & 1.00 & 1.00 \\
-\bottomrule
-\end{tabular}
-\caption{Handwritten robustness stress slice.  This diagnostic slice is separate from the non-oracle headline run.}
-\label{tab:stress}
-\end{table}
-
-The stress slice in Table~\ref{tab:stress} clarifies the frontier.  Privacy-first
-oracle redaction drives measured direct leaks and QI risk to zero, but fails QA
-on 11 of 12 rows.  Direct-span replacement preserves utility but leaves
-quasi-identifiers in every row.  CSG oracle replacement preserves all task facts
-with zero direct leaks, but retains task-critical quasi-identifiers in 6 of 12
-rows.  This residual risk is not merely an implementation bug: some facts, such
-as pregnancy, sexual orientation, domestic violence, or minority status, can be
-both sensitive and necessary to answer the domain question.
+The handwritten stress slice makes the limitation intuitive.  Privacy-first
+oracle redaction drives measured QI risk to zero but fails QA on 11 of 12 rows.
+Direct-span replacement preserves utility but leaves quasi-identifiers in every
+row.  CSG oracle replacement preserves all task facts with zero direct leaks, but
+retains task-critical quasi-identifiers in half of the rows.  These are not
+ordinary implementation errors: in some examples, pregnancy, sexual orientation,
+domestic violence, minority status, or exact legal basis is both sensitive and
+necessary to answer the domain question.
 
 \section{Qualitative Analysis}
 
-In \texttt{clinical\_0006}, the original vignette describes rheumatoid
-arthritis with MCP joint swelling, positive anti-CCP, and methotrexate 15 mg
-weekly plus folic acid 1 mg daily.  The privacy-first output replaces these
-with ``finger joint areas,'' ``a specific antibody test,'' ``an autoimmune
-joint condition,'' and ``a disease-modifying medication,'' so both clinical QA
-questions fail.  \method{} redacts the patient, clinic, date, MRN, phone, email,
-clinician, city, and exact age while preserving the lab, diagnosis, medication,
-and doses.
+\paragraph{Clinical over-generalization.}
+In \texttt{clinical\_0006}, the original vignette describes rheumatoid arthritis
+with MCP joint swelling, positive anti-CCP, and methotrexate 15 mg weekly plus
+folic acid 1 mg daily.  The privacy-first output replaces these with ``finger
+joint areas,'' ``a specific antibody test,'' ``an autoimmune joint condition,''
+and ``a disease-modifying medication,'' so both clinical QA questions fail.
+\method{} redacts the patient, clinic, date, MRN, phone, email, clinician, city,
+and exact age while preserving the lab, diagnosis, medication, and doses.
 
+\paragraph{Legal Article preservation.}
 In \texttt{legal\_0006}, generic prompting leaves application number
 \texttt{37645/97} and the exact filing date while preserving Article 6.  The
 privacy-first output removes those identifiers but replaces Article 6 with ``a
@@ -548,44 +541,45 @@ specified article,'' breaking the legal-basis question.  \method{} removes the
 application number, name, country, institution, nationality, and date while
 preserving Article 6 and the reasonable-time civil-proceedings claim.
 
+\paragraph{Residual frontier cases.}
 The remaining frontier is visible in \texttt{legal\_0005}: generic and
-privacy-first prompting avoid the measured QI hits by generalizing away the
-specific section 42 Fair Employment claim, while \method{} preserves Article 6
-and the exact claim.  The preserved statute name still contains ``Northern
-Ireland'' and ``1976,'' so the row remains a measured QI-risk case.  This is a
-useful limitation: some legal statute, jurisdiction, regime, or offense
-specificity may be both important for legal reasoning and quasi-identifying.  A
-residual audit of the eleven remaining CSG QI rows found six clear
-task-critical legal-overlap cases and five additional frontier candidates.
+privacy-first prompting avoid measured QI hits by generalizing away the specific
+section 42 Fair Employment claim, while \method{} preserves Article 6 and the
+exact claim.  The preserved statute name still contains ``Northern Ireland'' and
+``1976,'' so the row remains a measured QI-risk case.  This is a useful
+limitation.  Some legal statute, jurisdiction, regime, or offense specificity may
+be both important for legal reasoning and quasi-identifying.  A residual audit of
+the eleven remaining CSG QI rows found six clear task-critical legal-overlap
+cases and five additional frontier candidates.
 
-These examples motivate a policy distinction that span-level metrics cannot
-make alone.  Some outputs are clearly bad because they leak direct identifiers.
-Some are clearly bad because they remove the answer.  Others are frontier cases
-where the correct decision depends on the intended release setting.  A private
-internal evaluation corpus may preserve more legal specificity than a public
-release.  A public synthetic-data release may need to generalize facts that are
-otherwise useful.  Our metric does not resolve these policy choices, but it
-makes them visible.
+These examples motivate a policy distinction that span-level metrics cannot make
+alone.  Some outputs are clearly bad because they leak direct identifiers.  Some
+are clearly bad because they remove the answer.  Others are frontier cases where
+the correct decision depends on the intended release setting.  A private internal
+evaluation corpus may preserve more legal specificity than a public release.  A
+public synthetic-data release may need to generalize facts that are otherwise
+useful.  Our metric does not resolve these policy choices, but it makes them
+visible.
 
 \section{Limitations and Ethics}
 
-The
-clinical split is synthetic. The legal split is public TAB-derived text, but legal fact and
-claim extraction is heuristic and manually spot-checked rather than fully expert
-annotated.  Audited \tcfr{} uses an LLM judge; it is useful for separating
-paraphrase from omission, but independent annotations have not yet returned and
-manual review remains necessary for final paper claims. 
-The privacy metrics detect known direct spans and heuristic
-quasi-identifiers; they do not provide k-anonymity, differential privacy, legal
-compliance, or protection against a motivated adversary with external
-knowledge.
+This is a bounded evaluation study, not a formal anonymization guarantee.  The
+clinical split is synthetic.  The legal split is public TAB-derived text, but
+legal fact and claim extraction is heuristic and manually spot-checked rather
+than fully expert annotated.  Audited \tcfr{} uses an LLM judge; it is useful for
+separating paraphrase from omission, but independent human annotations remain
+important for final claims.  The privacy metrics detect known direct spans and
+heuristic quasi-identifiers; they do not provide k-anonymity, differential
+privacy, legal compliance, or protection against a motivated adversary with
+external knowledge.
 
-The intended use of this work is evaluation and safer data transformation
-research.  We do not release or process real protected health information.  The
-main ethical lesson is that aggressive redaction can make sensitive data safer
-to share only by making it useless or misleading.  Responsible release pipelines
-should therefore state the downstream utility requirements explicitly and audit
-both residual privacy risk and task-critical meaning loss.
+We do not release or process real protected health information.  The intended use
+of this work is evaluation and safer data transformation research.  The main
+ethical lesson is that aggressive redaction can make sensitive data safer to
+share only by making it useless or misleading.  Responsible release pipelines
+should therefore state the downstream utility requirements explicitly, document
+residual risk, and audit both privacy leakage and task-critical meaning loss
+before using transformed text in foundation-model workflows.
 
 \section{Conclusion}
 
